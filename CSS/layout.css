@@ -1,0 +1,84 @@
+body {
+    display:grid;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: auto auto auto;
+}
+
+
+.page-header {
+    grid-row-start: 1;
+    grid-row-end:4;
+    grid-column-start:1; 
+    grid-column-end: 4;
+}
+.navbar {
+    border: 2px solid black;
+    grid-row-start: 1;
+    grid-row-end:2;
+    grid-column-start:1; 
+    grid-column-end: 4;
+}
+
+.page-title {
+    border: 2px solid black;
+    grid-row-start: 2;
+    grid-row-end:3;
+    grid-column-start:1; 
+    grid-column-end: 5;
+}
+
+.app-instructions {
+    border: 2px solid black;
+    grid-row-start: 3;
+    grid-row-end:4;
+    grid-column-start:1; 
+    grid-column-end: 5;
+}
+
+
+/* .page-header {
+    border: 2px solid black;
+} */
+
+/* .main-content {
+    border: 2px solid black; 
+
+} */
+
+.main-content {
+    grid-row-start: 4;
+    grid-row-end:5;
+    display:grid;
+}
+
+.movie-container {
+    border: 2px solid black; 
+    grid-row-start: 4;
+    grid-row-end:5;
+    grid-column-start:1; 
+    grid-column-end: 2;
+}
+
+.food-container {
+    border: 2px solid black;
+    grid-row-start: 4;
+    grid-row-end:5;
+    grid-column-start:2; 
+    grid-column-end: 3;
+}
+
+.activity-container{
+    border: 2px solid black;
+    grid-row-start: 4;
+    grid-row-end:5;
+    grid-column-start:3; 
+    grid-column-end: 4;
+}
+
+footer {
+    border: 2px solid black;
+    grid-row-start: 5;
+    grid-row-end:6;
+    grid-column-start:1; 
+    grid-column-end: 4;
+}
