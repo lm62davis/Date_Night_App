@@ -1,6 +1,6 @@
-const movieElement = function(movies){
+const homeElement = function(movies, food){
     
-
+    //Movies
     const mainElement = document.createElement("div");
     mainElement.classList.add("movie-container")
 
@@ -27,21 +27,46 @@ const movieElement = function(movies){
     movieDropdownLabel.appendChild(thrillerGenreDropdown)
     movieDropdownLabel.appendChild(mysteryGenreDropdown)
 
-
-    //horror, thriller, mystery, music
-
-
-    
-
-    
     const movieButton = document.createElement("button")
     movieButton.innerText = "Generate"
     mainElement.appendChild(movieButton)
 
+
+
+    //Restaurants
+    const foodElement = document.createElement("div");
+    foodElement.classList.add("food-container")
+
+    const foodDropdownLabel = document.createElement("select")
+    foodDropdownLabel.classList.add("food-dropdown")
+    foodElement.appendChild(foodDropdownLabel)
     
+    const defaultCuisineDropdown = document.createElement("option")
+    defaultCuisineDropdown.selected = true
+    defaultCuisineDropdown.innerText = "Select a Cuisine"
+    foodDropdownLabel.appendChild(defaultCuisineDropdown)
+
+    const sandwichesCuisineDropdown = document.createElement("option")
+    sandwichesCuisineDropdown.innerText = "Sandwiches"
+    const coffeeAndTeaCuisineDropdown = document.createElement("option")
+    coffeeAndTeaCuisineDropdown.innerText = "Coffee and Tea"
+    // const foodCuisineDropdown = document.createElement("option")
+    // Dropdown.innerText = ""
+    // const mysteryGenreDropdown = document.createElement("option")
+    // mysteryGenreDropdown.innerText = ""
+    
+    foodDropdownLabel.appendChild(sandwichesCuisineDropdown)
+    foodDropdownLabel.appendChild(coffeeAndTeaCuisineDropdown)
+  
+ 
+    const foodButton = document.createElement("button")
+    foodButton.innerText = "Generate"
+    mainElement.appendChild(foodButton)
+
+
     return mainElement
 } 
-export {movieElement};
+export {homeElement};
 
 // movies.movie_results.forEach(movie => {
     // const title = document.createElement("section");

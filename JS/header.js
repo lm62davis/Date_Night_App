@@ -2,10 +2,10 @@ const createHeader = function () {
     const header = document.createElement("header");
     header.classList.add("page-header");
     header.innerHTML = `
-        <nav class="navBar">
+        <nav class="navbar">
         <button class="reset-button">Reset</button>
         <button class="contact">Contact Us</button>
-        <h1 class="main-header__title">Date Night</h1>
+        <h1 class="page-title">Date Nights</h1>
         </nav>`
     return header;
 };
