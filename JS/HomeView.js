@@ -1,12 +1,16 @@
 const homeElement = function(movies, food){
-    
-    //Movies
+ 
     const mainElement = document.createElement("div");
-    mainElement.classList.add("movie-container")
+    mainElement.classList.add("main-container")
+
+    //Movies
+    const movieElement = document.createElement("div");
+    movieElement.classList.add("movie-container")
+    mainElement.appendChild(movieElement)
 
     const movieDropdownLabel = document.createElement("select")
     movieDropdownLabel.classList.add("movie-dropdown-label")
-    mainElement.appendChild(movieDropdownLabel)
+    movieElement.appendChild(movieDropdownLabel)
     
     const defaultGenreDropdown = document.createElement("option")
     defaultGenreDropdown.selected = true
@@ -22,6 +26,12 @@ const homeElement = function(movies, food){
     const mysteryGenreDropdown = document.createElement("option")
     mysteryGenreDropdown.innerText = "Mystery"
     
+    // const genreSelector = function () {
+    // horrorGenreDropdown.addEventListener("click", () => {
+
+    // }    
+    // }
+
     movieDropdownLabel.appendChild(musicGenreDropdown)
     movieDropdownLabel.appendChild(horrorGenreDropdown)
     movieDropdownLabel.appendChild(thrillerGenreDropdown)
@@ -29,13 +39,14 @@ const homeElement = function(movies, food){
 
     const movieButton = document.createElement("button")
     movieButton.innerText = "Generate"
-    mainElement.appendChild(movieButton)
+    movieElement.appendChild(movieButton)
 
 
 
     //Restaurants
     const foodElement = document.createElement("div");
     foodElement.classList.add("food-container")
+    mainElement.appendChild(foodElement)
 
     const foodDropdownLabel = document.createElement("select")
     foodDropdownLabel.classList.add("food-dropdown")
@@ -61,8 +72,10 @@ const homeElement = function(movies, food){
  
     const foodButton = document.createElement("button")
     foodButton.innerText = "Generate"
-    mainElement.appendChild(foodButton)
+    foodElement.appendChild(foodButton)
 
+    
+  
 
     return mainElement
 } 
@@ -71,5 +84,5 @@ export {homeElement};
 // movies.movie_results.forEach(movie => {
     // const title = document.createElement("section");
     // title.innerText = movie.title
-    // mainElement.appendChild(title)
+    // movieElement.appendChild(title)
     // });

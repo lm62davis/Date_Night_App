@@ -2,8 +2,8 @@ body {
   display: grid;
   grid-template-rows: auto auto auto auto auto;
   grid-template-columns: auto auto auto;
-  background-color: black;
-  color: rgb(190, 143, 235);
+  background-color:rgb(190, 143, 235);
+  color: black;
   font-family: fantasy;
 }
 

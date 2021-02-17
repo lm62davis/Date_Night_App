@@ -1,4 +1,4 @@
-import {homeElement} from "./HomeView.js";
+import {homeElement} from "./HomeView.js"
 import {createHeader} from "./header.js"
 import {createFooter} from "./footer.js"
 
@@ -14,8 +14,9 @@ const displayHomeView = function(movies, food) {
     clearChildren(container);
     let header = createHeader();
     container.prepend(header);
-    let main = homeElement(movies, food);   
-    container.appendChild(main);
+    let mainElement = homeElement(movies, food);   
+    container.appendChild(mainElement);
+
     let footer = createFooter();
     container.appendChild(footer);
 }
