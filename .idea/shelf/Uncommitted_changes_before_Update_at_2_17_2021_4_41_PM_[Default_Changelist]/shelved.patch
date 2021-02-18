@@ -1,0 +1,40 @@
+Index: JS/app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {homeElement} from \"./HomeView.js\";\r\nimport {createHeader} from \"./header.js\"\r\nimport {createFooter} from \"./footer.js\"\r\n\r\nconst clearChildren = function (element){\r\n    while(element.firstChild){\r\n        element.removeChild(element.lastChild);\r\n    }\r\n}\r\n\r\nconst container = document.querySelector(\".main-content\");\r\n\r\nconst displayHomeView = function(movies, food) {\r\n    clearChildren(container);\r\n    let header = createHeader();\r\n    container.prepend(header);\r\n    let main = homeElement(movies, food);   \r\n    container.appendChild(main);\r\n    let footer = createFooter();\r\n    container.appendChild(footer);\r\n}\r\n\r\n\r\n\r\n\r\nfetch(\"https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1\", {\r\n\t\"method\": \"GET\",\r\n\t\"headers\": {\r\n\t\t\"x-rapidapi-key\": \"603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f\",\r\n\t\t\"x-rapidapi-host\": \"movies-tvshows-data-imdb.p.rapidapi.com\"\r\n\t}\r\n})\r\n.then((response) => response.json())\r\n.then((movies) => displayHomeView(movies))\r\n.catch(err => {\r\n\tconsole.error(err);\r\n});\r\n\r\nfetch(\"https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1\", {\r\n\t\"method\": \"GET\",\r\n\t\"headers\": {\r\n\t\t\"x-rapidapi-key\": \"c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620\",\r\n\t\t\"x-rapidapi-host\": \"us-restaurant-menus.p.rapidapi.com\"\r\n\t}\r\n})\r\n.then(response => response.json()) \r\n.then((food) => displayHomeView(food))\t\r\n.catch(err => {\r\n\tconsole.error(err);\r\n});\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- JS/app.js	(revision af4ed24eb64f021f374d6123a8d42ba6a7a760ad)
++++ JS/app.js	(date 1613595956776)
+@@ -36,18 +36,18 @@
+ 	console.error(err);
+ });
+ 
+-fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
+-	"method": "GET",
+-	"headers": {
+-		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
+-		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com"
+-	}
+-})
+-.then(response => response.json()) 
+-.then((food) => displayHomeView(food))	
+-.catch(err => {
+-	console.error(err);
+-});
++// fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
++// 	"method": "GET",
++// 	"headers": {
++// 		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
++// 		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com"
++// 	}
++// })
++// .then(response => response.json()) 
++// .then((food) => displayHomeView(food))	
++// .catch(err => {
++// 	console.error(err);
++// });
+ 
+ 
+ 
