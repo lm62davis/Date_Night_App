@@ -1,6 +1,7 @@
 import {homeElement} from "./HomeView.js"
 import {createHeader} from "./header.js"
 import {createFooter} from "./footer.js"
+import {foodSection} from "./food-section.js"
 
 const clearChildren = function (element){
     while(element.firstChild){
@@ -27,7 +28,8 @@ const displayHomeView = function(movies, food) {
     container.prepend(header);
     let mainElement = homeElement(movies, food);   
     container.appendChild(mainElement);
-
+	let main2Element = foodSection(food);
+	container.appendChild(main2Element)
     let footer = createFooter();
     container.appendChild(footer);
 }

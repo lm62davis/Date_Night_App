@@ -1,4 +1,5 @@
 import { clearChildren } from "./app.js"
+
 const randomize = function(list) {
     //console.log(list)
     //console.log(list.length + " list lngth")
@@ -93,74 +94,6 @@ const homeElement = function(movies, food){
        
     })
     
-
-    
-
-
-
-    // const musicGenreDropdown = document.createElement("option")
-    // musicGenreDropdown.innerText = "Music"
-    // const horrorGenreDropdown = document.createElement("option")
-    // horrorGenreDropdown.innerText = "Horror"
-    // const thrillerGenreDropdown = document.createElement("option")
-    // thrillerGenreDropdown.innerText = "Thriller"
-    // const mysteryGenreDropdown = document.createElement("option")
-    // mysteryGenreDropdown.innerText = "Mystery"
-
-    // movieDropdownLabel.appendChild(musicGenreDropdown)
-    // movieDropdownLabel.appendChild(horrorGenreDropdown)
-    // movieDropdownLabel.appendChild(thrillerGenreDropdown)
-    // movieDropdownLabel.appendChild(mysteryGenreDropdown)
-
-  
-
-    
-    //     }
-        
-    // })
-
-    // const genreSelector = []
-    
-    // movies.movie_results.forEach(movie => {
-    //     //const title = document.createElement("section");
-    //     genreSelector.push(movie.genre)
-    //     console.log(genreSelector)
-    //     //movieElement.appendChild(title)
-    // });
-    
-    // console.log(genreSelector)
-
-    //Restaurants
-    const foodElement = document.createElement("div");
-    foodElement.classList.add("food-container")
-    mainElement.appendChild(foodElement)
-
-    const foodDropdownLabel = document.createElement("select")
-    foodDropdownLabel.classList.add("food-dropdown")
-    foodElement.appendChild(foodDropdownLabel)
-    
-    const defaultCuisineDropdown = document.createElement("option")
-    defaultCuisineDropdown.selected = true
-    defaultCuisineDropdown.innerText = "Select a Cuisine"
-    foodDropdownLabel.appendChild(defaultCuisineDropdown)
-
-    const sandwichesCuisineDropdown = document.createElement("option")
-    sandwichesCuisineDropdown.innerText = "Sandwiches"
-    const coffeeAndTeaCuisineDropdown = document.createElement("option")
-    coffeeAndTeaCuisineDropdown.innerText = "Coffee and Tea"
-    // const foodCuisineDropdown = document.createElement("option")
-    // Dropdown.innerText = ""
-    // const mysteryGenreDropdown = document.createElement("option")
-    // mysteryGenreDropdown.innerText = ""
-    
-    foodDropdownLabel.appendChild(sandwichesCuisineDropdown)
-    foodDropdownLabel.appendChild(coffeeAndTeaCuisineDropdown)
-  
- 
-    const foodButton = document.createElement("button")
-    foodButton.innerText = "Generate"
-    foodElement.appendChild(foodButton)
-
     
   
 
