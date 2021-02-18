@@ -37,19 +37,19 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 	console.error(err);
 });
 
-fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
-		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com"
-	}
-})
-.then(response => response.json()) 
-.then((food) => displayHomeView(food))	
-.catch(err => {
-	console.error(err);
-});
-
+// fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
+// 		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com"
+// 	}
+// })
+// .then(response => response.json()) 
+// .then((food) => displayHomeView(food))	
+// .catch(err => {
+// 	console.error(err);
+// });
+export { clearChildren}
 
 
 

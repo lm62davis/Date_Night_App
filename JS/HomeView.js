@@ -1,3 +1,14 @@
+import { clearChildren } from "./app.js"
+const randomize = function(list) {
+    //console.log(list)
+    //console.log(list.length + " list lngth")
+    let randomNumber = Math.floor(Math.random() * list.length)
+    //console.log(randomNumber)
+    let generatedMovie = list[randomNumber]
+    return generatedMovie
+
+}
+
 const homeElement = function(movies, food){
  
     const mainElement = document.createElement("div");
@@ -12,36 +23,112 @@ const homeElement = function(movies, food){
     movieDropdownLabel.classList.add("movie-dropdown-label")
     movieElement.appendChild(movieDropdownLabel)
     
+    
     const defaultGenreDropdown = document.createElement("option")
     defaultGenreDropdown.selected = true
     defaultGenreDropdown.innerText = "Select a genre"
     movieDropdownLabel.appendChild(defaultGenreDropdown)
 
-    const musicGenreDropdown = document.createElement("option")
-    musicGenreDropdown.innerText = "Music"
-    const horrorGenreDropdown = document.createElement("option")
-    horrorGenreDropdown.innerText = "Horror"
-    const thrillerGenreDropdown = document.createElement("option")
-    thrillerGenreDropdown.innerText = "Thriller"
-    const mysteryGenreDropdown = document.createElement("option")
-    mysteryGenreDropdown.innerText = "Mystery"
+    let genre = []
     
-    // const genreSelector = function () {
-    // horrorGenreDropdown.addEventListener("click", () => {
+    movies.movie_results.forEach(movie => {
+        genre.push(movie.genres);
+       console.log(genre)
+       
+    });
+   
+    let newGenre = [];
+  
+    for (let i in genre) {          //change to forEach
+        for (let j in genre[i]) {
+            newGenre.push(genre[i][j]);
+            
+        }
+    }
 
-    // }    
-    // }
+    console.log(newGenre)
+    let finalGenreList = Array.from(new Set(newGenre))   //removes duplicates
+    console.log(finalGenreList);
+    
 
-    movieDropdownLabel.appendChild(musicGenreDropdown)
-    movieDropdownLabel.appendChild(horrorGenreDropdown)
-    movieDropdownLabel.appendChild(thrillerGenreDropdown)
-    movieDropdownLabel.appendChild(mysteryGenreDropdown)
+    //create dropdown options
+    for (let i = 0; i < finalGenreList.length; i++) {
+        const option = finalGenreList[i];
+        const dropdown = document.createElement("option");
+        dropdown.innerText = option;
+        dropdown.value = option;
+        movieDropdownLabel.appendChild(dropdown)        
+    }
 
+    let moviesByCategory = []
+  
+
+    document.addEventListener("input", () => {
+       
+          
+          movies.movie_results.forEach(movie => {
+            movie.genres.forEach(genre => {
+                if(genre === event.target.value) {      //find alternative to event.target.value
+                    moviesByCategory.push(movie.title)
+                    //moviesByYoutube.push(movie.)
+                }
+            })
+          })
+        console.log(moviesByCategory)
+    
+        //alert("You chose " + event.target.value)
+    });
+
+    let movieName;
     const movieButton = document.createElement("button")
     movieButton.innerText = "Generate"
     movieElement.appendChild(movieButton)
+    movieButton.addEventListener("click", () => {       //test to make sure selected is not default value. if to diff just switch back to label & input
+       movieName = randomize(moviesByCategory);
+
+       const movieNameElement = document.createElement("section");
+       
+       movieNameElement.innerText = movieName;
+       movieElement.appendChild(movieNameElement)
+       
+    })
+    
+
+    
 
 
+
+    // const musicGenreDropdown = document.createElement("option")
+    // musicGenreDropdown.innerText = "Music"
+    // const horrorGenreDropdown = document.createElement("option")
+    // horrorGenreDropdown.innerText = "Horror"
+    // const thrillerGenreDropdown = document.createElement("option")
+    // thrillerGenreDropdown.innerText = "Thriller"
+    // const mysteryGenreDropdown = document.createElement("option")
+    // mysteryGenreDropdown.innerText = "Mystery"
+
+    // movieDropdownLabel.appendChild(musicGenreDropdown)
+    // movieDropdownLabel.appendChild(horrorGenreDropdown)
+    // movieDropdownLabel.appendChild(thrillerGenreDropdown)
+    // movieDropdownLabel.appendChild(mysteryGenreDropdown)
+
+  
+
+    
+    //     }
+        
+    // })
+
+    // const genreSelector = []
+    
+    // movies.movie_results.forEach(movie => {
+    //     //const title = document.createElement("section");
+    //     genreSelector.push(movie.genre)
+    //     console.log(genreSelector)
+    //     //movieElement.appendChild(title)
+    // });
+    
+    // console.log(genreSelector)
 
     //Restaurants
     const foodElement = document.createElement("div");
