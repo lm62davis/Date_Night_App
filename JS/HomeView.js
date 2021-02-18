@@ -34,7 +34,7 @@ const homeElement = function(movies, food){
     
     movies.movie_results.forEach(movie => {
         genre.push(movie.genres);
-       console.log(genre)
+    //    console.log(genre)
        
     });
    
@@ -49,7 +49,7 @@ const homeElement = function(movies, food){
 
     console.log(newGenre)
     let finalGenreList = Array.from(new Set(newGenre))   //removes duplicates
-    console.log(finalGenreList);
+    // console.log(finalGenreList);
     
 
     //create dropdown options
@@ -75,7 +75,7 @@ const homeElement = function(movies, food){
                 }
             })
           })
-        console.log(moviesByCategory)
+        // console.log(moviesByCategory)
     
         //alert("You chose " + event.target.value)
     });
@@ -84,12 +84,10 @@ const homeElement = function(movies, food){
     const movieButton = document.createElement("button")
     movieButton.innerText = "Generate"
     movieElement.appendChild(movieButton)
+    const movieNameElement = document.createElement("section");
     movieButton.addEventListener("click", () => {       //test to make sure selected is not default value. if to diff just switch back to label & input
        movieName = randomize(moviesByCategory);
-
-       const movieNameElement = document.createElement("section");
-       
-       movieNameElement.innerText = movieName;
+        movieNameElement.innerText = movieName;
        movieElement.appendChild(movieNameElement)
        
     })
