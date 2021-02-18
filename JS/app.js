@@ -10,6 +10,17 @@ const clearChildren = function (element){
 
 const container = document.querySelector(".main-content");
 
+let movieJson = "";
+let foodJson = "";
+
+const checkIfAllLoaded = function() {
+	if(movieJson != "" && foodJson != "") {
+		displayHomeView (movieJson,foodJson)
+		console.log(movieJson);
+		console.log(foodJson);
+	}
+}
+
 const displayHomeView = function(movies, food) {
     clearChildren(container);
     let header = createHeader();
@@ -32,7 +43,10 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 	}
 })
 .then((response) => response.json())
-.then((movies) => displayHomeView(movies))
+.then((movies) => {
+	movieJson= movies
+	checkIfAllLoaded()
+})
 .catch(err => {
 	console.error(err);
 });
@@ -49,8 +63,25 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 // .catch(err => {
 // 	console.error(err);
 // });
-export { clearChildren}
 
+
+fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
+		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com"
+	}
+})
+.then(response => response.json()) 
+.then((food) => {
+	foodJson=food
+	checkIfAllLoaded()
+})	
+.catch(err => {
+	console.error(err);
+});
+
+export { clearChildren}
 
 
 
