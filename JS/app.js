@@ -10,6 +10,17 @@ const clearChildren = function (element){
 
 const container = document.querySelector(".main-content");
 
+let movieJson = "";
+let foodJson = "";
+
+const checkIfAllLoaded = function() {
+	if(movieJson != "" && foodJson != "") {
+		displayHomeView (movieJson,foodJson)
+		console.log(movieJson);
+		console.log(foodJson);
+	}
+}
+
 const displayHomeView = function(movies, food) {
     clearChildren(container);
     let header = createHeader();
@@ -32,7 +43,10 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 	}
 })
 .then((response) => response.json())
-.then((movies) => displayHomeView(movies))
+.then((movies) => {
+	movieJson= movies
+	checkIfAllLoaded()
+})
 .catch(err => {
 	console.error(err);
 });
@@ -45,7 +59,10 @@ fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?pag
 	}
 })
 .then(response => response.json()) 
-.then((food) => displayHomeView(food))	
+.then((food) => {
+	foodJson=food
+	checkIfAllLoaded()
+})	
 .catch(err => {
 	console.error(err);
 });
