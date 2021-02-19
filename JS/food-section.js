@@ -24,7 +24,7 @@ const foodSection = function(food) {
 
     const defaultCuisineDropdown = document.createElement("option")
     defaultCuisineDropdown.selected = true
-    defaultCuisineDropdown.innerText = "Select a cuisine"
+    defaultCuisineDropdown.innerText = "Select a Cuisine"
     foodDropdownLabel.appendChild(defaultCuisineDropdown)
     
     let cuisine = []

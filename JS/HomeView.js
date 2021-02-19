@@ -27,7 +27,7 @@ const homeElement = function(movies, food){
     
     const defaultGenreDropdown = document.createElement("option")
     defaultGenreDropdown.selected = true
-    defaultGenreDropdown.innerText = "Select a genre"
+    defaultGenreDropdown.innerText = "Select a Genre"
     movieDropdownLabel.appendChild(defaultGenreDropdown)
 
     let genre = []

@@ -1,0 +1,23 @@
+h1,
+h2 {
+  text-align: center;
+  font-family: Broadway;
+}
+
+button {
+  background-color: rgb(176, 92, 255);
+  font-family: Broadway;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.movie-dropdown-label,
+.food-dropdown,
+option {
+  background-color: #faf1f9;
+  font-family: Rockwell;
+}
+
+.main-footer {
+  font-size: small;
+}
