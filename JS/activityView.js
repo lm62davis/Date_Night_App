@@ -20,7 +20,7 @@ const activitySection = function(activityJSON) {
     mainElement.appendChild(activityElement)
 
     const activityDropdownLabel = document.createElement("select")
-    activityDropdownLabel.classList.add("food-dropdown")
+    activityDropdownLabel.classList.add("activity-dropdown")
     activityElement.appendChild(activityDropdownLabel)
 
     const defaultActivityDropdown = document.createElement("option")
@@ -52,11 +52,12 @@ const activitySection = function(activityJSON) {
         activityDropdownLabel.appendChild(dropdown)        
     }
 
-    let activityByCategory = []  
+    let activityByCategory = [] 
 
-    document.addEventListener("input", () => { 
+    activityDropdownLabel.addEventListener("change", () => { 
+            activityByCategory = [] 
             activityJSON.forEach(activity => {
-                if(activity.type === event.target.value) {      //find alternative to event.target.value
+                if(activity.type === activityDropdownLabel.value) {      //find alternative to event.target.value
                     activityByCategory.push(activity.name)
                 }
             })
@@ -71,10 +72,12 @@ const activitySection = function(activityJSON) {
     activityButton.innerText = "Generate"
     activityElement.appendChild(activityButton)
     const activityNameElement = document.createElement("section")
+
     activityButton.addEventListener("click", () => { 
-        console.log(activityName)      //test to make sure selected is not default value. if to diff just switch back to label & input
+        console.log(activityName)
+          //test to make sure selected is not default value. if to diff just switch back to label & input
         activityName = randomize(activityByCategory);
-        activityNameElement.innerText = activityName;
+        activityNameElement.innerText = activityName; 
         activityElement.appendChild(activityNameElement)       
     })
     

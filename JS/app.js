@@ -38,9 +38,10 @@ const displayHomeView = function(movies, food) {
     container.appendChild(footer);
 }
 
+// let multipleMovieLists = []; 
 
 
-
+let fetchAPI = function () {
 fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1", {
 	"method": "GET",
 	"headers": {
@@ -48,6 +49,7 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 		"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
 	}
 })
+
 .then((response) => response.json())
 .then((movies) => {
 	movieJson= movies
@@ -56,19 +58,11 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 .catch(err => {
 	console.error(err);
 });
+// multipleMovieLists.push(movies.value)
+// console.log(multipleMovieLists)
+};
 
-// fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
-// 		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com"
-// 	}
-// })
-// .then(response => response.json()) 
-// .then((food) => displayHomeView(food))	
-// .catch(err => {
-// 	console.error(err);
-// });
+
 
 
 fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
@@ -86,6 +80,10 @@ fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?pag
 .catch(err => {
 	console.error(err);
 });
+
+
+fetchAPI()
+
 
 export { clearChildren}
 

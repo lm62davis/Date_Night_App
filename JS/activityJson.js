@@ -21,14 +21,8 @@ const activityJSON = [
         id: 3,
         type: "outdoor",
         loveLanguage: "Quality Time"
-      },
-      {
-        name: "Go to the beach",
-        description: "Bask in the sun and take a swim together",
-        id: 4,
-        type: "outdoor",
-        loveLanguage: "Quality Time"
       }
+
     ]
 
     export {activityJSON};
