@@ -91,6 +91,7 @@ const homeElement = function(movies, food){
        movieElement.appendChild(movieNameElement)
        
     })
+
     
     
   
@@ -98,6 +99,7 @@ const homeElement = function(movies, food){
     return mainElement
 } 
 export {homeElement};
+
 
 // movies.movie_results.forEach(movie => {
     // const title = document.createElement("section");
