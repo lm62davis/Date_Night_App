@@ -10,12 +10,10 @@ const wordlist = [
     'App',
     'Date Night App',
   ]
-
 function buildSlotItem (text) {
     return $('<div>').addClass('slottt-machine-recipe__item')
                      .text(text)
 }
-
 function buildSlotContents ($container, wordlist) {
   $items = wordlist.map(buildSlotItem);
   $container.append($items);
@@ -41,7 +39,6 @@ function rotateContents ($container, n) {
       $container.css({top: 0});
     }, 300);    
 }
-
 function randomSlotttIndex(max) {
   var randIndex = (Math.random() * max | 0);
   return (randIndex < 10) ? randIndex : randomSlotttIndex(max);
@@ -55,7 +52,6 @@ function animate() {
     rotateContents($wordbox, wordIndex);
   });
 }
-
 $(function () {
   $wordbox = $('#wordbox .slottt-machine-recipe__items_container');
   buildSlotContents($wordbox, wordlist);  

@@ -1,0 +1,20 @@
+{
+    "name": "final-project-nov-cohort-team-date-night-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/2020-Winter-Cohort/final-project-nov-cohort-team-date-night-app.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/2020-Winter-Cohort/final-project-nov-cohort-team-date-night-app/issues"
+    },
+    "homepage": "https://github.com/2020-Winter-Cohort/final-project-nov-cohort-team-date-night-app#readme"
+  }
