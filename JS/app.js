@@ -18,22 +18,36 @@ let movieJson2 = "";
 let movieJson3 = "";
 let allMovies = [];
 let foodJson = "";
+let foodJson2 = "";
+let foodJson3 = "";
+let allFoods = "";
+
 
 const checkIfAllLoaded = function() {
-	if(movieJson != "" && foodJson != "" && movieJson2 != "" && movieJson3 != "" ) {
+	if(movieJson != "" && foodJson != "" && movieJson2 != "" && movieJson3 != "" && foodJson2 != "" && foodJson3 != "") {
 		allMovies = movieJson;
+		allFoods = foodJson;
 		movieJson2.movie_results.forEach(movie => {
 			allMovies.movie_results.push(movie)
 		});
 		movieJson3.movie_results.forEach(movie => {
 			allMovies.movie_results.push(movie)
 		});
-		displayHomeView (allMovies,foodJson)
+		foodJson2.result.data.forEach(cuisine => {
+			allFoods.result.data.push(cuisine)
+		});
+		foodJson3.result.data.forEach(cuisine => {
+			allFoods.result.data.push(cuisine)
+		});
+		displayHomeView (allMovies, allFoods)
 		console.log(movieJson);
 		console.log(movieJson2)
 		console.log(movieJson3)
 		console.log(allMovies)
 		console.log(foodJson);
+		console.log(foodJson2)
+		console.log(foodJson3)
+		console.log(allFoods);
 
 	}
 }
@@ -130,7 +144,7 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 // });
 
 
-fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
+fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=1", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
@@ -146,12 +160,42 @@ fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?pag
 	console.error(err);
 });
 
+fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=2", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
+		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com"
+	}
+})
+.then(response => response.json()) 
+.then((food) => {
+	foodJson2=food
+	checkIfAllLoaded()
+})	
+.catch(err => {
+	console.error(err);
+});
 
-fetchAPI()
+fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=3", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
+		"x-rapidapi-host": "us-restaurant-menus.p.rapidapi.com"
+	}
+})
+.then(response => response.json()) 
+.then((food) => {
+	foodJson3=food
+	checkIfAllLoaded()
+})	
+.catch(err => {
+	console.error(err);
+});
 
 
 
 export { clearChildren}
+
 
 
 
