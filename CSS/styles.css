@@ -1,0 +1,49 @@
+body{
+    background-color: black;
+    /* background-image:linear-gradient(black,violet,rgb(150, 63, 124),pink); */
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 0px solid black; 
+  }
+
+.animate span{
+	display: block;
+	position: relative;
+	text-align: center;
+}
+
+.animate.backwards > span{
+    color: hotpink;
+	animation: animateBackwards 1s ease-in-out 
+forwards;
+}
+.animate.forwards > span{
+    color: purple;
+	animation: animateForwards 1s ease-in-out 
+forwards;
+}
+
+.animate.mixed > span:nth-child(even){
+    color: crimson;
+	animation: animateBackwards 1s ease-in-out 
+forwards;
+}
+.animate.mixed > span:nth-child(odd){
+    color: pink;
+	animation: animateForwards 1s ease-in-out 
+forwards;
+}
+
+@keyframes animateForwards {
+	from { top: 0; transform: rotate(0deg); }
+	to { top: .9em; transform: rotate(-15deg); }
+}
+@keyframes animateBackwards {
+	from { top: 0; transform: rotate(0deg); }
+	to { top: 1em; transform: rotate(25deg); }
+}
