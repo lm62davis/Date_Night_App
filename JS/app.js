@@ -16,14 +16,23 @@ const container = document.querySelector(".main-content");
 let movieJson = "";
 let movieJson2 = "";
 let movieJson3 = "";
+let allMovies = [];
 let foodJson = "";
 
 const checkIfAllLoaded = function() {
 	if(movieJson != "" && foodJson != "" && movieJson2 != "" && movieJson3 != "" ) {
-		displayHomeView (movieJson,foodJson, movieJson2)
+		allMovies = movieJson;
+		movieJson2.movie_results.forEach(movie => {
+			allMovies.movie_results.push(movie)
+		});
+		movieJson3.movie_results.forEach(movie => {
+			allMovies.movie_results.push(movie)
+		});
+		displayHomeView (allMovies,foodJson)
 		console.log(movieJson);
 		console.log(movieJson2)
 		console.log(movieJson3)
+		console.log(allMovies)
 		console.log(foodJson);
 
 	}
