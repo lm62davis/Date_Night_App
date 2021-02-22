@@ -1,0 +1,29 @@
+movie_results: Array(20)
+0: {title: "Guns of the Magnificent Seven", year: "1969", release_date: "1969-07-14", imdb_id: "tt0064395", imdb_rating: "4.9", …}
+1: {title: "Drunk Parents", year: "2019", release_date: "2019-02-08", imdb_id: "tt5037840", imdb_rating: "4.7", …}
+2: {title: "Dating Daisy", year: "2016", release_date: "2016-04-09", imdb_id: "tt3777102", imdb_rating: "5.7", …}
+3: {title: "We Are Gathered Here", year: "2019", release_date: "2019-09-16", imdb_id: "tt7907714", imdb_rating: "9.5", …}
+4: {title: "The 4 Soldiers", year: "2013", release_date: "2013-08-16", imdb_id: "tt3053378", imdb_rating: "5.7", …}
+5: {title: "Lesbian Sex 7", year: "2012", release_date: "2012-06-08", imdb_id: "tt2179940", imdb_rating: "4.6", …}
+6: {title: "The Kid Super Power Hour with Shazam!", year: "1981", release_date: "0000-00-00", imdb_id: "tt0210425", imdb_rating: "6.8", …}
+7: {title: "Incredible Shaolin Thunderkick", year: "1982", release_date: "1982-01-02", imdb_id: "tt0187986", imdb_rating: "4", …}
+8: {title: "The Kingdom of the Fairies", year: "1903", release_date: "1903-08-31", imdb_id: "tt0000465", imdb_rating: "6.5", …}
+9: {title: "Lewis & Clark & George", year: "1997", release_date: "1997-01-21", imdb_id: "tt0113646", imdb_rating: "5.5", …}
+10: {title: "Shakira Feat. Carlinhos Brown: La La La (Brazil 2014)", year: "2014", release_date: "0000-00-00", imdb_id: "tt6934914", imdb_rating: "6.6", …}
+11: {title: "Interstate 60", year: "2002", release_date: "2002-04-13", imdb_id: "tt0165832", imdb_rating: "7.3", …}
+12: {title: "Hawk's Vengeance", year: "1996", release_date: "1996-01-01", imdb_id: "tt0116500", imdb_rating: "5.5", …}
+13: {title: "Witches of Breastwick 2", year: "2005", release_date: "2005-09-30", imdb_id: "tt1175522", imdb_rating: "6.8", …}
+14: {title: "Mrs. Serial Killer", year: "2020", release_date: "2020-05-01", imdb_id: "tt10230426", imdb_rating: "6.4", …}
+15: {title: "Chaos on the Bridge", year: "2015", release_date: "2015-08-25", imdb_id: "tt2880448", imdb_rating: "7.3", …}
+16: {title: "The Honeymoon Phase", year: "2019", release_date: "2019-11-03", imdb_id: "tt7277942", imdb_rating: "4.88", …}
+17: {title: "Tree House Time Machine", year: "2018", release_date: "2018-01-17", imdb_id: "tt7460912", imdb_rating: "7", …}
+18: {title: "Toad's Oil", year: "2009", release_date: "2009-06-06", imdb_id: "tt1248922", imdb_rating: "7", …}
+19: {title: "Claire X et la cité rose", year: "1986", release_date: "0000-00-00", imdb_id: "tt0423991", imdb_rating: "0", …}
+length: 20
+__proto__: Array(0)
+results: 20
+status: "OK"
+status_message: "Query was successful"
+__proto__: Object
+
+
