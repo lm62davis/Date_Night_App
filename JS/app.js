@@ -69,7 +69,6 @@ const displayHomeView = function(movies, food) {
 // let multipleMovieLists = []; 
 
 
-
 fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1", {
 	"method": "GET",
 	"headers": {
@@ -197,6 +196,8 @@ fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=3", 
 export { clearChildren}
 
 
+
+/// <reference path="../typings/tsd.d.ts" />
 
 
 

@@ -1,12 +1,83 @@
-/* text{
-    font-family:Helvetica, Arial, sans-serif;
-    font-size:11px;
-    /* pointer-events:none; =
+
+
+.main-spinner-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 60px;
 }
-#chart{
-    position:absolute;
-    width:500px;
-    height:500px;
-    top:0;
-    left:0;
+.secondary-spinner-container {
+    width: 100%;
+    height: 100%; 
+    position: relative;
+    border-radius: 50%; 
+    border: 10px solid #fff; 
+    overflow: hidden;
+    transition: all ease 5s;
+} 
+span {
+     width: 50%; 
+    height: 50%;  
+    display: inline-block;
+    position: absolute; 
 }
+.spin-labels {
+    color: white; 
+    margin-top: 40px; 
+    margin-left: 30px;
+    font-size: 10px;     
+}
+.spinner-section-1 {
+    /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
+    width: 50%; 
+    height: 50%; 
+    background-color: rgb(202, 186, 40);
+    top: 0px; 
+    left: 0;
+}
+.spinner-section-2 {
+    /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
+    width: 50%; 
+    height: 50%;  
+    background-color: rgb(202, 40, 121);  
+    top: 100px; 
+    left: 0;
+}
+.spinner-section-3 {
+    /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
+    width: 50%; 
+    height: 50%; 
+    background-color: rgb(202, 83, 14);    
+    bottom: 0;
+    left: 100px;  
+}
+.spinner-section-4 {
+    /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
+    width: 50%; 
+    height: 50%; 
+    background-color: rgb(21, 167, 57);
+    top: 0;
+    left: 100px;     
+}
+.generate-button {
+    position: absolute;
+    top: 35%; 
+    left: 36%; 
+    transform: transalte(-50%, -50%); 
+    width: 75px; 
+    height: 75px; 
+    border-radius: 50%; 
+    border: 4px solid #fff;
+    background-color: rgb(231, 145, 46);
+    color: white;
+    box-shadow: 0 5px 20px #000; 
+    font-weight: bold; 
+    font-size: 22px; 
+    cursor: pointer;
+}
+.generate-button:active {
+    width: 70px;
+    height: 70px; 
+    font-size: 20px;
+}
+
