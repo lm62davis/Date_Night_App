@@ -12,13 +12,18 @@ const clearChildren = function (element){
 const container = document.querySelector(".main-content");
 
 let movieJson = "";
+let movieJson2 = "";
+let movieJson3 = "";
 let foodJson = "";
 
 const checkIfAllLoaded = function() {
-	if(movieJson != "" && foodJson != "") {
-		displayHomeView (movieJson,foodJson)
+	if(movieJson != "" && foodJson != "" && movieJson2 != "" && movieJson3 != "" ) {
+		displayHomeView (movieJson,foodJson, movieJson2)
 		console.log(movieJson);
+		console.log(movieJson2)
+		console.log(movieJson3)
 		console.log(foodJson);
+
 	}
 }
 
@@ -37,13 +42,16 @@ const displayHomeView = function(movies, food) {
 
 
 
-fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1", {
+
+fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1",  {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
 		"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
 	}
+	
 })
+
 .then((response) => response.json())
 .then((movies) => {
 	movieJson= movies
@@ -52,6 +60,44 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 .catch(err => {
 	console.error(err);
 });
+
+fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=2",  {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
+		"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
+	}
+	
+})
+
+.then((response) => response.json())
+.then((movies) => {
+	movieJson2= movies
+	checkIfAllLoaded()
+})
+.catch(err => {
+	console.error(err);
+});
+
+fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=3",  {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
+		"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
+	}
+	
+})
+
+.then((response) => response.json())
+.then((movies) => {
+	movieJson3= movies
+	checkIfAllLoaded()
+})
+.catch(err => {
+	console.error(err);
+});
+
+
 
 // fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?page=1", {
 // 	"method": "GET",
