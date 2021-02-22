@@ -1,13 +1,25 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 /* text{
     font-family:Helvetica, Arial, sans-serif;
     font-size:11px;
     pointer-events:none; =
 } */
+=======
+/* text{
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:11px;
+    /* pointer-events:none; =
+}
+>>>>>>> main
 #chart{
     position:absolute;
     width:500px;
     height:500px;
     top:0;
     left:0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

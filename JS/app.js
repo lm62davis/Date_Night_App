@@ -86,6 +86,11 @@ fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?pag
 fetchAPI()
 
 
+<<<<<<< HEAD
+=======
+
+export { clearChildren}
+>>>>>>> main
 
 
 export { clearChildren}
