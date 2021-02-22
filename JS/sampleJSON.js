@@ -9,7 +9,7 @@ Promise.all([
 }).then(function (data) {
 	// Log the data to the console
 	// You would do something with both sets of data here
-	console.log(data);
+	console.table(data);
 }).catch(function (error) {
 	console.log(error);
 });
