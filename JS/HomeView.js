@@ -2,7 +2,7 @@ import { clearChildren } from "./app.js"
 
 const randomize = function(list) {
     //console.log(list)
-    //console.log(list.length + " list lngth")
+    //console.log(list.length + " list length")
     let randomNumber = Math.floor(Math.random() * list.length)
     //console.log(randomNumber)
     let generatedMovie = list[randomNumber]
@@ -47,7 +47,7 @@ const homeElement = function(movies, food){
         }
     }
 
-    console.log(newGenre)
+    // console.log(newGenre)
     let finalGenreList = Array.from(new Set(newGenre))   //removes duplicates
     // console.log(finalGenreList);
     
