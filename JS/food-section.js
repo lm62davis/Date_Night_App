@@ -61,12 +61,12 @@ const foodSection = function(food) {
     let foodByCategory = []
   
 
-    document.addEventListener("input", () => {
+    foodDropdownLabel.addEventListener("change", () => {
        
-          
-          food.result.data.forEach(foods => {
+            foodByCategory = []
+            food.result.data.forEach(foods => {
             foods.cuisines.forEach(cuisine => {
-                if(cuisine === event.target.value) {      //find alternative to event.target.value
+                if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
                     foodByCategory.push(foods.restaurant_name)
                     //moviesByYoutube.push(movie.)
                 }
@@ -84,11 +84,10 @@ const foodSection = function(food) {
     const restaurantNameElement = document.createElement("section")
     restaurantButton.addEventListener("click", () => { 
         // restaurantName.value = "";
-        console.log(restaurantName)      //test to make sure selected is not default value. if to diff just switch back to label & input
-       
+        // console.log(restaurantName)      //test to make sure selected is not default value. if to diff just switch back to label & input
         restaurantName = randomize(foodByCategory);
-       
-       restaurantNameElement.innerText = restaurantName;
+
+        restaurantNameElement.innerText = restaurantName;
     //    clearChildren(restaurantNameElement.innerText)
        foodElement.appendChild(restaurantNameElement)
       

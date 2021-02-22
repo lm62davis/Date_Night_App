@@ -64,12 +64,12 @@ const homeElement = function(movies, food){
     let moviesByCategory = []
   
 
-    document.addEventListener("input", () => {
+    movieDropdownLabel.addEventListener("change", () => {
        
-          
+        moviesByCategory = []
           movies.movie_results.forEach(movie => {
             movie.genres.forEach(genre => {
-                if(genre === event.target.value) {      //find alternative to event.target.value
+                if(genre === movieDropdownLabel.value) {      //find alternative to event.target.value
                     moviesByCategory.push(movie.title)
                     //moviesByYoutube.push(movie.)
                 }
@@ -91,6 +91,7 @@ const homeElement = function(movies, food){
        movieElement.appendChild(movieNameElement)
        
     })
+
     
     
   
@@ -98,6 +99,7 @@ const homeElement = function(movies, food){
     return mainElement
 } 
 export {homeElement};
+
 
 // movies.movie_results.forEach(movie => {
     // const title = document.createElement("section");

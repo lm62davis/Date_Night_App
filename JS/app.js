@@ -2,6 +2,8 @@ import {homeElement} from "./HomeView.js"
 import {createHeader} from "./header.js"
 import {createFooter} from "./footer.js"
 import {foodSection} from "./food-section.js"
+import {activitySection} from "./activityView.js"
+import { activityJSON } from "./activityJson.js"
 
 const clearChildren = function (element){
     while(element.firstChild){
@@ -35,15 +37,17 @@ const displayHomeView = function(movies, food) {
     container.appendChild(mainElement);
 	let main2Element = foodSection(food);
 	container.appendChild(main2Element)
+	let main3Element = activitySection(activityJSON);
+	container.appendChild(main3Element);
     let footer = createFooter();
     container.appendChild(footer);
 }
 
+// let multipleMovieLists = []; 
 
 
 
-
-fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1",  {
+fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
@@ -60,6 +64,10 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 .catch(err => {
 	console.error(err);
 });
+// multipleMovieLists.push(movies.value)
+// console.log(multipleMovieLists)
+
+
 
 fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=2",  {
 	"method": "GET",
@@ -128,6 +136,11 @@ fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/90210?pag
 .catch(err => {
 	console.error(err);
 });
+
+
+fetchAPI()
+
+
 
 export { clearChildren}
 
