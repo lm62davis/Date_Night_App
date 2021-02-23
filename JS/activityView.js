@@ -23,6 +23,11 @@ const activitySection = function(activityJSON) {
     const activityElement = document.createElement("div");
     activityElement.classList.add("activity-container")
     mainElement.appendChild(activityElement)
+    const activityHeader = document.createElement("p")
+    activityHeader.classList.add("dropdown-header")
+    activityHeader.innerText="Activity"
+    activityElement.appendChild(activityHeader)
+
     const activityDropdownLabel = document.createElement("select")
     activityDropdownLabel.classList.add("activity-dropdown")
     activityElement.appendChild(activityDropdownLabel)
@@ -34,7 +39,7 @@ const activitySection = function(activityJSON) {
     const mainSpinnerContainer = document.createElement("div")
     mainSpinnerContainer.setAttribute("id","main-spinner-container-activity")
     mainSpinnerContainer.classList.add("main-spinner-container") 
-    mainElement.appendChild(mainSpinnerContainer);
+    activityElement.appendChild(mainSpinnerContainer);
     const secondarySpinnerContainer = document.createElement("div")
     secondarySpinnerContainer.classList.add("secondary-spinner-container") 
     mainSpinnerContainer.appendChild(secondarySpinnerContainer);
@@ -42,29 +47,25 @@ const activitySection = function(activityJSON) {
     spinnerSection1.classList.add("spinner-section-1")
     secondarySpinnerContainer.appendChild(spinnerSection1);  
     const spinnerSection1Text = document.createElement("p")
-    spinnerSection1Text.classList.add("spin-labels")
-    spinnerSection1Text.innerText = spokeName(); 
+    spinnerSection1Text.classList.add("spin-labels") 
     spinnerSection1.appendChild(spinnerSection1Text);
     const spinnerSection2 = document.createElement("span")
     spinnerSection2.classList.add("spinner-section-2") 
     secondarySpinnerContainer.appendChild(spinnerSection2);
     const spinnerSection2Text = document.createElement("p")
     spinnerSection2Text.classList.add("spin-labels")
-    spinnerSection2Text.innerText = spokeName(); 
     spinnerSection2.appendChild(spinnerSection2Text);
     const spinnerSection3 = document.createElement("span")
     spinnerSection3.classList.add("spinner-section-3") 
     secondarySpinnerContainer.appendChild(spinnerSection3);
     const spinnerSection3Text = document.createElement("p")
     spinnerSection3Text.classList.add("spin-labels")
-    spinnerSection3Text.innerText = spokeName(); 
     spinnerSection3.appendChild(spinnerSection3Text);
     const spinnerSection4 = document.createElement("span")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
     const spinnerSection4Text = document.createElement("p")
     spinnerSection4Text.classList.add("spin-labels")
-    spinnerSection4Text.innerText = spokeName(); 
     spinnerSection4.appendChild(spinnerSection4Text);
 
     const activityButton = document.createElement("button")

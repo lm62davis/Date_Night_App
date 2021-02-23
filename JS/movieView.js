@@ -28,6 +28,11 @@ const homeElement = function(movies, food){
     movieElement.classList.add("movie-container")
     mainElement.appendChild(movieElement)
 
+    const movieHeader = document.createElement("p")
+    movieHeader.classList.add("dropdown-header")
+    movieHeader.innerText="Movie"
+    movieElement.appendChild(movieHeader)
+
     const movieDropdownLabel = document.createElement("select")
     movieDropdownLabel.classList.add("movie-dropdown-label")
     movieElement.appendChild(movieDropdownLabel)
@@ -41,7 +46,7 @@ const homeElement = function(movies, food){
     const mainSpinnerContainer = document.createElement("div")
     mainSpinnerContainer.setAttribute("id","main-spinner-container-movie")
     mainSpinnerContainer.classList.add("main-spinner-container") 
-    mainElement.appendChild(mainSpinnerContainer);
+    movieElement.appendChild(mainSpinnerContainer);
     const secondarySpinnerContainer = document.createElement("div")
     secondarySpinnerContainer.classList.add("secondary-spinner-container") 
     mainSpinnerContainer.appendChild(secondarySpinnerContainer);
@@ -50,28 +55,24 @@ const homeElement = function(movies, food){
     secondarySpinnerContainer.appendChild(spinnerSection1);  
     const spinnerSection1Text = document.createElement("p")
     spinnerSection1Text.classList.add("spin-labels")
-    spinnerSection1Text.innerText = spokeName(); 
     spinnerSection1.appendChild(spinnerSection1Text);
     const spinnerSection2 = document.createElement("span")
     spinnerSection2.classList.add("spinner-section-2") 
     secondarySpinnerContainer.appendChild(spinnerSection2);
     const spinnerSection2Text = document.createElement("p")
     spinnerSection2Text.classList.add("spin-labels")
-    spinnerSection2Text.innerText = spokeName(); 
     spinnerSection2.appendChild(spinnerSection2Text);
     const spinnerSection3 = document.createElement("span")
     spinnerSection3.classList.add("spinner-section-3") 
     secondarySpinnerContainer.appendChild(spinnerSection3);
     const spinnerSection3Text = document.createElement("p")
     spinnerSection3Text.classList.add("spin-labels")
-    spinnerSection3Text.innerText = spokeName(); 
     spinnerSection3.appendChild(spinnerSection3Text);
     const spinnerSection4 = document.createElement("span")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
     const spinnerSection4Text = document.createElement("p")
     spinnerSection4Text.classList.add("spin-labels")
-    spinnerSection4Text.innerText = spokeName(); 
     spinnerSection4.appendChild(spinnerSection4Text);
 
     const movieButton = document.createElement("button")
