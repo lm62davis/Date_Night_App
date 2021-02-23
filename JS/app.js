@@ -1,7 +1,7 @@
-import {homeElement} from "./HomeView.js"
+import {homeElement} from "./movieView.js"
 import {createHeader} from "./header.js"
 import {createFooter} from "./footer.js"
-import {foodSection} from "./food-section.js"
+import {foodSection} from "./foodView.js"
 import {activitySection} from "./activityView.js"
 import { activityJSON } from "./activityJson.js"
 
