@@ -39,7 +39,7 @@ const homeElement = function(movies, food){
     movieDropdownLabel.appendChild(defaultGenreDropdown)
 
     const mainSpinnerContainer = document.createElement("div")
-    mainSpinnerContainer.setAttribute("id","main-spinner-container")
+    mainSpinnerContainer.setAttribute("id","main-spinner-container-movie")
     mainSpinnerContainer.classList.add("main-spinner-container") 
     mainElement.appendChild(mainSpinnerContainer);
     const secondarySpinnerContainer = document.createElement("div")
@@ -122,13 +122,18 @@ const homeElement = function(movies, food){
             // wheelAnimation();
             moviesByCategory = [] 
             movies.movie_results.forEach(movie => {
-                movie.genres.forEach(genre => {
-                    if(genre === movieDropdownLabel.value) {      //find alternative to event.target.value
-                        moviesByCategory.push(movie.title)
-                        //moviesByYoutube.push(movie.)
-                    }
-                })
+                console.log(movie)
+                if(movie.genres != null){
+                    movie.genres.forEach(genre => {
+                        if(genre === movieDropdownLabel.value) {      //find alternative to event.target.value
+                            moviesByCategory.push(movie.title)
+                            //moviesByYoutube.push(movie.)
+                        }
+                    })
+                }
               })
+
+            //console.log(moviesByCategory)
             movieName = randomize(moviesByCategory);
             spinnerSection1Text.innerText = movieName;
             movieName = randomize(moviesByCategory); 
@@ -157,6 +162,13 @@ const homeElement = function(movies, food){
         let y = 9999; 
         var deg = Math.floor(Math.random() * (x-y)) + y;
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
+
+        const element = document.getElementById("main-spinner-container-movie");
+        element.classList.remove('animate')
+        setTimeout(function() {
+            element.classList.add('animate')
+        }, 5000)
+
     }
 
     
@@ -166,10 +178,3 @@ const homeElement = function(movies, food){
     return mainElement
 } 
 export {homeElement};
-
-
-// movies.movie_results.forEach(movie => {
-    // const title = document.createElement("section");
-    // title.innerText = movie.title
-    // movieElement.appendChild(title)
-    // });
