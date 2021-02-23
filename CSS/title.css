@@ -1,41 +1,66 @@
-@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+body {
+    justify-content: center;
+    align-items: center;
+    padding: 150px;
 
-body{
-  background-color: rgb(190, 143, 235); 
-  justify-content: center;
-  align-items: center;
-  padding: 18px;
+}
+.wrapper {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    padding-top: 100px;
+    transform: translate(-50%, -50%);
+    height: 160px;
+    overflow: hidden;
+    font-family: fantasy;
+    font-size: 35px;
+    line-height: 35px;
+    color: white;
+}
+.header-content {
+    font-weight: 600;
+    overflow: hidden;
+    height: 40px;
+    padding: 0 95px;
+}
+.t-text {
+    display: inline;
+    float: left;
+    margin: 0;
+
+}
+.animated-text {
+    margin-top: 0;
+    padding-left: 10px;
+    text-align: center;
+    list-style: none;
+    animation: animate 10s infinite;
+}
+.single-text {
+  line-height: 40px;
+  margin: 0;
+  
+
+}
+@keyframes animate {
+    0%, 12.66%, 100% {
+        transform:translateX(0,0,0);
+    } 
+    16.66%, 29.32% {
+        transform: translate3d(0,-25%,0);
+    }
+    33.32%, 45.98% {
+        transform: translate3d(0,-50%,0);
+    }
+    49.98%, 62.64% {
+        transform: translate3d(0,-75%,0);
+    }
+    66.64%, 79.3% {
+        transform: translate3d(0,-50%,0);
+    }
+    83.3%, 95.96% {
+        transform: translate3d(0,-25%,0);
+    }
+
 }
 
-h2{
-	color: black;
-	margin-top: 40px;
-	text-align: center;
-}
-
-.title {
-  font-size: 40px;
-  transition: 1s all;
-  text-align: center;
-  margin-bottom: 40px;
-  background-color: #f3ec78;
-  background-image: linear-gradient(45deg, #f3ec78, #af4261);
-  background-size: 100%;
-  background-clip: text;
-}
-
-.spaced {
-  letter-spacing: 20px;
-}
-
-@keyframes anim {
-  to {
-    padding: 16px;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .spaced {
-    letter-spacing: 8px;
-  }
-}

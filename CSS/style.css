@@ -1,17 +1,48 @@
+body {
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    color: white;
+    font-family: fantasy;
+}
 
-
+.dropdown-header{
+    color: white
+}
 .main-spinner-container {
     position: relative;
     width: 200px;
     height: 200px;
     margin: 60px;
 }
+
+.main-spinner-container:after{
+    position: absolute;
+    content: '';
+    width: 32px;
+    height: 32px;
+    background: url(https://images.unsplash.com/photo-1525081905268-fc0b46e9d786?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80) no-repeat;
+    background-size: 32px;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-spinner-container.animate:after {
+    animation: animateArrow 0.7s ease infinite;
+}
+
+@keyframes animateArrow {
+    50% {
+        right: -40px;
+    }
+}
+
 .secondary-spinner-container {
     width: 100%;
     height: 100%; 
     position: relative;
     border-radius: 50%; 
-    border: 10px solid #fff; 
+    border: 1px solid #fff; 
     overflow: hidden;
     transition: all ease 5s;
 } 
@@ -31,7 +62,7 @@ span {
     /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
     width: 50%; 
     height: 50%; 
-    background-color: rgb(202, 186, 40);
+    background-color: burlywood;
     top: 0px; 
     left: 0;
 }
@@ -39,7 +70,7 @@ span {
     /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
     width: 50%; 
     height: 50%;  
-    background-color: rgb(202, 40, 121);  
+    background-color:rgb(245, 216, 240);
     top: 100px; 
     left: 0;
 }
@@ -47,7 +78,7 @@ span {
     /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
     width: 50%; 
     height: 50%; 
-    background-color: rgb(202, 83, 14);    
+    background-color:burlywood;    
     bottom: 0;
     left: 100px;  
 }
@@ -55,20 +86,21 @@ span {
     /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
     width: 50%; 
     height: 50%; 
-    background-color: rgb(21, 167, 57);
+    background-color: rgb(245, 216, 240);
     top: 0;
     left: 100px;     
 }
 .generate-button {
     position: absolute;
-    top: 35%; 
-    left: 36%; 
+    top: 30%; 
+    left: 30%; 
+
     transform: transalte(-50%, -50%); 
     width: 75px; 
     height: 75px; 
     border-radius: 50%; 
-    border: 4px solid #fff;
-    background-color: rgb(231, 145, 46);
+    /* border: 4px solid #fff; */
+    background-color: black;
     color: white;
     box-shadow: 0 5px 20px #000; 
     font-weight: bold; 
@@ -80,4 +112,3 @@ span {
     height: 70px; 
     font-size: 20px;
 }
-

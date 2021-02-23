@@ -1,10 +1,7 @@
 body {
   display: grid;
   grid-template-rows: auto auto auto auto auto;
-  grid-template-columns: auto auto auto;
-  background-color:rgb(190, 143, 235);
-  color: black;
-  font-family: fantasy;
+  grid-template-columns: auto auto auto;  
 }
 
 h1,
@@ -17,17 +14,19 @@ h2 {
   grid-row-end: 4;
   grid-column-start: 1;
   grid-column-end: 4;
+  
 }
 .navbar {
-  border: 2px solid rgb(190, 143, 235);
+  border: 5px solid white;
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 1;
   grid-column-end: 4;
+  
 }
 
 .page-title {
-  border: 2px solid black;
+  border: 5px solid white;
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 1;
@@ -35,7 +34,7 @@ h2 {
 }
 
 .app-instructions {
-  border: 2px solid black;
+  border: 5px solid white;
   grid-row-start: 3;
   grid-row-end: 4;
   grid-column-start: 1;
@@ -58,7 +57,7 @@ h2 {
 }
 
 .movie-container {
-  border: 2px solid black;
+  border: 5px solid white;
   grid-row-start: 4;
   grid-row-end: 5;
   grid-column-start: 1;
@@ -66,7 +65,7 @@ h2 {
 }
 
 .food-container {
-  border: 2px solid black;
+  border: 5px solid white;
   grid-row-start: 4;
   grid-row-end: 5;
   grid-column-start: 2;
@@ -74,7 +73,7 @@ h2 {
 }
 
 .activity-container {
-  border: 2px solid black;
+  border: 5px solid white;
   grid-row-start: 4;
   grid-row-end: 5;
   grid-column-start: 3;
@@ -82,7 +81,7 @@ h2 {
 }
 
 footer {
-  border: 2px solid black;
+  border: 5px solid white;
   grid-row-start: 5;
   grid-row-end: 6;
   grid-column-start: 1;

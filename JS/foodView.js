@@ -1,4 +1,3 @@
-
 import { clearChildren } from "./app.js"
 
 const randomize = function(list) {
@@ -28,6 +27,11 @@ const foodSection = function(food) {
     foodElement.classList.add("food-container")
     mainElement.appendChild(foodElement)
 
+    const foodHeader = document.createElement("p")
+    foodHeader.classList.add("dropdown-header")
+    foodHeader.innerText="Restaurant"
+    foodElement.appendChild(foodHeader)
+
     const foodDropdownLabel = document.createElement("select")
     foodDropdownLabel.classList.add("food-dropdown")
     foodElement.appendChild(foodDropdownLabel)
@@ -38,9 +42,9 @@ const foodSection = function(food) {
     foodDropdownLabel.appendChild(defaultCuisineDropdown)
 
     const mainSpinnerContainer = document.createElement("div")
-    mainSpinnerContainer.setAttribute("id","main-spinner-container")
+    mainSpinnerContainer.setAttribute("id","main-spinner-container-food")
     mainSpinnerContainer.classList.add("main-spinner-container") 
-    mainElement.appendChild(mainSpinnerContainer);
+    foodElement.appendChild(mainSpinnerContainer);
     const secondarySpinnerContainer = document.createElement("div")
     secondarySpinnerContainer.classList.add("secondary-spinner-container") 
     mainSpinnerContainer.appendChild(secondarySpinnerContainer);
@@ -49,28 +53,24 @@ const foodSection = function(food) {
     secondarySpinnerContainer.appendChild(spinnerSection1);  
     const spinnerSection1Text = document.createElement("p")
     spinnerSection1Text.classList.add("spin-labels")
-    spinnerSection1Text.innerText = spokeName(); 
     spinnerSection1.appendChild(spinnerSection1Text);
     const spinnerSection2 = document.createElement("span")
     spinnerSection2.classList.add("spinner-section-2") 
     secondarySpinnerContainer.appendChild(spinnerSection2);
     const spinnerSection2Text = document.createElement("p")
     spinnerSection2Text.classList.add("spin-labels")
-    spinnerSection2Text.innerText = spokeName(); 
     spinnerSection2.appendChild(spinnerSection2Text);
     const spinnerSection3 = document.createElement("span")
     spinnerSection3.classList.add("spinner-section-3") 
     secondarySpinnerContainer.appendChild(spinnerSection3);
     const spinnerSection3Text = document.createElement("p")
     spinnerSection3Text.classList.add("spin-labels")
-    spinnerSection3Text.innerText = spokeName(); 
     spinnerSection3.appendChild(spinnerSection3Text);
     const spinnerSection4 = document.createElement("span")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
     const spinnerSection4Text = document.createElement("p")
     spinnerSection4Text.classList.add("spin-labels")
-    spinnerSection4Text.innerText = spokeName(); 
     spinnerSection4.appendChild(spinnerSection4Text);
 
 
@@ -136,13 +136,16 @@ const foodSection = function(food) {
     foodDropdownLabel.addEventListener("change", () => {
             // wheelAnimation();
             foodByCategory = [] 
+            
             food.result.data.forEach(foods => {
-                foods.cuisines.forEach(cuisine => {
-                    if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
-                        foodByCategory.push(foods.restaurant_name)
-                        //moviesByYoutube.push(movie.)
-                    }
-                })
+                if(foods.cuisines != null) {
+                    foods.cuisines.forEach(cuisine => {
+                        if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
+                            foodByCategory.push(foods.restaurant_name)
+                            //moviesByYoutube.push(movie.)
+                        }
+                    })
+                }
               })
             foodName = randomize(foodByCategory);
             spinnerSection1Text.innerText = foodName;
@@ -172,6 +175,12 @@ const foodSection = function(food) {
         let y = 9999; 
         var deg = Math.floor(Math.random() * (x-y)) + y;
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
+
+        const element = document.getElementById("main-spinner-container-food");
+        element.classList.remove('animate')
+        setTimeout(function() {
+            element.classList.add('animate')
+        }, 5000)
     }
 
       
