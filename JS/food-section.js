@@ -9,6 +9,15 @@ const randomize = function(list) {
     return generatedCuisine
 
 }
+
+let foodByCategory = [] 
+let foodName;
+let spokeName = function () {
+    foodName = randomize(foodByCategory);
+    // activityNameElement.innerText = activityName; 
+    return foodName;
+    }
+
 const foodSection = function(food) {
 
     const mainElement = document.createElement("div");
@@ -26,6 +35,48 @@ const foodSection = function(food) {
     defaultCuisineDropdown.selected = true
     defaultCuisineDropdown.innerText = "Select a cuisine"
     foodDropdownLabel.appendChild(defaultCuisineDropdown)
+
+    const mainSpinnerContainer = document.createElement("div")
+    mainSpinnerContainer.setAttribute("id","main-spinner-container")
+    mainSpinnerContainer.classList.add("main-spinner-container") 
+    mainElement.appendChild(mainSpinnerContainer);
+    const secondarySpinnerContainer = document.createElement("div")
+    secondarySpinnerContainer.classList.add("secondary-spinner-container") 
+    mainSpinnerContainer.appendChild(secondarySpinnerContainer);
+    const spinnerSection1 = document.createElement("span")
+    spinnerSection1.classList.add("spinner-section-1")
+    secondarySpinnerContainer.appendChild(spinnerSection1);  
+    const spinnerSection1Text = document.createElement("p")
+    spinnerSection1Text.classList.add("spin-labels")
+    spinnerSection1Text.innerText = spokeName(); 
+    spinnerSection1.appendChild(spinnerSection1Text);
+    const spinnerSection2 = document.createElement("span")
+    spinnerSection2.classList.add("spinner-section-2") 
+    secondarySpinnerContainer.appendChild(spinnerSection2);
+    const spinnerSection2Text = document.createElement("p")
+    spinnerSection2Text.classList.add("spin-labels")
+    spinnerSection2Text.innerText = spokeName(); 
+    spinnerSection2.appendChild(spinnerSection2Text);
+    const spinnerSection3 = document.createElement("span")
+    spinnerSection3.classList.add("spinner-section-3") 
+    secondarySpinnerContainer.appendChild(spinnerSection3);
+    const spinnerSection3Text = document.createElement("p")
+    spinnerSection3Text.classList.add("spin-labels")
+    spinnerSection3Text.innerText = spokeName(); 
+    spinnerSection3.appendChild(spinnerSection3Text);
+    const spinnerSection4 = document.createElement("span")
+    spinnerSection4.classList.add("spinner-section-4") 
+    secondarySpinnerContainer.appendChild(spinnerSection4);
+    const spinnerSection4Text = document.createElement("p")
+    spinnerSection4Text.classList.add("spin-labels")
+    spinnerSection4Text.innerText = spokeName(); 
+    spinnerSection4.appendChild(spinnerSection4Text);
+
+
+    const foodButton = document.createElement("button")
+    foodButton.classList.add("generate-button")
+    foodButton.innerText = "SPIN"
+    mainSpinnerContainer.appendChild(foodButton)
     
     let cuisine = []
     // console.log(restaurant_name)
@@ -79,72 +130,60 @@ const foodSection = function(food) {
     let foodByCategory = []
   
 
-    foodDropdownLabel.addEventListener("change", () => {
-       
-            foodByCategory = []
-            food.result.data.forEach(foods => {
-            foods.cuisines.forEach(cuisine => {
-                if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
-                    foodByCategory.push(foods.restaurant_name)
-                    //moviesByYoutube.push(movie.)
-                }
-            })
-          })
-        // console.log(foodByCategory)
+    let foodName;
     
-        //alert("You chose " + event.target.value)
-    });
+    foodDropdownLabel.addEventListener("change", () => {
+            // wheelAnimation();
+            foodByCategory = [] 
+            food.result.data.forEach(foods => {
+                foods.cuisines.forEach(cuisine => {
+                    if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
+                        foodByCategory.push(foods.restaurant_name)
+                        //moviesByYoutube.push(movie.)
+                    }
+                })
+              })
+            foodName = randomize(foodByCategory);
+            spinnerSection1Text.innerText = foodName;
+            foodName = randomize(foodByCategory); 
+            spinnerSection2Text.innerText = foodName; 
+            foodName = randomize(foodByCategory);
+            spinnerSection3Text.innerText = foodName; 
+            foodName = randomize(foodByCategory);
+            spinnerSection4Text.innerText = foodName; 
+          });
+        console.log(foodByCategory)
+        // alert("You chose " + event.target.value)
+    
+    
+    foodButton.addEventListener("click", () => { 
+        console.log(foodName)
+          //test to make sure selected is not default value. if to diff just switch back to label & input 
+        spinFunction();
+       
+       
+        // activityElement.appendChild(activityNameElement)    
+        
+        
+    }); 
+    const spinFunction = function () {
+        let x = 1024; 
+        let y = 9999; 
+        var deg = Math.floor(Math.random() * (x-y)) + y;
+        secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
+    }
 
-    let restaurantName;
-    const restaurantButton = document.createElement("button")
-    restaurantButton.innerText = "Generate"
-    foodElement.appendChild(restaurantButton)
-    const restaurantNameElement = document.createElement("section")
-    restaurantButton.addEventListener("click", () => { 
-        // restaurantName.value = "";
-        // console.log(restaurantName)      //test to make sure selected is not default value. if to diff just switch back to label & input
-        restaurantName = randomize(foodByCategory);
-
-        restaurantNameElement.innerText = restaurantName;
-    //    clearChildren(restaurantNameElement.innerText)
-       foodElement.appendChild(restaurantNameElement)
       
        
-    })
+    
     
     
   
 
     return mainElement
     
-    // const defaultCuisineDropdown = document.createElement("option")
-    // defaultCuisineDropdown.selected = true
-    // defaultCuisineDropdown.innerText = "Select a Cuisine"
-    // foodDropdownLabel.appendChild(defaultCuisineDropdown)
-
-    // const sandwichesCuisineDropdown = document.createElement("option")
-    // sandwichesCuisineDropdown.innerText = "Sandwiches"
-    // const coffeeAndTeaCuisineDropdown = document.createElement("option")
-    // coffeeAndTeaCuisineDropdown.innerText = "Coffee and Tea"
-    // // const foodCuisineDropdown = document.createElement("option")
-    // // Dropdown.innerText = ""
-    // // const mysteryGenreDropdown = document.createElement("option")
-    // // mysteryGenreDropdown.innerText = ""
     
-    // foodDropdownLabel.appendChild(sandwichesCuisineDropdown)
-    // foodDropdownLabel.appendChild(coffeeAndTeaCuisineDropdown)
-  
- 
-    // const foodButton = document.createElement("button")
-    // foodButton.innerText = "Generate"
-    // foodElement.appendChild(foodButton)
-
-
-    
-    //return foodElement;
 
 }
-
-
 
 export {foodSection}

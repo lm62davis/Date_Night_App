@@ -5,6 +5,7 @@ body {
   background-color:rgb(190, 143, 235);
   color: black;
   font-family: fantasy;
+  
 }
 
 h1,
@@ -17,6 +18,7 @@ h2 {
   grid-row-end: 4;
   grid-column-start: 1;
   grid-column-end: 4;
+  
 }
 .navbar {
   border: 2px solid rgb(190, 143, 235);
@@ -24,6 +26,7 @@ h2 {
   grid-row-end: 2;
   grid-column-start: 1;
   grid-column-end: 4;
+  
 }
 
 .page-title {
