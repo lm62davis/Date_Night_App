@@ -32,7 +32,7 @@ const activitySection = function(activityJSON) {
     activityDropdownLabel.appendChild(defaultActivityDropdown) 
     //spinner functionality section
     const mainSpinnerContainer = document.createElement("div")
-    mainSpinnerContainer.setAttribute("id","main-spinner-container")
+    mainSpinnerContainer.setAttribute("id","main-spinner-container-activity")
     mainSpinnerContainer.classList.add("main-spinner-container") 
     mainElement.appendChild(mainSpinnerContainer);
     const secondarySpinnerContainer = document.createElement("div")
@@ -125,6 +125,12 @@ const activitySection = function(activityJSON) {
         let y = 9999; 
         var deg = Math.floor(Math.random() * (x-y)) + y;
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
+
+        const element = document.getElementById("main-spinner-container-activity");
+        element.classList.remove('animate')
+        setTimeout(function() {
+            element.classList.add('animate')
+        }, 5000)
     }
     
     return mainElement

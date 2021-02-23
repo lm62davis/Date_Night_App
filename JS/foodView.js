@@ -37,7 +37,7 @@ const foodSection = function(food) {
     foodDropdownLabel.appendChild(defaultCuisineDropdown)
 
     const mainSpinnerContainer = document.createElement("div")
-    mainSpinnerContainer.setAttribute("id","main-spinner-container")
+    mainSpinnerContainer.setAttribute("id","main-spinner-container-food")
     mainSpinnerContainer.classList.add("main-spinner-container") 
     mainElement.appendChild(mainSpinnerContainer);
     const secondarySpinnerContainer = document.createElement("div")
@@ -135,13 +135,16 @@ const foodSection = function(food) {
     foodDropdownLabel.addEventListener("change", () => {
             // wheelAnimation();
             foodByCategory = [] 
+            
             food.result.data.forEach(foods => {
-                foods.cuisines.forEach(cuisine => {
-                    if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
-                        foodByCategory.push(foods.restaurant_name)
-                        //moviesByYoutube.push(movie.)
-                    }
-                })
+                if(foods.cuisines != null) {
+                    foods.cuisines.forEach(cuisine => {
+                        if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
+                            foodByCategory.push(foods.restaurant_name)
+                            //moviesByYoutube.push(movie.)
+                        }
+                    })
+                }
               })
             foodName = randomize(foodByCategory);
             spinnerSection1Text.innerText = foodName;
@@ -171,6 +174,12 @@ const foodSection = function(food) {
         let y = 9999; 
         var deg = Math.floor(Math.random() * (x-y)) + y;
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
+
+        const element = document.getElementById("main-spinner-container-food");
+        element.classList.remove('animate')
+        setTimeout(function() {
+            element.classList.add('animate')
+        }, 5000)
     }
 
       
