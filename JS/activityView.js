@@ -12,11 +12,11 @@ const randomize = function(list) {
 let possibleActivityNum = []             //////////////////
 let activityByCategory = [] 
 let activityName;
-let spokeName = function () {
-    activityName = randomize(activityByCategory);
-    // activityNameElement.innerText = activityName; 
-    return activityName;
-    }
+// let spokeName = function () {
+//     activityName = randomize(activityByCategory);
+//     // activityNameElement.innerText = activityName; 
+//     return activityName;
+//     }
     
 
 const activitySection = function(activityJSON) {
@@ -49,7 +49,8 @@ const activitySection = function(activityJSON) {
     spinnerSection1.classList.add("spinner-section-1")
     secondarySpinnerContainer.appendChild(spinnerSection1);  
     const spinnerSection1Text = document.createElement("p")
-    spinnerSection1Text.classList.add("spin-labels") 
+    spinnerSection1Text.classList.add("spin-labels")
+    spinnerSection1Text.setAttribute("id","spinner-label-1")
     spinnerSection1.appendChild(spinnerSection1Text);
     const spinnerSection2 = document.createElement("span")
     spinnerSection2.classList.add("spinner-section-2") 
@@ -74,6 +75,12 @@ const activitySection = function(activityJSON) {
     activityButton.classList.add("generate-button")
     activityButton.innerText = "SPIN"
     mainSpinnerContainer.appendChild(activityButton)
+
+    // selectionPopUp = document.createElement("div")
+    // selectionPopUp.classList.add("selection-pop-up")
+    // selectionPopUp.innerText = possibleActivityNum[choice];
+    // // selectionPopUp.style.display= "none";
+    // mainSpinnerContainer.appendChild(selectionPopUp);
 
     let activityType = []
     // console.log(restaurant_name)
@@ -110,24 +117,32 @@ const activitySection = function(activityJSON) {
             spinnerSection3Text.innerText = activityName; 
             activityName = randomize(activityByCategory);
             spinnerSection4Text.innerText = activityName; 
+
+
           });
         console.log(activityByCategory)
         // alert("You chose " + event.target.value)
     
     const activityNameElement = document.createElement("section")
+
+    var choice = Math.floor(Math.random() * 4);
     activityButton.addEventListener("click", () => { 
         console.log(activityName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
-        var choice = Math.floor(Math.random() * 4);  /////////////////
+        // var choice = Math.floor(Math.random() * 4);
+        // choice.classList.add("spinner-choice"); 
           spinFunction(choice);
           console.log(possibleActivityNum);
             console.log(choice);
-       console.log(possibleActivityNum[choice]); //////////////
+       console.log(possibleActivityNum[choice]);
+
        
         activityElement.appendChild(activityNameElement)    
         
         
     }); 
+
+
     const spinFunction = function (choice) {
 
         var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44; /////////////

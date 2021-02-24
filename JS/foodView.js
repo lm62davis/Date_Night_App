@@ -1,22 +1,35 @@
 import { clearChildren } from "./app.js"
 
 const randomize = function(list) {
-    //console.log(list)
+    console.log(list)
     //console.log(list.length + " list lngth")
-    let randomNumber = Math.floor(Math.random() * list.length)
-    //console.log(randomNumber)
+    
+    randomNumber = Math.floor(Math.random() * list.length)
+        //console.log(randomNumber)
+
     let generatedCuisine = list[randomNumber]
+    
+    // for (let i in possibleFoodNum) {
+    //     if (generatedCuisine===i) {
+    //         randomize(list)
+    //     }
+        possibleFoodNum.push(generatedCuisine);
+    // }
+    // console.log(possibleFoodNum)
+    // console.log(generatedCuisine)
     return generatedCuisine
 
 }
+let randomNumber;
 
-let foodByCategory = [] 
+let possibleFoodNum = []
+let foodByCategory = []
 let foodName;
-let spokeName = function () {
-    foodName = randomize(foodByCategory);
-    // activityNameElement.innerText = activityName; 
-    return foodName;
-    }
+// let spokeName = function () {
+//     foodName = randomize(foodByCategory);
+//     // activityNameElement.innerText = activityName; 
+//     return foodName;
+//     }
 
     const removeSpecialChar = function (finalCuisineList) {
                   
@@ -138,41 +151,70 @@ const foodSection = function(food) {
                     })
                 }
               })
+            possibleFoodNum = [];
             foodName = randomize(foodByCategory);
             spinnerSection1Text.innerText = foodName;
+            foodByCategory = foodByCategory.splice(foodName,randomNumber);
             foodName = randomize(foodByCategory); 
-            spinnerSection2Text.innerText = foodName; 
+            spinnerSection2Text.innerText = foodName;
+            foodByCategory = foodByCategory.splice(foodName,randomNumber);
             foodName = randomize(foodByCategory);
             spinnerSection3Text.innerText = foodName; 
+            foodByCategory = foodByCategory.splice(foodName,randomNumber);
             foodName = randomize(foodByCategory);
             spinnerSection4Text.innerText = foodName; 
           });
         console.log(foodByCategory)
         // alert("You chose " + event.target.value)
     
-    
+    var choice = Math.floor(Math.random() * 4);
     foodButton.addEventListener("click", () => { 
         console.log(foodName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
-        spinFunction();
+        spinFunction(choice); 
+        
+        console.log(possibleFoodNum);
+        console.log(choice);
+        console.log(possibleFoodNum[choice]);
        
        
         // activityElement.appendChild(activityNameElement)    
-        
+    
         
     }); 
+    let selectionPopUp;
+    const toggleSelection = function () {
+        selectionPopUp = document.createElement("div")
+        selectionPopUp.classList.add("selection-pop-up")
+        selectionPopUp.innerText = possibleFoodNum[choice];
+        mainSpinnerContainer.appendChild(selectionPopUp);
+
+
+        selectionPopUp.classList.toggle("generate-button");
+     
+        // selectionPopUp.addEventListener("click", () => {
+        // setTimeout(selectionPopUp.remove(),5000);
+            
+        // });
+     
+    }
+
+
 
 
     const spinFunction = function () {
-        let x = 1024; 
-        let y = 9999; 
-        var deg = Math.floor(Math.random() * (x-y)) + y;
+        // let x = 1024; 
+        // let y = 9999; 
+        // var deg = Math.floor(Math.random() * (x-y)) + y;
+        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44;
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
 
         const element = document.getElementById("main-spinner-container-food");
         element.classList.remove('animate')
         setTimeout(function() {
             element.classList.add('animate')
+            toggleSelection();
+
         }, 5000)
     }
 
