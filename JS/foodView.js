@@ -31,6 +31,14 @@ let foodName;
 //     return foodName;
 //     }
 
+    const removeSpecialChar = function (finalCuisineList) {
+                  
+        for (let i = 0; i < finalCuisineList.length; i++) {
+            finalCuisineList[i] = finalCuisineList[i].replaceAll('&amp;' , 'and'); 
+            console.log(finalCuisineList[i])
+        }
+    }
+
 const foodSection = function(food) {
 
     const mainElement = document.createElement("div");
@@ -107,11 +115,11 @@ const foodSection = function(food) {
   
         }
     }
-
-    // console.log(newCuisine)
     let finalCuisineList = Array.from(new Set(newCuisine))   //removes duplicates
-    
+    removeSpecialChar(finalCuisineList);
     console.log(finalCuisineList);
+    //moves duplicates
+  
     
 
     //create dropdown options
@@ -122,24 +130,7 @@ const foodSection = function(food) {
         dropdown.value = option;
         foodDropdownLabel.appendChild(dropdown)        
     }
-    /////////////////////////////////////////////////
-        // Attempt #1
-    const removeSpecialChar = function () {
-        finalCuisineListChar = finalCuisineList.replaceAll(/ &amp; /g , 'and');           
-
-         // Attempt #2
-        // let removeSpecialChar = finalCuisineList;
-        // let finalCuisineListChar = removeSpecialChar.replaceAll(/&amp;/g, 'and');
-
-        // Attempt #3 - This worked in CodePen.io:
-        // let finalCuisineList = "cofee &amp; tea";
-        // let str = finalCuisineList;
-        // let newstr = str.replace(/&amp;/g, 'and');
-        // console.log(newstr);  
-        
-        console.table(finalCuisineListChar);  
-    }
-     /////////////////////////////////////////////
+   
 
     let foodByCategory = []
   

@@ -5,9 +5,10 @@ const createHeader = function () {
         <nav class="navbar">
         <button class="reset-button">Reset</button>
         <button class="contact">Contact Us</button>
-        <h1 class="page-title">Choose a Movie, Cuisine, and Activity</h1>
+        <h1 class="page-title"> </h1>
         </nav>`
     return header;
 };
+
 
 export { createHeader };

@@ -9,7 +9,7 @@ const randomize = function(list) {
     possibleActivityNum.push(generatedActivity);
     return generatedActivity
 }
-let possibleActivityNum = []
+let possibleActivityNum = []             //////////////////
 let activityByCategory = [] 
 let activityName;
 // let spokeName = function () {
@@ -145,7 +145,7 @@ const activitySection = function(activityJSON) {
 
     const spinFunction = function (choice) {
 
-        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44;
+        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44; /////////////
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
         
         const element = document.getElementById("main-spinner-container-activity");
