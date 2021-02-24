@@ -168,6 +168,7 @@ const foodSection = function(food) {
         
     }); 
     const spinFunction = function () {
+        
         let x = 1024; 
         let y = 9999; 
         var deg = Math.floor(Math.random() * (x-y)) + y;

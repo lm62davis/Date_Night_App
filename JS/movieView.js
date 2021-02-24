@@ -6,9 +6,13 @@ const randomize = function(list) {
     let randomNumber = Math.floor(Math.random() * list.length)
     //console.log(randomNumber)
     let generatedMovie = list[randomNumber]
+    possibleMovieNum.push(generatedMovie);
     return generatedMovie
 
 }
+let randomNumber;
+
+let possibleMovieNum = []
 
 let activityByCategory = [] 
 let activityName;
@@ -113,8 +117,6 @@ const homeElement = function(movies, food){
     }
 
     let moviesByCategory = []
-  
-
    
 
     let movieName;
@@ -134,6 +136,7 @@ const homeElement = function(movies, food){
                 }
               })
 
+            possibleMovieNum = [];
             //console.log(moviesByCategory)
             movieName = randomize(moviesByCategory);
             spinnerSection1Text.innerText = movieName;
@@ -147,21 +150,22 @@ const homeElement = function(movies, food){
         console.log(moviesByCategory)
         // alert("You chose " + event.target.value)
     
-    
+    var choice = Math.floor(Math.random() * 4);
     movieButton.addEventListener("click", () => { 
         console.log(movieName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
-        spinFunction();
+        spinFunction(choice);
        
-       
+        console.log(possibleMovieNum[choice]);
         // activityElement.appendChild(activityNameElement)    
         
         
     }); 
     const spinFunction = function () {
-        let x = 1024; 
-        let y = 9999; 
-        var deg = Math.floor(Math.random() * (x-y)) + y;
+        // let x = 1024; 
+        // let y = 9999; 
+        // var deg = Math.floor(Math.random() * (x-y)) + y;
+        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44;
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
 
         const element = document.getElementById("main-spinner-container-movie");
