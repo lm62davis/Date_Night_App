@@ -10,7 +10,7 @@ const randomize = function(list) {
     return generatedCuisine
 
 }
-
+let possibleCuisineNum = [] /////////////////// 
 let foodByCategory = [] 
 let foodName;
 let spokeName = function () {
@@ -97,7 +97,7 @@ const foodSection = function(food) {
 
     // console.log(newCuisine)
     let finalCuisineList = Array.from(new Set(newCuisine))   //removes duplicates
-    
+    removeSpecialChar(finalCuisineList);
     console.log(finalCuisineList);
     
 
@@ -107,25 +107,11 @@ const foodSection = function(food) {
         const dropdown = document.createElement("option");
         dropdown.innerText = option;
         dropdown.value = option;
-        foodDropdownLabel.appendChild(dropdown)        
+        foodDropdownLabel.appendChild(dropdown) 
+       
     }
-    /////////////////////////////////////////////////
-        // Attempt #1
-    const removeSpecialChar = function () {
-        finalCuisineListChar = finalCuisineList.replaceAll(/ &amp; /g , 'and');           
-
-         // Attempt #2
-        // let removeSpecialChar = finalCuisineList;
-        // let finalCuisineListChar = removeSpecialChar.replaceAll(/&amp;/g, 'and');
-
-        // Attempt #3 - This worked in CodePen.io:
-        // let finalCuisineList = "cofee &amp; tea";
-        // let str = finalCuisineList;
-        // let newstr = str.replace(/&amp;/g, 'and');
-        // console.log(newstr);  
-        
-        console.table(finalCuisineListChar);  
-    }
+    
+    
      /////////////////////////////////////////////
 
     let foodByCategory = []
@@ -160,17 +146,18 @@ const foodSection = function(food) {
     foodButton.addEventListener("click", () => { 
         console.log(foodName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
-        spinFunction();
+          var choice = Math.floor(Math.random() * 4);  //////////////////////
+          spinFunction();
        
-       
+          console.log(possibleCuisineNum[choice]); ////////////// 
         // activityElement.appendChild(activityNameElement)    
         
         
     }); 
+
+ 
     const spinFunction = function () {
-        let x = 1024; 
-        let y = 9999; 
-        var deg = Math.floor(Math.random() * (x-y)) + y;
+        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44; /////////////
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
     }
 

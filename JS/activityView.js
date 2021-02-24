@@ -9,7 +9,7 @@ const randomize = function(list) {
     possibleActivityNum.push(generatedActivity);
     return generatedActivity
 }
-let possibleActivityNum = []
+let possibleActivityNum = []             //////////////////
 let activityByCategory = [] 
 let activityName;
 let spokeName = function () {
@@ -118,11 +118,11 @@ const activitySection = function(activityJSON) {
     activityButton.addEventListener("click", () => { 
         console.log(activityName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
-        var choice = Math.floor(Math.random() * 4); 
+        var choice = Math.floor(Math.random() * 4);  /////////////////
           spinFunction(choice);
           console.log(possibleActivityNum);
             console.log(choice);
-       console.log(possibleActivityNum[choice]);
+       console.log(possibleActivityNum[choice]); //////////////
        
         activityElement.appendChild(activityNameElement)    
         
@@ -130,7 +130,7 @@ const activitySection = function(activityJSON) {
     }); 
     const spinFunction = function (choice) {
 
-        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44;
+        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44; /////////////
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
         
         const element = document.getElementById("main-spinner-container-activity");
