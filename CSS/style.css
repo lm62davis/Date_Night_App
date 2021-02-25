@@ -59,7 +59,7 @@ span {
   position: absolute;
 }
 .spin-labels {
-  color: black;
+  color: rgb(250, 243, 243);
   word-wrap: normal;
   font-family: Arial;
   font-weight: bold;

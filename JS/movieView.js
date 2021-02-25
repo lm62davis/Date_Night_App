@@ -1,16 +1,23 @@
 import { clearChildren } from "./app.js"
 
 const randomize = function(list) {
-    //console.log(list)
-    //console.log(list.length + " list length")
+    // console.log(list)
+    //console.log(list.length + " list lngth")
+    
+    if (list.length ==0) {
+        possibleMovieNum.push("");
+        return "";
+    }
+    else {
     let randomNumber = Math.floor(Math.random() * list.length)
-    //console.log(randomNumber)
-    let generatedMovie = list[randomNumber]
-    possibleMovieNum.push(generatedMovie);
-    return generatedMovie
+        //console.log(randomNumber)
 
+    let generatedMovie = list[randomNumber]
+        possibleMovieNum.push(generatedMovie);
+        list.splice(randomNumber, 1)
+        return generatedMovie
+    }
 }
-let randomNumber;
 
 let possibleMovieNum = []
 
@@ -103,10 +110,12 @@ const homeElement = function(movies, food){
         selectionPopUpCloseButton.innerText = "x"
         selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
     
-    
+        const selectionPopUpContent = document.createElement("div")
+        selectionPopUpContent.classList.add("selection-pop-up-content-movie")
+
         const togglePopUp = function () {
-            const selectionPopUpContent = document.createElement("div")
-            selectionPopUpContent.classList.add("selection-pop-up-content-movie")
+            // let selectionPopUpContent = document.createElement("div")
+            // selectionPopUpContent.classList.add("selection-pop-up-content-movie")
             selectionPopUpContent.innerText = possibleMovieNum[choice];
             selectionPopUpContentDiv.appendChild(selectionPopUpContent);
     
@@ -116,6 +125,9 @@ const homeElement = function(movies, food){
     
         selectionPopUpCloseButton.addEventListener("click", () => {
             togglePopUp()
+            clearChildren(selectionPopUpContent)
+        
+            
         });
 
 
@@ -169,16 +181,16 @@ const homeElement = function(movies, food){
                     })
                 }
               })
-
+            let moviesByCategoryWithoutDuplicates= Array.from(new Set(moviesByCategory))
             possibleMovieNum = [];
             //console.log(moviesByCategory)
-            movieName = randomize(moviesByCategory);
+            movieName = randomize(moviesByCategoryWithoutDuplicates);
             spinnerSection1Text.innerText = movieName;
-            movieName = randomize(moviesByCategory); 
+            movieName = randomize(moviesByCategoryWithoutDuplicates); 
             spinnerSection2Text.innerText = movieName; 
-            movieName = randomize(moviesByCategory);
+            movieName = randomize(moviesByCategoryWithoutDuplicates);
             spinnerSection3Text.innerText = movieName; 
-            movieName = randomize(moviesByCategory);
+            movieName = randomize(moviesByCategoryWithoutDuplicates);
             spinnerSection4Text.innerText = movieName; 
           });
         console.log(moviesByCategory)
