@@ -124,7 +124,7 @@ span {
   font-size: 20px;
 }
 
-.selection-pop-up {
+/* .selection-pop-up {
   width: 200px;
   height: 100px;
   left: 50px;
@@ -136,4 +136,170 @@ span {
   text-align: center;
   font-family: Arial;
   font-size: 20px;
-}
+} */
+
+
+/* Activity selection pop up styling */
+.selection-pop-up-activity .selection-pop-up-overlay-activity{
+  /* position: fixed; */
+  top: 200px; 
+  left: 400px; 
+  width: 100vw; 
+  height: 100vh;
+  z-index:1;
+  display: none;
+  }
+
+  .selection-pop-up-activity .selection-pop-up-content-div-activity {
+    position: absolute; 
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) scale(0); 
+    color: rgb(243, 235, 235);
+    background:rgba(12, 1, 1, 0.87); 
+    font-size: 60px;
+    word-wrap:normal;
+    width: 300px; 
+    height: 300px; 
+    z-index: 2;
+    text-align: center;
+    padding-right: 20px; 
+    padding-left: 20px; 
+    box-sizing: border-box;
+  }
+
+  .selection-pop-up-activity .selection-pop-up-close-button-activity {
+    cursor: pointer;
+    position: absolute; 
+    right: 20px; 
+    top: 20px;
+    width: 30px; 
+    height: 30px; 
+    background: #222;
+    color: #fff; 
+    font-size: 25px;
+    font-weight: 600; 
+    line-height: 30px; 
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .selection-pop-up-activity.active .selection-pop-up-overlay-activity {
+    display: block;
+  }
+
+  .selection-pop-up-activity.active .selection-pop-up-content-div-activity {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1); 
+  }
+
+
+  /* Activity selection pop up styling */
+.selection-pop-up-movie .selection-pop-up-overlay-movie{
+  /* position: fixed; */
+  top: 200px; 
+  left: 400px; 
+  width: 100vw; 
+  height: 100vh;
+  z-index:1;
+  display: none;
+  }
+
+  .selection-pop-up-movie .selection-pop-up-content-div-movie {
+    position: absolute; 
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) scale(0); 
+    color: rgb(243, 235, 235);
+    background:rgba(12, 1, 1, 0.87); 
+    font-size: 60px;
+    word-wrap:normal;
+    width: 300px; 
+    height: 300px; 
+    z-index: 2;
+    text-align: center;
+    padding-right: 20px; 
+    padding-left: 20px; 
+    box-sizing: border-box;
+  }
+
+  .selection-pop-up-movie .selection-pop-up-close-button-movie {
+    cursor: pointer;
+    position: absolute; 
+    right: 20px; 
+    top: 20px;
+    width: 30px; 
+    height: 30px; 
+    background: #222;
+    color: #fff; 
+    font-size: 25px;
+    font-weight: 600; 
+    line-height: 30px; 
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .selection-pop-up-movie.active .selection-pop-up-overlay-movie {
+    display: block;
+  }
+
+  .selection-pop-up-movie.active .selection-pop-up-content-div-movie {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1); 
+  }
+
+    /* Activity selection pop up styling */
+.selection-pop-up-food .selection-pop-up-overlay-food{
+  /* position: fixed; */
+  top: 200px; 
+  left: 400px; 
+  width: 100vw; 
+  height: 100vh;
+  z-index:1;
+  display: none;
+  }
+
+  .selection-pop-up-food .selection-pop-up-content-div-food {
+    position: absolute; 
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) scale(0); 
+    color: rgb(243, 235, 235);
+    background:rgba(12, 1, 1, 0.87); 
+    font-size: 60px;
+    word-wrap:normal;
+    width: 300px; 
+    height: 300px; 
+    z-index: 2;
+    text-align: center;
+    padding-right: 20px; 
+    padding-left: 20px; 
+    box-sizing: border-box;
+  }
+
+  .selection-pop-up-food .selection-pop-up-close-button-food {
+    cursor: pointer;
+    position: absolute; 
+    right: 20px; 
+    top: 20px;
+    width: 30px; 
+    height: 30px; 
+    background: #222;
+    color: #fff;  
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600; 
+    line-height: 30px; 
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .selection-pop-up-food.active .selection-pop-up-overlay-food {
+    display: block;
+  }
+
+  .selection-pop-up-food.active .selection-pop-up-content-div-food {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1); 
+  }

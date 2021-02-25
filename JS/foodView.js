@@ -99,6 +99,40 @@ const foodSection = function(food) {
     foodButton.classList.add("generate-button")
     foodButton.innerText = "SPIN"
     mainSpinnerContainer.appendChild(foodButton)
+
+            //Pop-up box functionality
+            const selectionPopUp = document.createElement("div")
+            selectionPopUp.classList.add("selection-pop-up-food")
+            selectionPopUp.setAttribute("id", "selection-pop-up-food")
+            mainSpinnerContainer.appendChild(selectionPopUp);
+        
+            const selectionPopUpOverlay = document.createElement("div")
+            selectionPopUpOverlay.classList.add("selection-pop-up-overlay-food")
+            selectionPopUp.appendChild(selectionPopUpOverlay);
+        
+            const selectionPopUpContentDiv = document.createElement("div")
+            selectionPopUpContentDiv.classList.add("selection-pop-up-content-div-food")
+            selectionPopUpOverlay.appendChild(selectionPopUpContentDiv);
+        
+            const selectionPopUpCloseButton = document.createElement("button")
+            selectionPopUpCloseButton.classList.add("selection-pop-up-close-button-food")
+            selectionPopUpCloseButton.innerText = "x"
+            selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
+        
+        
+            const togglePopUp = function () {
+                const selectionPopUpContent = document.createElement("div")
+                selectionPopUpContent.classList.add("selection-pop-up-content-food")
+                selectionPopUpContent.innerText = possibleFoodNum[choice];
+                selectionPopUpContentDiv.appendChild(selectionPopUpContent);
+        
+                selectionPopUp.classList.toggle("active") 
+                console.log(possibleFoodNum[choice])
+            } 
+        
+            selectionPopUpCloseButton.addEventListener("click", () => {
+                togglePopUp()
+            });
     
     let cuisine = []
     // console.log(restaurant_name)
@@ -154,13 +188,13 @@ const foodSection = function(food) {
             possibleFoodNum = [];
             foodName = randomize(foodByCategory);
             spinnerSection1Text.innerText = foodName;
-            foodByCategory = foodByCategory.splice(foodName,randomNumber);
+            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
             foodName = randomize(foodByCategory); 
             spinnerSection2Text.innerText = foodName;
-            foodByCategory = foodByCategory.splice(foodName,randomNumber);
+            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
             foodName = randomize(foodByCategory);
             spinnerSection3Text.innerText = foodName; 
-            foodByCategory = foodByCategory.splice(foodName,randomNumber);
+            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
             foodName = randomize(foodByCategory);
             spinnerSection4Text.innerText = foodName; 
           });
@@ -182,22 +216,22 @@ const foodSection = function(food) {
     
         
     }); 
-    let selectionPopUp;
-    const toggleSelection = function () {
-        selectionPopUp = document.createElement("div")
-        selectionPopUp.classList.add("selection-pop-up")
-        selectionPopUp.innerText = possibleFoodNum[choice];
-        mainSpinnerContainer.appendChild(selectionPopUp);
+    // let selectionPopUp;
+    // const toggleSelection = function () {
+    //     selectionPopUp = document.createElement("div")
+    //     selectionPopUp.classList.add("selection-pop-up")
+    //     selectionPopUp.innerText = possibleFoodNum[choice];
+    //     mainSpinnerContainer.appendChild(selectionPopUp);
 
 
-        selectionPopUp.classList.toggle("generate-button");
+    //     selectionPopUp.classList.toggle("generate-button");
      
-        // selectionPopUp.addEventListener("click", () => {
-        // setTimeout(selectionPopUp.remove(),5000);
+    //     // selectionPopUp.addEventListener("click", () => {
+    //     // setTimeout(selectionPopUp.remove(),5000);
             
-        // });
+    //     // });
      
-    }
+    // }
 
 
 
@@ -213,7 +247,8 @@ const foodSection = function(food) {
         element.classList.remove('animate')
         setTimeout(function() {
             element.classList.add('animate')
-            toggleSelection();
+            togglePopUp()
+            // toggleSelection();
 
         }, 5000)
     }
