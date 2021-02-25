@@ -76,11 +76,40 @@ const activitySection = function(activityJSON) {
     activityButton.innerText = "SPIN"
     mainSpinnerContainer.appendChild(activityButton)
 
-    // selectionPopUp = document.createElement("div")
-    // selectionPopUp.classList.add("selection-pop-up")
-    // selectionPopUp.innerText = possibleActivityNum[choice];
-    // // selectionPopUp.style.display= "none";
-    // mainSpinnerContainer.appendChild(selectionPopUp);
+    //Pop-up box functionality
+    const selectionPopUp = document.createElement("div")
+    selectionPopUp.classList.add("selection-pop-up-activity")
+    selectionPopUp.setAttribute("id", "selection-pop-up-activity")
+    mainSpinnerContainer.appendChild(selectionPopUp);
+
+    const selectionPopUpOverlay = document.createElement("div")
+    selectionPopUpOverlay.classList.add("selection-pop-up-overlay-activity")
+    selectionPopUp.appendChild(selectionPopUpOverlay);
+
+    const selectionPopUpContentDiv = document.createElement("div")
+    selectionPopUpContentDiv.classList.add("selection-pop-up-content-div-activity")
+    selectionPopUpOverlay.appendChild(selectionPopUpContentDiv);
+
+    const selectionPopUpCloseButton = document.createElement("button")
+    selectionPopUpCloseButton.classList.add("selection-pop-up-close-button-activity")
+    selectionPopUpCloseButton.innerText = "x"
+    selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
+
+
+    const togglePopUp = function () {
+        const selectionPopUpContent = document.createElement("div")
+        selectionPopUpContent.classList.add("selection-pop-up-content-activity")
+        selectionPopUpContent.innerText = possibleActivityNum[choice];
+        selectionPopUpContentDiv.appendChild(selectionPopUpContent);
+
+        selectionPopUp.classList.toggle("active") 
+        console.log(possibleActivityNum[choice])
+    } 
+
+    selectionPopUpCloseButton.addEventListener("click", () => {
+        togglePopUp()
+    });
+
 
     let activityType = []
     // console.log(restaurant_name)
@@ -151,7 +180,8 @@ const activitySection = function(activityJSON) {
         const element = document.getElementById("main-spinner-container-activity");
         element.classList.remove('animate')
         setTimeout(function() {
-            element.classList.add('animate')
+            element.classList.add('animate') 
+            togglePopUp()
         }, 5000)
     }
     

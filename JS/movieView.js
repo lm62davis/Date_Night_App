@@ -84,6 +84,40 @@ const homeElement = function(movies, food){
     movieButton.innerText = "SPIN"
     mainSpinnerContainer.appendChild(movieButton)
 
+        //Pop-up box functionality
+        const selectionPopUp = document.createElement("div")
+        selectionPopUp.classList.add("selection-pop-up-movie")
+        selectionPopUp.setAttribute("id", "selection-pop-up-movie")
+        mainSpinnerContainer.appendChild(selectionPopUp);
+    
+        const selectionPopUpOverlay = document.createElement("div")
+        selectionPopUpOverlay.classList.add("selection-pop-up-overlay-movie")
+        selectionPopUp.appendChild(selectionPopUpOverlay);
+    
+        const selectionPopUpContentDiv = document.createElement("div")
+        selectionPopUpContentDiv.classList.add("selection-pop-up-content-div-movie")
+        selectionPopUpOverlay.appendChild(selectionPopUpContentDiv);
+    
+        const selectionPopUpCloseButton = document.createElement("button")
+        selectionPopUpCloseButton.classList.add("selection-pop-up-close-button-movie")
+        selectionPopUpCloseButton.innerText = "x"
+        selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
+    
+    
+        const togglePopUp = function () {
+            const selectionPopUpContent = document.createElement("div")
+            selectionPopUpContent.classList.add("selection-pop-up-content-movie")
+            selectionPopUpContent.innerText = possibleMovieNum[choice];
+            selectionPopUpContentDiv.appendChild(selectionPopUpContent);
+    
+            selectionPopUp.classList.toggle("active") 
+            console.log(possibleMovieNum[choice])
+        } 
+    
+        selectionPopUpCloseButton.addEventListener("click", () => {
+            togglePopUp()
+        });
+
 
     let genre = []
     
@@ -172,6 +206,7 @@ const homeElement = function(movies, food){
         element.classList.remove('animate')
         setTimeout(function() {
             element.classList.add('animate')
+            togglePopUp()
         }, 5000)
 
     }
