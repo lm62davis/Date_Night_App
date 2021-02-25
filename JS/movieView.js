@@ -29,7 +29,7 @@ let spokeName = function () {
     return activityName;
     }
 
-const homeElement = function(movies, food){
+const homeElement = function(movies, food, moviePosters){
  
     const mainElement = document.createElement("div");
     mainElement.classList.add("main-container")
@@ -117,6 +117,7 @@ const homeElement = function(movies, food){
             // let selectionPopUpContent = document.createElement("div")
             // selectionPopUpContent.classList.add("selection-pop-up-content-movie")
             selectionPopUpContent.innerText = possibleMovieNum[choice];
+            selectionPopUpContent.src = "";
             selectionPopUpContentDiv.appendChild(selectionPopUpContent);
     
             selectionPopUp.classList.toggle("active") 
@@ -136,9 +137,17 @@ const homeElement = function(movies, food){
     movies.movie_results.forEach(movie => {
         genre.push(movie.genres);
     //    console.log(genre)
+
+    
        
     });
-   
+    let posterList = []
+    // moviePosters.forEach(moviePoster => {
+    //     posterList.push(moviePoster.poster)
+        
+    // })
+    console.log(posterList)
+
     let newGenre = [];
   
     for (let i in genre) {          //change to forEach
