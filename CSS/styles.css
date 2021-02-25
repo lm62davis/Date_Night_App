@@ -17,23 +17,23 @@ body{
 	text-align: center;
 }
 
-.animate.backwards > span{
+.animate.backwards{
     color: hotpink;
 	animation: animateBackwards 1s ease-in-out 
 forwards;
 }
-.animate.forwards > span{
+.animate.forwards{
     color: purple;
 	animation: animateForwards 1s ease-in-out 
 forwards;
 }
 
-.animate.mixed > span:nth-child(even){
+.animate.mixed:nth-child(even){
     color: crimson;
 	animation: animateBackwards 1s ease-in-out 
 forwards;
 }
-.animate.mixed > span:nth-child(odd){
+.animate.mixed:nth-child(odd){
     color: pink;
 	animation: animateForwards 1s ease-in-out 
 forwards;

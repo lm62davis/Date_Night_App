@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04bb200d-ce73-4b62-b34e-9575b0744c3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/JS/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/app.js" afterDir="false" />
-    </list>
+    <list default="true" id="04bb200d-ce73-4b62-b34e-9575b0744c3c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +56,7 @@
       <workItem from="1613418709942" duration="770000" />
       <workItem from="1613496527733" duration="55000" />
       <workItem from="1613598065028" duration="58000" />
+      <workItem from="1614124507961" duration="78000" />
     </task>
     <servers />
   </component>
@@ -74,6 +73,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="275" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613598092023">

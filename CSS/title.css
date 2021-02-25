@@ -2,7 +2,10 @@ body {
     justify-content: center;
     align-items: center;
     padding: 150px;
-
+}
+.ticket-image{
+    width: 150px;
+    height: 70px;
 }
 .wrapper {
     position: absolute;
