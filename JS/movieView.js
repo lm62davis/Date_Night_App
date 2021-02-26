@@ -116,6 +116,7 @@ const homeElement = function(movies, food){
         selectionPopUpContent.classList.add("selection-pop-up-content-movie")
 
         const movieImage = document.createElement("img")
+        movieImage.classList.add("movie-poster")
 
         const togglePopUp = function () {
             // let selectionPopUpContent = document.createElement("div")
@@ -136,15 +137,17 @@ const homeElement = function(movies, food){
         .then((moviePoster) => {
             console.log(moviePoster)
             movieImage.src = moviePoster.poster;
+    
         })
         .catch(err => {
         console.error(err);
         });
         
-            selectionPopUpContent.innerText = possibleMovieNum[choice];
+          //  selectionPopUpContent.innerText = possibleMovieNum[choice];
             selectionPopUpContentDiv.appendChild(selectionPopUpContent);
 
             movieImage.src = "";
+            movieImage.alt = possibleMovieNum[choice]
             selectionPopUpContentDiv.appendChild(movieImage)
             
             
@@ -162,28 +165,21 @@ const homeElement = function(movies, food){
 
 
     let genre = []
-    let movieIdPair = new Map();
-    
+
     movies.movie_results.forEach(movie => {
         genre.push(movie.genres);
-        movieIdPair.set(movie.imdb_id, movie.title)
-        
-    //    console.log(genre)
     });
 
     let newGenre = [];
   
-    for (let i in genre) {          //change to forEach
+    for (let i in genre) {          
         for (let j in genre[i]) {
             newGenre.push(genre[i][j]);
-            
         }
     }
 
-   
-    let finalGenreList = Array.from(new Set(newGenre))   //removes duplicates
-     
-
+    let finalGenreList = Array.from(new Set(newGenre))  
+  
     //create dropdown options
     for (let i = 0; i < finalGenreList.length; i++) {
         const option = finalGenreList[i];
@@ -192,9 +188,6 @@ const homeElement = function(movies, food){
         dropdown.value = option;
         movieDropdownLabel.appendChild(dropdown)        
     }
-
-     
-
 
     let moviesByCategory = []
     let movieIDsByCategory = []
