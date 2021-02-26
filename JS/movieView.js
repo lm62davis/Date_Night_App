@@ -1,26 +1,28 @@
 import { clearChildren } from "./app.js"
 
-const randomize = function(list) {
+const randomize = function(title, id){
     // console.log(list)
     //console.log(list.length + " list lngth")
     
-    if (list.length ==0) {
+    if (title.length ==0) {
         possibleMovieNum.push("");
         return "";
     }
     else {
-    let randomNumber = Math.floor(Math.random() * list.length)
+    let randomNumber = Math.floor(Math.random() * title.length)
         //console.log(randomNumber)
 
-    let generatedMovie = list[randomNumber]
-        possibleMovieNum.push(generatedMovie);
-        list.splice(randomNumber, 1)
-        return generatedMovie
+    let generatedName = title[randomNumber]
+        possibleMovieNum.push(generatedName) 
+        possibleIDNum.push(id[randomNumber])
+        title.splice(randomNumber, 1)
+        id.splice(randomNumber, 1)
+        return generatedName
     }
 }
 
 let possibleMovieNum = []
-
+let possibleIDNum = []
 let activityByCategory = [] 
 let activityName;
 let spokeName = function () {
@@ -29,7 +31,7 @@ let spokeName = function () {
     return activityName;
     }
 
-const homeElement = function(movies, food, moviePosters){
+const homeElement = function(movies, food){
  
     const mainElement = document.createElement("div");
     mainElement.classList.add("main-container")
@@ -113,12 +115,39 @@ const homeElement = function(movies, food, moviePosters){
         const selectionPopUpContent = document.createElement("div")
         selectionPopUpContent.classList.add("selection-pop-up-content-movie")
 
+        const movieImage = document.createElement("img")
+
         const togglePopUp = function () {
             // let selectionPopUpContent = document.createElement("div")
             // selectionPopUpContent.classList.add("selection-pop-up-content-movie")
+            console.log(possibleIDNum)
+            console.log(possibleMovieNum)
+            console.log(possibleIDNum[choice])
+            console.log(possibleMovieNum[choice])
+
+            fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=${possibleIDNum[choice]}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
+            "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
+        }
+        })
+        .then(response => response.json())
+        .then((moviePoster) => {
+            console.log(moviePoster)
+            movieImage.src = moviePoster.poster;
+        })
+        .catch(err => {
+        console.error(err);
+        });
+        
             selectionPopUpContent.innerText = possibleMovieNum[choice];
-            selectionPopUpContent.src = "";
             selectionPopUpContentDiv.appendChild(selectionPopUpContent);
+
+            movieImage.src = "";
+            selectionPopUpContentDiv.appendChild(movieImage)
+            
+            
     
             selectionPopUp.classList.toggle("active") 
             console.log(possibleMovieNum[choice])
@@ -133,20 +162,14 @@ const homeElement = function(movies, food, moviePosters){
 
 
     let genre = []
+    let movieIdPair = new Map();
     
     movies.movie_results.forEach(movie => {
         genre.push(movie.genres);
-    //    console.log(genre)
-
-    
-       
-    });
-    let posterList = []
-    // moviePosters.forEach(moviePoster => {
-    //     posterList.push(moviePoster.poster)
+        movieIdPair.set(movie.imdb_id, movie.title)
         
-    // })
-    console.log(posterList)
+    //    console.log(genre)
+    });
 
     let newGenre = [];
   
@@ -171,47 +194,53 @@ const homeElement = function(movies, food, moviePosters){
         movieDropdownLabel.appendChild(dropdown)        
     }
 
+     
+
+
     let moviesByCategory = []
-   
+    let movieIDsByCategory = []
 
     let movieName;
     
     movieDropdownLabel.addEventListener("change", () => {
             // wheelAnimation();
             moviesByCategory = [] 
+            movieIDsByCategory = []
             movies.movie_results.forEach(movie => {
                 console.log(movie)
                 if(movie.genres != null){
                     movie.genres.forEach(genre => {
                         if(genre === movieDropdownLabel.value) {      //find alternative to event.target.value
                             moviesByCategory.push(movie.title)
+                            movieIDsByCategory.push(movie.imdb_id)
                             //moviesByYoutube.push(movie.)
                         }
                     })
                 }
               })
-            let moviesByCategoryWithoutDuplicates= Array.from(new Set(moviesByCategory))
+            //let moviesByCategoryWithoutDuplicates= Array.from(new Set(moviesByCategory))
             possibleMovieNum = [];
+            possibleIDNum = []
             //console.log(moviesByCategory)
-            movieName = randomize(moviesByCategoryWithoutDuplicates);
+            movieName = randomize(moviesByCategory, movieIDsByCategory);
             spinnerSection1Text.innerText = movieName;
-            movieName = randomize(moviesByCategoryWithoutDuplicates); 
+            movieName = randomize(moviesByCategory, movieIDsByCategory); 
             spinnerSection2Text.innerText = movieName; 
-            movieName = randomize(moviesByCategoryWithoutDuplicates);
+            movieName = randomize(moviesByCategory, movieIDsByCategory);
             spinnerSection3Text.innerText = movieName; 
-            movieName = randomize(moviesByCategoryWithoutDuplicates);
+            movieName = randomize(moviesByCategory, movieIDsByCategory);
             spinnerSection4Text.innerText = movieName; 
           });
-        console.log(moviesByCategory)
+        //console.log(moviesByCategory)
         // alert("You chose " + event.target.value)
     
     var choice = Math.floor(Math.random() * 4);
     movieButton.addEventListener("click", () => { 
-        console.log(movieName)
+        //.log(movieName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
         spinFunction(choice);
        
-        console.log(possibleMovieNum[choice]);
+        //console.log(possibleMovieNum[choice]);
         // activityElement.appendChild(activityNameElement)    
         
         
@@ -237,5 +266,5 @@ const homeElement = function(movies, food, moviePosters){
   
 
     return mainElement
-} 
+}
 export {homeElement};

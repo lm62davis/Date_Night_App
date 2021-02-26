@@ -21,12 +21,12 @@ let foodJson = "";
 let foodJson2 = "";
 let foodJson3 = "";
 let allFoods = "";
-//  let moviePosterJson = "";
+let moviePosterJson = "";
 
 
 
 const checkIfAllLoaded = function() {
-	if(movieJson != "" && foodJson != "" && movieJson2 != "" && movieJson3 != "" && foodJson2 != "" && foodJson3 != "") {
+	if(movieJson != "" && foodJson != "" && movieJson2 != "" && movieJson3 != "" && foodJson2 != "" && foodJson3 != "" ) {
 		allMovies = movieJson;
 		allFoods = foodJson;
 		movieJson2.movie_results.forEach(movie => {
@@ -41,9 +41,9 @@ const checkIfAllLoaded = function() {
 		foodJson3.result.data.forEach(cuisine => {
 			allFoods.result.data.push(cuisine)
 		});
-		allMovies.movie_results.forEach(movie => {
+		// allMovies.movie_results.forEach(movie => {
 		
-		});
+		// });
 		displayHomeView (allMovies, allFoods)
 		console.log(movieJson);
 		console.log(movieJson2)
@@ -58,11 +58,11 @@ const checkIfAllLoaded = function() {
 	}
 }
 
-const displayHomeView = function(movies, food, moviePosters) {
+const displayHomeView = function(movies, food) {
     clearChildren(container);
     let header = createHeader();
     container.prepend(header);
-    let mainElement = homeElement(movies, moviePosters);   
+    let mainElement = homeElement(movies);   
     container.appendChild(mainElement);
 	let main2Element = foodSection(food);
 	container.appendChild(main2Element)
@@ -75,7 +75,7 @@ const displayHomeView = function(movies, food, moviePosters) {
 // let multipleMovieLists = []; 
 
 
-fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1", {
+fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=${Math.floor(Math.random() * 1000)}`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
@@ -97,7 +97,7 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 
 
 
-fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=2",  {
+fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=${Math.floor(Math.random() * 1000)}`,  {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
@@ -115,7 +115,7 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 	console.error(err);
 });
 
-fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=3",  {
+fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=${Math.floor(Math.random() * 1000)}`,  {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
@@ -127,7 +127,7 @@ fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&p
 .then((response) => response.json())
 .then((movies) => {
 	movieJson3= movies
-	checkIfAllLoaded()
+	checkIfAllLoaded();
 })
 .catch(err => {
 	console.error(err);
