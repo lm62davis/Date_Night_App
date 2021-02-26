@@ -197,8 +197,6 @@ export { clearChildren}
 
 
 
-/// <reference path="../typings/tsd.d.ts" />
-
 
 
 

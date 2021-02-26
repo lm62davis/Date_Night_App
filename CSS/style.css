@@ -105,9 +105,8 @@ span {
   position: absolute;
   top: 37%;
   left: 37%;
-
+  /* typo below - fixing it causing the spin buttons to move out of place*/
   transform: transalte(-50%, -50%);
-  width: 75px;
   height: 75px;
   border-radius: 50%;
   /* border: 4px solid #fff; */
