@@ -2,7 +2,9 @@ import { clearChildren } from "./app.js"
 
 //Choice selection/randomization
 let possibleFoodNum = []
-const randomize = function(list) {
+let possibleLatNum = []
+let possibleLongNum = []
+const randomize = function(list, lat, long) {
     if (list.length ==0) {
         possibleFoodNum.push("");
         return "";
@@ -11,7 +13,12 @@ const randomize = function(list) {
     let randomNumber = Math.floor(Math.random() * list.length)
     let generatedCuisine = list[randomNumber]
         possibleFoodNum.push(generatedCuisine);
+        possibleLatNum.push(lat[randomNumber]);
+        possibleLongNum.push(long[randomNumber])
+
         list.splice(randomNumber, 1)
+        lat.splice(randomNumber, 1)
+        long.splice(randomNumber, 1)
         return generatedCuisine
     }
 }
@@ -104,12 +111,18 @@ const foodSection = function(food) {
             selectionPopUpCloseButton.innerText = "x"
             selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
         
+            const googleMapDiv = document.createElement("div")
+            googleMapDiv.classList.add("google-map")
+            selectionPopUpContentDiv.appendChild(googleMapDiv);
+
             const selectionPopUpContent = document.createElement("div")
                 selectionPopUpContent.classList.add("selection-pop-up-content-food")
 
             const togglePopUp = function () {
+                initMap();
                 selectionPopUpContent.innerText = possibleFoodNum[choice];
                 selectionPopUpContentDiv.appendChild(selectionPopUpContent);
+
         
                 selectionPopUp.classList.toggle("active") 
                 console.log(possibleFoodNum[choice])
@@ -153,38 +166,44 @@ const foodSection = function(food) {
    
 
     let foodByCategory = []
+    let latByCategory = []
+    let longByCategory = []
 
     let foodName;
     
     foodDropdownLabel.addEventListener("change", () => {
             // wheelAnimation();
             foodByCategory = [] 
-            
+            latByCategory = []
+            longByCategory = []
+        
             food.result.data.forEach(foods => {
                 if(foods.cuisines != null) {
                     foods.cuisines.forEach(cuisine => {
                         if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
                             foodByCategory.push(foods.restaurant_name)
-                            //moviesByYoutube.push(movie.)
+                            latByCategory.push(foods.geo.lat)
+                            longByCategory.push(foods.geo.lon)
                         }
                     })
                 }
               })
 
-            let foodByCategoryWithoutDuplicates= Array.from(new Set(foodByCategory))
-            console.log(foodByCategory)
-            console.log(foodByCategoryWithoutDuplicates)
+
+
             possibleFoodNum = [];
-            foodName = randomize(foodByCategoryWithoutDuplicates);
+            possibleLatNum = [];
+            possibleLongNum = [];
+            foodName = randomize(foodByCategory, latByCategory, longByCategory);
             spinnerSection1Text.innerText = foodName;
             // foodByCategory = foodByCategory.splice(foodName,randomNumber);
-            foodName = randomize(foodByCategoryWithoutDuplicates); 
+            foodName = randomize(foodByCategory, latByCategory, longByCategory); 
             spinnerSection2Text.innerText = foodName;
             // foodByCategory = foodByCategory.splice(foodName,randomNumber);
-            foodName = randomize(foodByCategoryWithoutDuplicates);
+            foodName = randomize(foodByCategory, latByCategory, longByCategory);
             spinnerSection3Text.innerText = foodName; 
             // foodByCategory = foodByCategory.splice(foodName,randomNumber);
-            foodName = randomize(foodByCategoryWithoutDuplicates);
+            foodName = randomize(foodByCategory, latByCategory, longByCategory);
             spinnerSection4Text.innerText = foodName; 
 
           });
@@ -245,17 +264,36 @@ const foodSection = function(food) {
         }, 5000)
     }
 
-      
+    let map;
+    document.addEventListener("DOMContentLoaded", () => 
+    {
+ 
+        googleScript.addEventListener("load", () => {
+            console.log("script has loaded");
+
+        const initMap = function () {   
+            map = new google.maps.Map(document.getElementsByClass("google-map"), {
+                center: {
+                    lat: possibleLatNum[choice],
+                    lng: possibleLongNum[choice]
+                },
+                zoom: 16,
+                mapTypeId: google.maps.mapTypeId.ROADMAP
+            });
+    
+        googleMapDiv.src = ""
+        // `https://maps.googleapis.com/maps/api/js?key=AIzaSyDhNT273nfkX6yhBC_a08TCMNAFc3px1Vk`;
+    };   
+
        
     
-    
-    
-  
+     
 
     return mainElement
     
-    
+ 
 
-}
+})
 
 export {foodSection}
+
