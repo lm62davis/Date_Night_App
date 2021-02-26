@@ -303,3 +303,8 @@ span {
     transition: all 300ms ease-in-out;
     transform: translate(-50%,-50%) scale(1); 
   }
+
+  .movie-poster{
+    width: 100px;
+    height: 200px;
+  }
