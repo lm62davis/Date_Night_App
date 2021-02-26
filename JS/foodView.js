@@ -1,41 +1,26 @@
 import { clearChildren } from "./app.js"
 
-const randomize = function(list) {
-    console.log(list)
-    //console.log(list.length + " list lngth")
-    
-    randomNumber = Math.floor(Math.random() * list.length)
-        //console.log(randomNumber)
-
-    let generatedCuisine = list[randomNumber]
-    
-    // for (let i in possibleFoodNum) {
-    //     if (generatedCuisine===i) {
-    //         randomize(list)
-    //     }
-        possibleFoodNum.push(generatedCuisine);
-    // }
-    // console.log(possibleFoodNum)
-    // console.log(generatedCuisine)
-    return generatedCuisine
-
-}
-let randomNumber;
-
+//Choice selection/randomization
 let possibleFoodNum = []
-let foodByCategory = []
-let foodName;
-// let spokeName = function () {
-//     foodName = randomize(foodByCategory);
-//     // activityNameElement.innerText = activityName; 
-//     return foodName;
-//     }
+const randomize = function(list) {
+    if (list.length ==0) {
+        possibleFoodNum.push("");
+        return "";
+    }
+    else {
+    let randomNumber = Math.floor(Math.random() * list.length)
+    let generatedCuisine = list[randomNumber]
+        possibleFoodNum.push(generatedCuisine);
+        list.splice(randomNumber, 1)
+        return generatedCuisine
+    }
+}
 
     const removeSpecialChar = function (finalCuisineList) {
                   
         for (let i = 0; i < finalCuisineList.length; i++) {
             finalCuisineList[i] = finalCuisineList[i].replaceAll('&amp;' , 'and'); 
-            console.log(finalCuisineList[i])
+            // console.log(finalCuisineList[i])
         }
     }
 
@@ -99,6 +84,41 @@ const foodSection = function(food) {
     foodButton.classList.add("generate-button")
     foodButton.innerText = "SPIN"
     mainSpinnerContainer.appendChild(foodButton)
+
+            //Pop-up box functionality
+            const selectionPopUp = document.createElement("div")
+            selectionPopUp.classList.add("selection-pop-up-food")
+            selectionPopUp.setAttribute("id", "selection-pop-up-food")
+            mainSpinnerContainer.appendChild(selectionPopUp);
+        
+            const selectionPopUpOverlay = document.createElement("div")
+            selectionPopUpOverlay.classList.add("selection-pop-up-overlay-food")
+            selectionPopUp.appendChild(selectionPopUpOverlay);
+        
+            const selectionPopUpContentDiv = document.createElement("div")
+            selectionPopUpContentDiv.classList.add("selection-pop-up-content-div-food")
+            selectionPopUpOverlay.appendChild(selectionPopUpContentDiv);
+        
+            const selectionPopUpCloseButton = document.createElement("button")
+            selectionPopUpCloseButton.classList.add("selection-pop-up-close-button-food")
+            selectionPopUpCloseButton.innerText = "x"
+            selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
+        
+            const selectionPopUpContent = document.createElement("div")
+                selectionPopUpContent.classList.add("selection-pop-up-content-food")
+
+            const togglePopUp = function () {
+                selectionPopUpContent.innerText = possibleFoodNum[choice];
+                selectionPopUpContentDiv.appendChild(selectionPopUpContent);
+        
+                selectionPopUp.classList.toggle("active") 
+                console.log(possibleFoodNum[choice])
+            } 
+        
+            selectionPopUpCloseButton.addEventListener("click", () => {
+                togglePopUp()
+                clearChildren(selectionPopUpContent)
+            });
     
     let cuisine = []
     // console.log(restaurant_name)
@@ -117,7 +137,7 @@ const foodSection = function(food) {
     }
     let finalCuisineList = Array.from(new Set(newCuisine))   //removes duplicates
     removeSpecialChar(finalCuisineList);
-    console.log(finalCuisineList);
+    // console.log(finalCuisineList);
     //moves duplicates
   
     
@@ -133,7 +153,6 @@ const foodSection = function(food) {
    
 
     let foodByCategory = []
-  
 
     let foodName;
     
@@ -151,53 +170,60 @@ const foodSection = function(food) {
                     })
                 }
               })
+
+            let foodByCategoryWithoutDuplicates= Array.from(new Set(foodByCategory))
+            console.log(foodByCategory)
+            console.log(foodByCategoryWithoutDuplicates)
             possibleFoodNum = [];
-            foodName = randomize(foodByCategory);
+            foodName = randomize(foodByCategoryWithoutDuplicates);
             spinnerSection1Text.innerText = foodName;
-            foodByCategory = foodByCategory.splice(foodName,randomNumber);
-            foodName = randomize(foodByCategory); 
+            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
+            foodName = randomize(foodByCategoryWithoutDuplicates); 
             spinnerSection2Text.innerText = foodName;
-            foodByCategory = foodByCategory.splice(foodName,randomNumber);
-            foodName = randomize(foodByCategory);
+            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
+            foodName = randomize(foodByCategoryWithoutDuplicates);
             spinnerSection3Text.innerText = foodName; 
-            foodByCategory = foodByCategory.splice(foodName,randomNumber);
-            foodName = randomize(foodByCategory);
+            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
+            foodName = randomize(foodByCategoryWithoutDuplicates);
             spinnerSection4Text.innerText = foodName; 
+
           });
-        console.log(foodByCategory)
+
+
         // alert("You chose " + event.target.value)
+
     
     var choice = Math.floor(Math.random() * 4);
     foodButton.addEventListener("click", () => { 
-        console.log(foodName)
+        // console.log(foodName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
         spinFunction(choice); 
         
-        console.log(possibleFoodNum);
-        console.log(choice);
-        console.log(possibleFoodNum[choice]);
+        // console.log(possibleFoodNum);
+        // console.log(choice);
+        // console.log(possibleFoodNum[choice]);
        
        
         // activityElement.appendChild(activityNameElement)    
     
         
     }); 
-    let selectionPopUp;
-    const toggleSelection = function () {
-        selectionPopUp = document.createElement("div")
-        selectionPopUp.classList.add("selection-pop-up")
-        selectionPopUp.innerText = possibleFoodNum[choice];
-        mainSpinnerContainer.appendChild(selectionPopUp);
+    // let selectionPopUp;
+    // const toggleSelection = function () {
+    //     selectionPopUp = document.createElement("div")
+    //     selectionPopUp.classList.add("selection-pop-up")
+    //     selectionPopUp.innerText = possibleFoodNum[choice];
+    //     mainSpinnerContainer.appendChild(selectionPopUp);
 
 
-        selectionPopUp.classList.toggle("generate-button");
+    //     selectionPopUp.classList.toggle("generate-button");
      
-        // selectionPopUp.addEventListener("click", () => {
-        // setTimeout(selectionPopUp.remove(),5000);
+    //     // selectionPopUp.addEventListener("click", () => {
+    //     // setTimeout(selectionPopUp.remove(),5000);
             
-        // });
+    //     // });
      
-    }
+    // }
 
 
 
@@ -213,7 +239,8 @@ const foodSection = function(food) {
         element.classList.remove('animate')
         setTimeout(function() {
             element.classList.add('animate')
-            toggleSelection();
+            togglePopUp()
+            // toggleSelection();
 
         }, 5000)
     }

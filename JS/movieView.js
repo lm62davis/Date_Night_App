@@ -1,19 +1,28 @@
 import { clearChildren } from "./app.js"
 
-const randomize = function(list) {
-    //console.log(list)
-    //console.log(list.length + " list length")
-    let randomNumber = Math.floor(Math.random() * list.length)
-    //console.log(randomNumber)
-    let generatedMovie = list[randomNumber]
-    possibleMovieNum.push(generatedMovie);
-    return generatedMovie
+const randomize = function(title, id){
+    // console.log(list)
+    //console.log(list.length + " list lngth")
+    
+    if (title.length ==0) {
+        possibleMovieNum.push("");
+        return "";
+    }
+    else {
+    let randomNumber = Math.floor(Math.random() * title.length)
+        //console.log(randomNumber)
 
+    let generatedName = title[randomNumber]
+        possibleMovieNum.push(generatedName) 
+        possibleIDNum.push(id[randomNumber])
+        title.splice(randomNumber, 1)
+        id.splice(randomNumber, 1)
+        return generatedName
+    }
 }
-let randomNumber;
 
 let possibleMovieNum = []
-
+let possibleIDNum = []
 let activityByCategory = [] 
 let activityName;
 let spokeName = function () {
@@ -84,15 +93,84 @@ const homeElement = function(movies, food){
     movieButton.innerText = "SPIN"
     mainSpinnerContainer.appendChild(movieButton)
 
+        //Pop-up box functionality
+        const selectionPopUp = document.createElement("div")
+        selectionPopUp.classList.add("selection-pop-up-movie")
+        selectionPopUp.setAttribute("id", "selection-pop-up-movie")
+        mainSpinnerContainer.appendChild(selectionPopUp);
+    
+        const selectionPopUpOverlay = document.createElement("div")
+        selectionPopUpOverlay.classList.add("selection-pop-up-overlay-movie")
+        selectionPopUp.appendChild(selectionPopUpOverlay);
+    
+        const selectionPopUpContentDiv = document.createElement("div")
+        selectionPopUpContentDiv.classList.add("selection-pop-up-content-div-movie")
+        selectionPopUpOverlay.appendChild(selectionPopUpContentDiv);
+    
+        const selectionPopUpCloseButton = document.createElement("button")
+        selectionPopUpCloseButton.classList.add("selection-pop-up-close-button-movie")
+        selectionPopUpCloseButton.innerText = "x"
+        selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
+    
+        const selectionPopUpContent = document.createElement("div")
+        selectionPopUpContent.classList.add("selection-pop-up-content-movie")
+
+        const movieImage = document.createElement("img")
+
+        const togglePopUp = function () {
+            // let selectionPopUpContent = document.createElement("div")
+            // selectionPopUpContent.classList.add("selection-pop-up-content-movie")
+            console.log(possibleIDNum)
+            console.log(possibleMovieNum)
+            console.log(possibleIDNum[choice])
+            console.log(possibleMovieNum[choice])
+
+            fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=${possibleIDNum[choice]}`, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
+            "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
+        }
+        })
+        .then(response => response.json())
+        .then((moviePoster) => {
+            console.log(moviePoster)
+            movieImage.src = moviePoster.poster;
+        })
+        .catch(err => {
+        console.error(err);
+        });
+        
+            selectionPopUpContent.innerText = possibleMovieNum[choice];
+            selectionPopUpContentDiv.appendChild(selectionPopUpContent);
+
+            movieImage.src = "";
+            selectionPopUpContentDiv.appendChild(movieImage)
+            
+            
+    
+            selectionPopUp.classList.toggle("active") 
+            console.log(possibleMovieNum[choice])
+        } 
+    
+        selectionPopUpCloseButton.addEventListener("click", () => {
+            togglePopUp()
+            clearChildren(selectionPopUpContent)
+        
+            
+        });
+
 
     let genre = []
+    let movieIdPair = new Map();
     
     movies.movie_results.forEach(movie => {
         genre.push(movie.genres);
+        movieIdPair.set(movie.imdb_id, movie.title)
+        
     //    console.log(genre)
-       
     });
-   
+
     let newGenre = [];
   
     for (let i in genre) {          //change to forEach
@@ -115,47 +193,53 @@ const homeElement = function(movies, food){
         movieDropdownLabel.appendChild(dropdown)        
     }
 
+     
+
+
     let moviesByCategory = []
-   
+    let movieIDsByCategory = []
 
     let movieName;
     
     movieDropdownLabel.addEventListener("change", () => {
             // wheelAnimation();
             moviesByCategory = [] 
+            movieIDsByCategory = []
             movies.movie_results.forEach(movie => {
                 console.log(movie)
                 if(movie.genres != null){
                     movie.genres.forEach(genre => {
                         if(genre === movieDropdownLabel.value) {      //find alternative to event.target.value
                             moviesByCategory.push(movie.title)
+                            movieIDsByCategory.push(movie.imdb_id)
                             //moviesByYoutube.push(movie.)
                         }
                     })
                 }
               })
-
+            //let moviesByCategoryWithoutDuplicates= Array.from(new Set(moviesByCategory))
             possibleMovieNum = [];
+            possibleIDNum = []
             //console.log(moviesByCategory)
-            movieName = randomize(moviesByCategory);
+            movieName = randomize(moviesByCategory, movieIDsByCategory);
             spinnerSection1Text.innerText = movieName;
-            movieName = randomize(moviesByCategory); 
+            movieName = randomize(moviesByCategory, movieIDsByCategory); 
             spinnerSection2Text.innerText = movieName; 
-            movieName = randomize(moviesByCategory);
+            movieName = randomize(moviesByCategory, movieIDsByCategory);
             spinnerSection3Text.innerText = movieName; 
-            movieName = randomize(moviesByCategory);
+            movieName = randomize(moviesByCategory, movieIDsByCategory);
             spinnerSection4Text.innerText = movieName; 
           });
-        console.log(moviesByCategory)
+        //console.log(moviesByCategory)
         // alert("You chose " + event.target.value)
     
     var choice = Math.floor(Math.random() * 4);
     movieButton.addEventListener("click", () => { 
-        console.log(movieName)
+        //.log(movieName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
         spinFunction(choice);
        
-        console.log(possibleMovieNum[choice]);
+        //console.log(possibleMovieNum[choice]);
         // activityElement.appendChild(activityNameElement)    
         
         
@@ -171,6 +255,7 @@ const homeElement = function(movies, food){
         element.classList.remove('animate')
         setTimeout(function() {
             element.classList.add('animate')
+            togglePopUp()
         }, 5000)
 
     }
@@ -184,5 +269,5 @@ const homeElement = function(movies, food){
   
 
     return mainElement
-} 
+}
 export {homeElement};
