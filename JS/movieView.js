@@ -102,10 +102,9 @@ const homeElement = function(movies, food){
         }
     }
 
-    // console.log(newGenre)
+   
     let finalGenreList = Array.from(new Set(newGenre))   //removes duplicates
-    // console.log(finalGenreList);
-    
+     
 
     //create dropdown options
     for (let i = 0; i < finalGenreList.length; i++) {
@@ -176,7 +175,11 @@ const homeElement = function(movies, food){
 
     }
 
-    
+    // document.querySelector("#reset-button")
+    // .addEventListener('click', () => {
+    //     window.location.reload();
+    // })
+
     
   
 
