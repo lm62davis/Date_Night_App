@@ -21,6 +21,8 @@ let foodJson = "";
 let foodJson2 = "";
 let foodJson3 = "";
 let allFoods = "";
+//  let moviePosterJson = "";
+
 
 
 const checkIfAllLoaded = function() {
@@ -39,6 +41,9 @@ const checkIfAllLoaded = function() {
 		foodJson3.result.data.forEach(cuisine => {
 			allFoods.result.data.push(cuisine)
 		});
+		allMovies.movie_results.forEach(movie => {
+		
+		});
 		displayHomeView (allMovies, allFoods)
 		console.log(movieJson);
 		console.log(movieJson2)
@@ -48,15 +53,16 @@ const checkIfAllLoaded = function() {
 		console.log(foodJson2)
 		console.log(foodJson3)
 		console.log(allFoods);
+		// console.log(moviePosterJson);
 
 	}
 }
 
-const displayHomeView = function(movies, food) {
+const displayHomeView = function(movies, food, moviePosters) {
     clearChildren(container);
     let header = createHeader();
     container.prepend(header);
-    let mainElement = homeElement(movies, food);   
+    let mainElement = homeElement(movies, moviePosters);   
     container.appendChild(mainElement);
 	let main2Element = foodSection(food);
 	container.appendChild(main2Element)
@@ -191,13 +197,25 @@ fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=3", 
 	console.error(err);
 });
 
+//movie poster api
+// fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=${posterId}`, {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
+// 		"x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
+// 	}
+// })
+// .then(response => response.json())
+// .then((moviePosters) => {
+// 	moviePosterJson=moviePosters
+// 	// checkIfAllLoaded()
+// })
+// .catch(err => {
+// 	console.error(err);
+// });
 
 
 export { clearChildren}
-
-
-
-/// <reference path="../typings/tsd.d.ts" />
 
 
 
