@@ -111,23 +111,45 @@ const foodSection = function(food) {
             selectionPopUpCloseButton.innerText = "x"
             selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
         
-            const googleMapDiv = document.createElement("div")
-            googleMapDiv.classList.add("google-map")
-            selectionPopUpContentDiv.appendChild(googleMapDiv);
+
 
             const selectionPopUpContent = document.createElement("div")
                 selectionPopUpContent.classList.add("selection-pop-up-content-food")
 
+                const googleMapDiv = document.createElement("div")
+                googleMapDiv.id = "map"
+               
             const togglePopUp = function () {
-                initMap();
                 selectionPopUpContent.innerText = possibleFoodNum[choice];
                 selectionPopUpContentDiv.appendChild(selectionPopUpContent);
+                selectionPopUpContentDiv.appendChild(googleMapDiv);
+
+                selectionPopUp.classList.toggle("active") 
+                let map;
+
+
+                    let s = document.createElement("script");
+                    googleMapDiv.appendChild(s);
+                    s.addEventListener("load", () => {
+                        map = new google.maps.Map(document.getElementById("map"), {
+                            center: {
+                                lat: possibleLatNum[choice],
+                                lng: possibleLongNum[choice]
+                            },
+                            zoom: 18.2cd 5,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                    });
+                    s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZaxOlzTpiaWjRsma9xsO4_OvP29mWKM';
+                    console.log(map);
+
+             
 
         
-                selectionPopUp.classList.toggle("active") 
+
                 console.log(possibleFoodNum[choice])
             } 
-        
+
             selectionPopUpCloseButton.addEventListener("click", () => {
                 togglePopUp()
                 clearChildren(selectionPopUpContent)
@@ -264,36 +286,32 @@ const foodSection = function(food) {
         }, 5000)
     }
 
-    let map;
-    document.addEventListener("DOMContentLoaded", () => 
-    {
+    // let map;
+    // document.addEventListener("DOMContentLoaded", () => 
+    // {
  
-        googleScript.addEventListener("load", () => {
-            console.log("script has loaded");
+    //     googleScript.addEventListener("load", () => {
+    //         console.log("script has loaded");
 
-        const initMap = function () {   
-            map = new google.maps.Map(document.getElementsByClass("google-map"), {
-                center: {
-                    lat: possibleLatNum[choice],
-                    lng: possibleLongNum[choice]
-                },
-                zoom: 16,
-                mapTypeId: google.maps.mapTypeId.ROADMAP
-            });
+    //     const initMap = function () {   
+    //         map = new google.maps.Map(document.getElementsByClass("google-map"), {
+    //             center: {
+    //                 lat: possibleLatNum[choice],
+    //                 lng: possibleLongNum[choice]
+    //             },
+    //             zoom: 16,
+    //             mapTypeId: google.maps.mapTypeId.ROADMAP
+    //         });
     
-        googleMapDiv.src = ""
-        // `https://maps.googleapis.com/maps/api/js?key=AIzaSyDhNT273nfkX6yhBC_a08TCMNAFc3px1Vk`;
-    };   
+    //     googleMapDiv.src = ""
+    //     `https://maps.googleapis.com/maps/api/js?key=AIzaSyDhNT273nfkX6yhBC_a08TCMNAFc3px1Vk`;
+    // } 
 
-       
+
     
-     
+    return mainElement    
 
-    return mainElement
-    
- 
+}
 
-})
-
-export {foodSection}
+export {foodSection};
 
