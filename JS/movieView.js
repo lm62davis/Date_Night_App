@@ -253,7 +253,11 @@ const homeElement = function(movies, food){
 
     }
 
-    
+    // document.querySelector("#reset-button")
+    // .addEventListener('click', () => {
+    //     window.location.reload();
+    // })
+
     
   
 
