@@ -8,7 +8,16 @@ const createHeader = function () {
         <h1 class="page-title"> </h1>
         </nav>`
     return header;
-};
 
+// const resetButton = document.createElement("button");
+// resetButton.classList.add("reset-button")
+// createHeader.appendChild(resetButton)
 
-export { createHeader };
+// resetButton.addEventListener("click", () => {
+    
+//       resetButton.onclick = function resetSelections(movies, food, activities) {
+//         location.reload();
+//         clearChildren(container)
+//         }
+    };
+export { createHeader }

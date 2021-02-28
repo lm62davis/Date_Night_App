@@ -45,13 +45,13 @@ const checkIfAllLoaded = function() {
 		
 		// });
 		displayHomeView (allMovies, allFoods)
-		console.log(movieJson);
-		console.log(movieJson2)
-		console.log(movieJson3)
+		// console.log(movieJson);
+		// console.log(movieJson2)
+		// console.log(movieJson3)
 		console.log(allMovies)
-		console.log(foodJson);
-		console.log(foodJson2)
-		console.log(foodJson3)
+		// console.log(foodJson);
+		// console.log(foodJson2)
+		// console.log(foodJson3)
 		console.log(allFoods);
 		// console.log(moviePosterJson);
 

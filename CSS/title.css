@@ -1,31 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
-
-body {
-  background-color: black;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-
-}
-
 h2 {
   color: black;
-  /* margin-top: 20px; */
   text-align: center;
 }
 
 .title {
   font-size: 40px;
-  transition: 2s all;
+  transition: 2s ease-in;
   text-align: center;
   margin-bottom: 50px;
   background-color: #f3ec78;
-  background-image: linear-gradient(45deg, #f3ec78, #af4261);
-  background-size: auto;
+  background-image: linear-gradient(45deg, #c29254, #721e36);
+  background-size:cover;
   background-clip: text;
   letter-spacing: 20px;
-  animation: spacing 5s ease-in-out;
+  animation: spacing 5s ease-in;
 }
+/* #be7f91 */
+/* #86233f */
 
 .wrapper {
   position: absolute;
@@ -38,7 +30,7 @@ h2 {
   font-family: fantasy;
   font-size: 35px;
   line-height: 35px;
-  color: white;
+  color: #f7d7e0;
 }
 .header-content {
   font-weight: 600;
@@ -53,14 +45,27 @@ h2 {
 }
 .animated-text {
   margin-top: 0;
-  padding-left: 5px;
+  padding-left: 2px;
   text-align: center;
   list-style: none;
   animation: animate 5s infinite;
 }
 .single-text {
-  line-height: 50px;
+  line-height: 40px;
   margin: 0;
+}
+
+.reset-button, .contact {
+  background-color:  #721e36;
+  color: #f0cad5;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: fantasy;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
  /* Banner Animation */
  @keyframes spacing {
@@ -96,3 +101,5 @@ h2 {
   97% {
     transform: translate3d(0, 0, 0);
   } 100%
+}
+

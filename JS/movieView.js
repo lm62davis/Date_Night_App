@@ -1,8 +1,7 @@
 import { clearChildren } from "./app.js"
 
 const randomize = function(title, id){
-    // console.log(list)
-    //console.log(list.length + " list lngth")
+
     
     if (title.length ==0) {
         possibleMovieNum.push("");
@@ -10,7 +9,6 @@ const randomize = function(title, id){
     }
     else {
     let randomNumber = Math.floor(Math.random() * title.length)
-        //console.log(randomNumber)
 
     let generatedName = title[randomNumber]
         possibleMovieNum.push(generatedName) 
@@ -252,14 +250,6 @@ const homeElement = function(movies, food){
         }, 5000)
 
     }
-
-    // document.querySelector("#reset-button")
-    // .addEventListener('click', () => {
-    //     window.location.reload();
-    // })
-
-    
-  
 
     return mainElement
 }
