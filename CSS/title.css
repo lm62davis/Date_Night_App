@@ -30,7 +30,7 @@ h2 {
   font-family: fantasy;
   font-size: 35px;
   line-height: 35px;
-  color: #f7d7e0;
+  color: #ffebd7;
 }
 .header-content {
   font-weight: 600;
@@ -57,7 +57,7 @@ h2 {
 
 .reset-button, .contact {
   background-color:  #721e36;
-  color: #f0cad5;
+  color: #ffebd7;
   padding: 10px 30px;
   text-align: center;
   text-decoration: none;

@@ -143,10 +143,6 @@ const foodSection = function(food) {
                     s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZaxOlzTpiaWjRsma9xsO4_OvP29mWKM';
                     console.log(map);
 
-             
-
-        
-
                 console.log(possibleFoodNum[choice])
             } 
 
@@ -156,7 +152,7 @@ const foodSection = function(food) {
             });
     
     let cuisine = []
-    // console.log(restaurant_name)
+
     food.result.data.forEach(foods => {
         cuisine.push(foods.cuisines);
 
@@ -172,9 +168,7 @@ const foodSection = function(food) {
     }
     let finalCuisineList = Array.from(new Set(newCuisine))   //removes duplicates
     removeSpecialChar(finalCuisineList);
-    // console.log(finalCuisineList);
-    //moves duplicates
-  
+
     
 
     //create dropdown options
@@ -202,7 +196,7 @@ const foodSection = function(food) {
             food.result.data.forEach(foods => {
                 if(foods.cuisines != null) {
                     foods.cuisines.forEach(cuisine => {
-                        if(cuisine === foodDropdownLabel.value) {      //find alternative to event.target.value
+                        if(cuisine === foodDropdownLabel.value) {      
                             foodByCategory.push(foods.restaurant_name)
                             latByCategory.push(foods.geo.lat)
                             longByCategory.push(foods.geo.lon)
@@ -231,20 +225,11 @@ const foodSection = function(food) {
           });
 
 
-        // alert("You chose " + event.target.value)
-
-    
-    var choice = Math.floor(Math.random() * 4);
+        var choice = Math.floor(Math.random() * 4);
     foodButton.addEventListener("click", () => { 
-        // console.log(foodName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
         spinFunction(choice); 
-        
-        // console.log(possibleFoodNum);
-        // console.log(choice);
-        // console.log(possibleFoodNum[choice]);
-       
-       
+             
         // activityElement.appendChild(activityNameElement)    
     
         
@@ -266,9 +251,6 @@ const foodSection = function(food) {
      
     // }
 
-
-
-
     const spinFunction = function () {
         // let x = 1024; 
         // let y = 9999; 
@@ -286,9 +268,6 @@ const foodSection = function(food) {
         }, 5000)
     }
 
-
-
-    
     return mainElement    
 
 }

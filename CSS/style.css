@@ -21,13 +21,13 @@ li {
 .movie-dropdown-label,
 .food-dropdown,
 .activity-dropdown {
-  background-color: #f7d7e0;
+  background-color: #ffebd7;
   font-family: fantasy;
   font-weight: lighter;
   font-size: 0.75em;
 }
 .dropdown-header {
-  color: #f7d7e0;
+  color: #ffebd7;
 }
 
 .main-spinner-container {
