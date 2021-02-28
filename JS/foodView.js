@@ -136,7 +136,7 @@ const foodSection = function(food) {
                                 lat: possibleLatNum[choice],
                                 lng: possibleLongNum[choice]
                             },
-                            zoom: 18.2cd 5,
+                            zoom: 18,
                             mapTypeId: google.maps.MapTypeId.ROADMAP
                         });
                     });
@@ -286,26 +286,6 @@ const foodSection = function(food) {
         }, 5000)
     }
 
-    // let map;
-    // document.addEventListener("DOMContentLoaded", () => 
-    // {
- 
-    //     googleScript.addEventListener("load", () => {
-    //         console.log("script has loaded");
-
-    //     const initMap = function () {   
-    //         map = new google.maps.Map(document.getElementsByClass("google-map"), {
-    //             center: {
-    //                 lat: possibleLatNum[choice],
-    //                 lng: possibleLongNum[choice]
-    //             },
-    //             zoom: 16,
-    //             mapTypeId: google.maps.mapTypeId.ROADMAP
-    //         });
-    
-    //     googleMapDiv.src = ""
-    //     `https://maps.googleapis.com/maps/api/js?key=AIzaSyDhNT273nfkX6yhBC_a08TCMNAFc3px1Vk`;
-    // } 
 
 
     

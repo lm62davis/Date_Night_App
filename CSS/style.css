@@ -125,7 +125,7 @@ span {
   font-size: 20px;
 }
 
-/* .selection-pop-up {
+.selection-pop-up {
   width: 200px;
   height: 100px;
   left: 50px;
@@ -137,7 +137,7 @@ span {
   text-align: center;
   font-family: Arial;
   font-size: 20px;
-} */
+}
 
 /* Activity selection pop up styling */
 .selection-pop-up-activity .selection-pop-up-overlay-activity {
