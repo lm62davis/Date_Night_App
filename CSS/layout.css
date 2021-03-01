@@ -1,11 +1,24 @@
-body {
+.main-content {
   display: grid;
+  border: 5px solid pink;
   grid-template-rows: auto auto auto auto auto;
   grid-template-columns: auto auto auto;
   box-sizing: border-box;
   max-width: 100vw;
   margin: 0;
 }
+
+.display-content {
+    border: 2px solid #fff;
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin-left: 300px;
+    margin-top: 200px;
+   
+
+  }
 
 h1,
 h2,
@@ -47,11 +60,11 @@ h3 {
   border: 2px solid black;
 }
 
-.main-content {
+/* .main-content {
   grid-row-start: 4;
   grid-row-end: 5;
   display: grid;
-}
+} */
 
 .movie-container {
   border: 5px solid white;
