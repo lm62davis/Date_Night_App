@@ -11,13 +11,12 @@ const createHeader = function () {
     contact.innerText = "Contact Us" 
     nav.appendChild(contact)
   
+    const resetButton = document.createElement("button");
+    resetButton.classList.add("reset-button")
+    resetButton.innerText = "reset"
+    nav.appendChild(resetButton)
 
-const resetButton = document.createElement("button");
-resetButton.classList.add("reset-button")
-resetButton.innerText = "reset"
-nav.appendChild(resetButton)
-
-resetButton.addEventListener("click", () => {
+    resetButton.addEventListener("click", () => {
           location.reload();
     })
 
