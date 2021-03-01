@@ -20,27 +20,27 @@ h2 {
 /* #86233f */
 
 .wrapper {
-  position: absolute;
+  position: relative;
   top: 25%;
   left: 50%;
-  padding-top: 100px;
+  padding-top: 60px;
   transform: translate(-50%, -50%);
-  height: 160px;
+  height: 80px;
   overflow: hidden;
   font-family: fantasy;
   font-size: 35px;
-  line-height: 35px;
+  justify-content: center;
   color: #ffebd7;
 }
 .header-content {
   font-weight: 600;
   overflow: hidden;
-  height: 40px;
+  height: 35px;
   padding: 0 20px;
 }
 .t-text {
   display: inline;
-  float: left;
+  /* float: ; */
   margin: 0;
 }
 .animated-text {

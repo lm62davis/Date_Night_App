@@ -48,7 +48,7 @@ h3 {
   grid-column-end: 5;
 }
 
-.app-instructions {
+.app-banner {
   /* border: 5px solid white; */
   grid-row-start: 3;
   grid-row-end: 4;
@@ -97,4 +97,5 @@ footer {
   grid-column-start: 1;
   grid-column-end: 4;
   text-align: right;
+  background-color: rgb(12, 7, 8);
 }
