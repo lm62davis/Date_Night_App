@@ -35,7 +35,7 @@ h3 {
   grid-column-end: 5;
 }
 
-.app-instructions {
+.app-banner {
   /* border: 5px solid white; */
   grid-row-start: 3;
   grid-row-end: 4;
