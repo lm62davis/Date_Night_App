@@ -84,4 +84,5 @@ footer {
   grid-column-start: 1;
   grid-column-end: 4;
   text-align: right;
+  background-color: rgb(12, 7, 8);
 }

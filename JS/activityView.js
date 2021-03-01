@@ -33,9 +33,11 @@ let activityName;
 const activitySection = function(activityJSON) {
     const mainElement = document.createElement("div");
     mainElement.classList.add("main-container")
+
     const activityElement = document.createElement("div");
     activityElement.classList.add("activity-container")
     mainElement.appendChild(activityElement)
+
     const activityHeader = document.createElement("p")
     activityHeader.classList.add("dropdown-header")
     activityHeader.innerText="Activity"
@@ -44,40 +46,51 @@ const activitySection = function(activityJSON) {
     const activityDropdownLabel = document.createElement("select")
     activityDropdownLabel.classList.add("activity-dropdown")
     activityElement.appendChild(activityDropdownLabel)
+
     const defaultActivityDropdown = document.createElement("option")
     defaultActivityDropdown.selected = true
     defaultActivityDropdown.innerText = "Select an activity type"
     activityDropdownLabel.appendChild(defaultActivityDropdown) 
+
     //spinner functionality section
     const mainSpinnerContainer = document.createElement("div")
     mainSpinnerContainer.setAttribute("id","main-spinner-container-activity")
     mainSpinnerContainer.classList.add("main-spinner-container") 
     activityElement.appendChild(mainSpinnerContainer);
+
     const secondarySpinnerContainer = document.createElement("div")
     secondarySpinnerContainer.classList.add("secondary-spinner-container") 
     mainSpinnerContainer.appendChild(secondarySpinnerContainer);
+
     const spinnerSection1 = document.createElement("span")
     spinnerSection1.classList.add("spinner-section-1")
-    secondarySpinnerContainer.appendChild(spinnerSection1);  
+    secondarySpinnerContainer.appendChild(spinnerSection1); 
+
     const spinnerSection1Text = document.createElement("p")
     spinnerSection1Text.classList.add("spin-labels")
     spinnerSection1Text.setAttribute("id","spinner-label-1")
     spinnerSection1.appendChild(spinnerSection1Text);
+
     const spinnerSection2 = document.createElement("span")
     spinnerSection2.classList.add("spinner-section-2") 
     secondarySpinnerContainer.appendChild(spinnerSection2);
+
     const spinnerSection2Text = document.createElement("p")
     spinnerSection2Text.classList.add("spin-labels")
     spinnerSection2.appendChild(spinnerSection2Text);
+
     const spinnerSection3 = document.createElement("span")
     spinnerSection3.classList.add("spinner-section-3") 
     secondarySpinnerContainer.appendChild(spinnerSection3);
+
     const spinnerSection3Text = document.createElement("p")
     spinnerSection3Text.classList.add("spin-labels")
     spinnerSection3.appendChild(spinnerSection3Text);
+
     const spinnerSection4 = document.createElement("span")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
+
     const spinnerSection4Text = document.createElement("p")
     spinnerSection4Text.classList.add("spin-labels")
     spinnerSection4.appendChild(spinnerSection4Text);
@@ -119,6 +132,12 @@ const activitySection = function(activityJSON) {
     selectionPopUpCloseButton.addEventListener("click", () => {
         togglePopUp()
         clearChildren(selectionPopUpContent)
+        clearChildren(spinnerSection1Text)
+        clearChildren(spinnerSection2Text)
+        clearChildren(spinnerSection3Text)
+        clearChildren(spinnerSection4Text)
+        defaultActivityDropdown.selected = true;
+  
     });
 
 

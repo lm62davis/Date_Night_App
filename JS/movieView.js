@@ -90,7 +90,7 @@ const homeElement = function(movies, food){
     const spinnerSection4 = document.createElement("span")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
-    
+
     const spinnerSection4Text = document.createElement("p")
     spinnerSection4Text.classList.add("spin-labels")
     spinnerSection4.appendChild(spinnerSection4Text);
@@ -166,8 +166,12 @@ const homeElement = function(movies, food){
         selectionPopUpCloseButton.addEventListener("click", () => {
             togglePopUp()
             clearChildren(selectionPopUpContent)
-        
-            
+            clearChildren(spinnerSection1Text)
+            clearChildren(spinnerSection2Text)
+            clearChildren(spinnerSection3Text)
+            clearChildren(spinnerSection4Text)
+            defaultGenreDropdown.selected = true;
+                  
         });
 
 
@@ -195,14 +199,14 @@ const homeElement = function(movies, food){
         dropdown.value = option;
         movieDropdownLabel.appendChild(dropdown)        
     }
-
+    
     let moviesByCategory = []
     let movieIDsByCategory = []
 
     let movieName;
     
     movieDropdownLabel.addEventListener("change", () => {
-            // wheelAnimation();
+            // wheelAnimation()
             moviesByCategory = [] 
             movieIDsByCategory = []
             movies.movie_results.forEach(movie => {

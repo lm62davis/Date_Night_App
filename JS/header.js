@@ -18,10 +18,7 @@ resetButton.innerText = "reset"
 nav.appendChild(resetButton)
 
 resetButton.addEventListener("click", () => {
-    
-      resetButton.onclick = function resetSelections(movies, food, activities) {
-        location.reload();
-        }
+          location.reload();
     })
 
     const title = document.createElement("div")
