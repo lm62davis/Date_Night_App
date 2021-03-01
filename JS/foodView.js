@@ -149,9 +149,16 @@ const foodSection = function(food) {
             selectionPopUpCloseButton.addEventListener("click", () => {
                 togglePopUp()
                 clearChildren(selectionPopUpContent)
+                clearChildren(spinnerSection1Text)
+                clearChildren(spinnerSection2Text)
+                clearChildren(spinnerSection3Text)
+                clearChildren(spinnerSection4Text)
+                defaultCuisineDropdown.selected = true;
+          
             });
     
     let cuisine = []
+
 
     food.result.data.forEach(foods => {
         cuisine.push(foods.cuisines);

@@ -324,7 +324,7 @@ span {
 
 #map {
   border: 2px solid #333;
-  width: 25vw;
-  height: 25vw;
+  width: 30vw;
+  height: 30vw;
   box-sizing: border-box;
 }
