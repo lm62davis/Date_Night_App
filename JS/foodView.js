@@ -136,7 +136,7 @@ const foodSection = function(food) {
                                 lat: possibleLatNum[choice],
                                 lng: possibleLongNum[choice]
                             },
-                            zoom: 18.2cd 5,
+                            zoom: 18.25,
                             mapTypeId: google.maps.MapTypeId.ROADMAP
                         });
                     });
