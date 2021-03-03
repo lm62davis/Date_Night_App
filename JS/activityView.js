@@ -177,9 +177,9 @@ const activitySection = function(activityJSON) {
             
             }) 
           
-            possibleActivityNum = [];
-            
+            possibleActivityNum = [];            
             possibleImageNum = [];
+
             activityName = randomize(activityByCategory, activityImageByCategory);
             spinnerSection1Text.innerText = activityName;
             activityName = randomize(activityByCategory, activityImageByCategory); 
@@ -189,6 +189,12 @@ const activitySection = function(activityJSON) {
             activityName = randomize(activityByCategory, activityImageByCategory);
             spinnerSection4Text.innerText = activityName; 
         }
+
+        activityDropdownLabel.addEventListener("change", ()=> {
+            dropDownPick(activityDropdownLabel.value) 
+           
+           });
+   
   
     
     const activityNameElement = document.createElement("section")

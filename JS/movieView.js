@@ -20,7 +20,7 @@ const randomize = function(title, id){
     }
 }
 
-const homeElement = function(movies, food){
+const homeElement = function(movies){
  
     const mainElement = document.createElement("div");
     mainElement.classList.add("main-container")

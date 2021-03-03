@@ -5,7 +5,7 @@ const activityJSON = [
       id: 1,
       type: "Quality Time",
       loveLanguage: "Quality Time",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/QT/QT - board game.jpg"
   },
   {
       name: "Paint & Sip",
@@ -13,7 +13,7 @@ const activityJSON = [
       id: 2,
       type: "Quality Time",
       loveLanguage: "Quality Time",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/QT/QT - paint and sip.jpg"
     },  
     {
       name: "Take a hike",
@@ -21,7 +21,7 @@ const activityJSON = [
       id: 3,
       type: "Quality Time",
       loveLanguage: "Quality Time",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/QT/QT - hiking.jpg"
     },
     {
       name: "Cook Together",
@@ -29,7 +29,7 @@ const activityJSON = [
       id: 4,
       type: "Quality Time",
       loveLanguage: "Quality Time",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/QT/QT - cook together.jpg"
     },
     {
       name: "Picnic",
@@ -37,7 +37,7 @@ const activityJSON = [
       id: 5,
       type: "Quality Time",
       loveLanguage: "Quality Time",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/QT/QT - picnic.jpg"
     },
     {
       name: "Couples Yoga",
@@ -45,7 +45,7 @@ const activityJSON = [
       id: 6,
       type: "Quality Time",
       loveLanguage: "Quality Time",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/QT/QT - couples yoga.jpg"
     },
     {
       name: "Meditate Together",
@@ -53,7 +53,7 @@ const activityJSON = [
       id: 7,
       type: "Quality Time",
       loveLanguage: "Quality Time",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/QT/QT - medidate.PNG"
     },
     {
       name: "Make Dinner",
@@ -61,7 +61,7 @@ const activityJSON = [
       id: 8,
       type: "Acts of Service",
       loveLanguage: "Acts of Service",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/AOS/AOS - Make dinner.jpg"
     },
     {
       name: "Do Grocery Shopping",
@@ -69,7 +69,7 @@ const activityJSON = [
       id: 9,
       type: "Acts of Service",
       loveLanguage: "Acts of Service",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/AOS/AOS - Grocery shopping.jpg"
     },
     {
       name: "Do a Chore they dread",
@@ -77,7 +77,7 @@ const activityJSON = [
       id: 10,
       type: "Acts of Service",
       loveLanguage: "Acts of Service",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/AOS/AOS - dreaded chore.jpg"
     },
     {
       name: "Uninterupted TV Time",
@@ -85,7 +85,7 @@ const activityJSON = [
       id: 11,
       type: "Acts of Service",
       loveLanguage: "Acts of Service",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/AOS/AOS - tv time.jpg"
     },
     {
       name: "Leave I Luv U Note",
@@ -93,7 +93,7 @@ const activityJSON = [
       id: 12,
       type: "Words of Affirmation",
       loveLanguage: "Words of Affirmation",
-      image: "https://i.pinimg.com/originals/49/f9/83/49f983ecfb82d763c1a9a6f1a17dbd34.jpg"
+      image: "images/WOA/WOA - i love you note.jpg"
     },
     {
       name: "Give a Random Compliment",
@@ -101,7 +101,7 @@ const activityJSON = [
       id: 13,
       type: "Words of Affirmation",
       loveLanguage: "Words of Affirmation",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/WOA/WOA - random compliment.jpg"
     },
     {
       name: "Send a Love Letter",
@@ -109,7 +109,7 @@ const activityJSON = [
       id: 14,
       type: "Words of Affirmation",
       loveLanguage: "Words of Affirmation",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/WOA/WOA - love letter.jpg"
     },
     {
       name: "Share Something Nice on Social Media",
@@ -117,7 +117,7 @@ const activityJSON = [
       id: 15,
       type: "Words of Affirmation",
       loveLanguage: "Words of Affirmation",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/WOA/WOA - social media.jpg"
     },
     {
       name: "Name 5 Things you Like About Them",
@@ -125,7 +125,7 @@ const activityJSON = [
       id: 16,
       type: "Words of Affirmation",
       loveLanguage: "Words of Affirmation",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/WOA/WOA - 5 things you like.jpg"
     },
     {
       name: "Give a Massage",
@@ -133,7 +133,7 @@ const activityJSON = [
       id: 17,
       type: "Physical Touch",
       loveLanguage: "Physical Touch",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/PT/PT - massage.jpg"
     },
     {
       name: "PDA",
@@ -141,7 +141,7 @@ const activityJSON = [
       id: 18,
       type: "Physical Touch",
       loveLanguage: "Physical Touch",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/PT/PT - PDA.jpg"
     },
     {
       name: "Hug or Kiss",
@@ -149,7 +149,7 @@ const activityJSON = [
       id: 19,
       type: "Physical Touch",
       loveLanguage: "Physical Touch",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/PT/PT - kiss.jpg"
     },
     {
       name: "Slow Dance",
@@ -157,7 +157,7 @@ const activityJSON = [
       id: 20,
       type: "Physical Touch",
       loveLanguage: "Physical Touch",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/PT/PT - slow dance.jpg"
     },
     {
       name: "Cuddle Session",
@@ -165,7 +165,7 @@ const activityJSON = [
       id: 21,
       type: "Physical Touch",
       loveLanguage: "Physical Touch",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/PT/PT - cuddle.jpg"
     },
     {
       name: "Buy Flowers",
@@ -173,7 +173,7 @@ const activityJSON = [
       id: 22,
       type: "Receiving Gifts",
       loveLanguage: "Receiving Gifts",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/RG/RG - flowers.jpg"
     },
     {
       name: "Buy an Item you Know They Have Wanted",
@@ -181,7 +181,7 @@ const activityJSON = [
       id: 23,
       type: "Receiving Gifts",
       loveLanguage: "Receiving Gifts",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/RG/RG - something they wanted.jpg"
     },
     {
       name: "Surprise Package at Work",
@@ -189,7 +189,7 @@ const activityJSON = [
       id: 24,
       type: "Receiving Gifts",
       loveLanguage: "Receiving Gifts",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/RG/RG - surprise at work.jpg"
     },
     {
       name: "Make A Playlist",
@@ -197,7 +197,7 @@ const activityJSON = [
       id: 25,
       type: "Receiving Gifts",
       loveLanguage: "Receiving Gifts",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/RG/RG - playlist.jpg"
     },
     {
       name: "Buy New Outfit",
@@ -205,7 +205,7 @@ const activityJSON = [
       id: 26,
       type: "Receiving Gifts",
       loveLanguage: "Receiving Gifts",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/RG/RG - buy outfit.jpg"
     },
     {
       name: "Buy Favorite Dessert ",
@@ -213,7 +213,7 @@ const activityJSON = [
       id: 27,
       type: "Receiving Gifts",
       loveLanguage: "Receiving Gifts",
-      image: "images/activity-qualityTime/QT - board game.jpg"
+      image: "images/RG/RG - buy a dessert.jpg"
     },
   ]
   export {activityJSON};
