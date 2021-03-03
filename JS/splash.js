@@ -17,7 +17,7 @@ const displaySplashPage = function() {
     secondAnimation.classList.add("animate", "forwards", "animate-span")
     const thirdAnimation = document.createElement("h2")
     thirdAnimation.innerText = "The Date Night App"
-    thirdAnimation.classList.add("animate", "mixed", "animate-span")
+    thirdAnimation.classList.add("animate", "backwards", "animate-span")
 
     const centerDiv = document.createElement("div")
     centerDiv.classList.add("center")
@@ -91,7 +91,7 @@ const displaySplashPage = function() {
         console.error(err);
     });
 
-    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=1", {
+    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=1", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
@@ -107,7 +107,7 @@ const displaySplashPage = function() {
         console.error(err);
     });
 
-    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=2", {
+    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=2", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
@@ -123,7 +123,7 @@ const displaySplashPage = function() {
         console.error(err);
     });
 
-    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=3", {
+    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=3", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
@@ -164,12 +164,12 @@ const displaySplashPage = function() {
             console.log(foodJson2)
             console.log(foodJson3)
             console.log(allFoods);
-
+            displayHomeView (allMovies, allFoods)   
         }
     }
-        ticketImage.addEventListener("click", ()=> {
-            displayHomeView (allMovies, allFoods)
-        })
+        // ticketImage.addEventListener("click", ()=> {
+        //     displayHomeView (allMovies, allFoods)
+        // })
 
     return mainElement;
 }

@@ -27,7 +27,6 @@ const randomize = function(list, lat, long) {
                   
         for (let i = 0; i < finalCuisineList.length; i++) {
             finalCuisineList[i] = finalCuisineList[i].replaceAll('&amp;' , 'and'); 
-            // console.log(finalCuisineList[i])
         }
     }
 

@@ -31,6 +31,7 @@ const displayHomeView = function(movies, food) {
 
 
 
+
 export { clearChildren }
 export { displayHomeView }
 

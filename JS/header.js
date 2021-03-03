@@ -65,6 +65,10 @@ const createHeader = function () {
     scrollingContentUL.appendChild(activityScroll)
     activityScroll.innerText = "activity"
 
+    const loveLanguageScroll = document.createElement("li")
+    loveLanguageScroll.classList.add("single-text")
+    scrollingContentUL.appendChild(loveLanguageScroll)
+    loveLanguageScroll.innerText = "love languages"
   
 
     return header;

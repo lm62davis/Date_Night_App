@@ -14,10 +14,6 @@ li {
   color: #af4261;
 }
 
-.dropdown-header {
-  color: white;
-}
-
 .movie-dropdown-label,
 .food-dropdown,
 .activity-dropdown {
@@ -25,16 +21,25 @@ li {
   font-family: fantasy;
   font-weight: lighter;
   font-size: 0.75em;
+  height: 4vh;
 }
 .dropdown-header {
   color: #ffebd7;
+  height: 4vh;
+  margin: 0px 10px;
+  padding: 0px 0px;
 }
-
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
 .main-spinner-container {
   position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 55px;
+  width: 100%;
+  height: 100%;
 }
 
 .main-spinner-container:after {
@@ -60,11 +65,11 @@ li {
 }
 
 .secondary-spinner-container {
-  width: 100%;
-  height: 100%;
+  width: 35vh;
+  height: 35vh;
   position: relative;
+  margin: 0 25%;
   border-radius: 50%;
-  /* border: 1px solid #fff;  */
   overflow: hidden;
   transition: all ease 5s;
 }
@@ -98,7 +103,7 @@ section {
   width: 50%;
   height: 50%;
   background-color: rgba(43, 25, 29, 0.5);
-  top: 150px;
+  top: 50%;
   left: 0;
 }
 .spinner-section-3 {
@@ -107,7 +112,7 @@ section {
   height: 50%;
   background-color: rgba(194, 146, 84, 0.5);
   bottom: 0;
-  left: 150px;
+  left: 50%;
 }
 .spinner-section-4 {
   /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
@@ -115,28 +120,28 @@ section {
   height: 50%;
   background-color: rgba(43, 25, 29, 0.5);
   top: 0;
-  left: 150px;
+  left: 50%;
 }
 .generate-button {
   position: absolute;
-  top: 37%;
-  left: 37%;
-  /* typo below - fixing it causing the spin buttons to move out of place*/
-  transform: transalte(-50%, -50%);
-  height: 75px;
+  top: 13.5vh;
+  left: 46%;
+  height: 8vh;
+  width: 8vh;
   border-radius: 50%;
-  border: 4px solid black;
+  border: 0px solid black;
   background-color: black;
   color: white;
   box-shadow: 0 5px 20px #000;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 2.5vh;
   cursor: pointer;
 }
 .generate-button:active {
-  width: 70px;
-  height: 70px;
-  font-size: 20px;
+  font-size: 2.5vh;
+}
+.generate-button:focus {
+  outline: none;
 }
 
 .selection-pop-up {
@@ -324,8 +329,8 @@ section {
 
 #map {
   border: 2px solid #333;
-  width: 30vw;
-  height: 30vw;
+  width: 20vw;
+  height: 20vw;
   box-sizing: border-box;
 }
 .activity-image {
