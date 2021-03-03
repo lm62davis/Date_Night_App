@@ -68,7 +68,7 @@ li {
   overflow: hidden;
   transition: all ease 5s;
 }
-span {
+section {
   width: 50%;
   height: 50%;
   display: inline-block;
@@ -327,4 +327,8 @@ span {
   width: 30vw;
   height: 30vw;
   box-sizing: border-box;
+}
+.activity-image {
+  width: 100px;
+  height: 150px;
 }

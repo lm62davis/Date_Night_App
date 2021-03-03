@@ -61,25 +61,25 @@ const foodSection = function(food) {
     const secondarySpinnerContainer = document.createElement("div")
     secondarySpinnerContainer.classList.add("secondary-spinner-container") 
     mainSpinnerContainer.appendChild(secondarySpinnerContainer);
-    const spinnerSection1 = document.createElement("span")
+    const spinnerSection1 = document.createElement("section")
     spinnerSection1.classList.add("spinner-section-1")
     secondarySpinnerContainer.appendChild(spinnerSection1);  
     const spinnerSection1Text = document.createElement("p")
     spinnerSection1Text.classList.add("spin-labels")
     spinnerSection1.appendChild(spinnerSection1Text);
-    const spinnerSection2 = document.createElement("span")
+    const spinnerSection2 = document.createElement("section")
     spinnerSection2.classList.add("spinner-section-2") 
     secondarySpinnerContainer.appendChild(spinnerSection2);
     const spinnerSection2Text = document.createElement("p")
     spinnerSection2Text.classList.add("spin-labels")
     spinnerSection2.appendChild(spinnerSection2Text);
-    const spinnerSection3 = document.createElement("span")
+    const spinnerSection3 = document.createElement("section")
     spinnerSection3.classList.add("spinner-section-3") 
     secondarySpinnerContainer.appendChild(spinnerSection3);
     const spinnerSection3Text = document.createElement("p")
     spinnerSection3Text.classList.add("spin-labels")
     spinnerSection3.appendChild(spinnerSection3Text);
-    const spinnerSection4 = document.createElement("span")
+    const spinnerSection4 = document.createElement("section")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
     const spinnerSection4Text = document.createElement("p")
@@ -194,16 +194,19 @@ const foodSection = function(food) {
 
     let foodName;
     
-    foodDropdownLabel.addEventListener("change", () => {
+    
             // wheelAnimation();
-            foodByCategory = [] 
-            latByCategory = []
-            longByCategory = []
+  
         
+        const dropDownPick = function(randomCuisine) {
+            console.log(randomCuisine)
+        foodByCategory = [] 
+        latByCategory = []
+        longByCategory = []
             food.result.data.forEach(foods => {
                 if(foods.cuisines != null) {
                     foods.cuisines.forEach(cuisine => {
-                        if(cuisine === foodDropdownLabel.value) {      
+                        if(cuisine === randomCuisine) {      
                             foodByCategory.push(foods.restaurant_name)
                             latByCategory.push(foods.geo.lat)
                             longByCategory.push(foods.geo.lon)
@@ -211,7 +214,7 @@ const foodSection = function(food) {
                     })
                 }
               })
-
+            // }
 
 
             possibleFoodNum = [];
@@ -229,34 +232,20 @@ const foodSection = function(food) {
             foodName = randomize(foodByCategory, latByCategory, longByCategory);
             spinnerSection4Text.innerText = foodName; 
 
-          });
-
-
+        //   });
+        }
+        foodDropdownLabel.addEventListener("change", () => {
+            dropDownPick(foodDropdownLabel.value)
+        });
         var choice = Math.floor(Math.random() * 4);
     foodButton.addEventListener("click", () => { 
-          //test to make sure selected is not default value. if to diff just switch back to label & input 
+     
         spinFunction(choice); 
-             
-        // activityElement.appendChild(activityNameElement)    
+ 
     
         
     }); 
-    // let selectionPopUp;
-    // const toggleSelection = function () {
-    //     selectionPopUp = document.createElement("div")
-    //     selectionPopUp.classList.add("selection-pop-up")
-    //     selectionPopUp.innerText = possibleFoodNum[choice];
-    //     mainSpinnerContainer.appendChild(selectionPopUp);
-
-
-    //     selectionPopUp.classList.toggle("generate-button");
-     
-    //     // selectionPopUp.addEventListener("click", () => {
-    //     // setTimeout(selectionPopUp.remove(),5000);
-            
-    //     // });
-     
-    // }
+  
 
     const spinFunction = function () {
         // let x = 1024; 
@@ -275,6 +264,18 @@ const foodSection = function(food) {
         }, 5000)
     }
 
+    const surpriseButton = document.createElement("button")
+    surpriseButton.classList.add("surprise")
+    surpriseButton.innerText = "Surprise Us!"
+    mainSpinnerContainer.appendChild(surpriseButton)
+
+    surpriseButton.addEventListener("click", () => {    
+        let randomCuisineNum = Math.floor(Math.random() * finalCuisineList.length)
+        let randomCuisine = finalCuisineList[randomCuisineNum]
+        dropDownPick(randomCuisine);
+        spinFunction(choice);
+    
+    })
     return mainElement    
 
 }
