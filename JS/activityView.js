@@ -1,9 +1,7 @@
 import { clearChildren } from "./app.js"
 import {activityJSON} from "./activityJson.js"
 
-const randomize = function(list) {
-    // console.log(list)
-    //console.log(list.length + " list lngth")
+const randomize = function(list, image) {
     
     if (list.length ==0) {
         possibleActivityNum.push("");
@@ -15,20 +13,17 @@ const randomize = function(list) {
 
     let generatedActivity = list[randomNumber]
         possibleActivityNum.push(generatedActivity);
+        possibleImageNum.push(image[randomNumber]);
         list.splice(randomNumber, 1)
+        image.splice(randomNumber, 1)
         return generatedActivity
     }
 }
 
-let possibleActivityNum = []             //////////////////
-let activityByCategory = [] 
-let activityName;
-// let spokeName = function () {
-//     activityName = randomize(activityByCategory);
-//     // activityNameElement.innerText = activityName; 
-//     return activityName;
-//     }
-    
+let possibleActivityNum = [] 
+let possibleImageNum = []            
+
+   
 
 const activitySection = function(activityJSON) {
     const mainElement = document.createElement("div");
@@ -62,7 +57,7 @@ const activitySection = function(activityJSON) {
     secondarySpinnerContainer.classList.add("secondary-spinner-container") 
     mainSpinnerContainer.appendChild(secondarySpinnerContainer);
 
-    const spinnerSection1 = document.createElement("span")
+    const spinnerSection1 = document.createElement("section")
     spinnerSection1.classList.add("spinner-section-1")
     secondarySpinnerContainer.appendChild(spinnerSection1); 
 
@@ -71,7 +66,7 @@ const activitySection = function(activityJSON) {
     spinnerSection1Text.setAttribute("id","spinner-label-1")
     spinnerSection1.appendChild(spinnerSection1Text);
 
-    const spinnerSection2 = document.createElement("span")
+    const spinnerSection2 = document.createElement("section")
     spinnerSection2.classList.add("spinner-section-2") 
     secondarySpinnerContainer.appendChild(spinnerSection2);
 
@@ -79,7 +74,7 @@ const activitySection = function(activityJSON) {
     spinnerSection2Text.classList.add("spin-labels")
     spinnerSection2.appendChild(spinnerSection2Text);
 
-    const spinnerSection3 = document.createElement("span")
+    const spinnerSection3 = document.createElement("section")
     spinnerSection3.classList.add("spinner-section-3") 
     secondarySpinnerContainer.appendChild(spinnerSection3);
 
@@ -87,7 +82,7 @@ const activitySection = function(activityJSON) {
     spinnerSection3Text.classList.add("spin-labels")
     spinnerSection3.appendChild(spinnerSection3Text);
 
-    const spinnerSection4 = document.createElement("span")
+    const spinnerSection4 = document.createElement("section")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
 
@@ -121,12 +116,18 @@ const activitySection = function(activityJSON) {
 
     const selectionPopUpContent = document.createElement("div")
         selectionPopUpContent.classList.add("selection-pop-up-content-activity")
-    const togglePopUp = function () {
+       
+        const activityImage = document.createElement("img")
+        activityImage.classList.add("activity-image")
+        selectionPopUpContentDiv.appendChild(activityImage)
+
+        const togglePopUp = function () {
         selectionPopUpContent.innerText = possibleActivityNum[choice];
+        activityImage.src = possibleImageNum[choice];
         selectionPopUpContentDiv.appendChild(selectionPopUpContent);
 
         selectionPopUp.classList.toggle("active") 
-        console.log(possibleActivityNum[choice])
+      
     } 
 
     selectionPopUpCloseButton.addEventListener("click", () => {
@@ -157,40 +158,50 @@ const activitySection = function(activityJSON) {
         dropdown.value = option;
         activityDropdownLabel.appendChild(dropdown)        
     }
-    activityByCategory = [] 
-    activityDropdownLabel.addEventListener("change", () => {
+    
+    let activityByCategory = [] 
+    let activityImageByCategory = []
+    let activityName;
+    // activityDropdownLabel.addEventListener("change", () => {
             // wheelAnimation();
+    const dropDownPick = function (randomActivity) {
             activityByCategory = [] 
+            activityImageByCategory = []
             activityJSON.forEach(activity => {
-                if(activity.type === activityDropdownLabel.value) {      
+                if(activity.type === randomActivity) {   
+                    console.log(activityByCategory)   
                     activityByCategory.push(activity.name)
+                    activityImageByCategory.push(activity.image)
+                    
                 }
             
             }) 
-            let activityByCategoryWithoutDuplicates= Array.from(new Set(activityByCategory))
-            possibleActivityNum = [];
-            activityName = randomize(activityByCategoryWithoutDuplicates);
+          
+            possibleActivityNum = [];            
+            possibleImageNum = [];
+
+            activityName = randomize(activityByCategory, activityImageByCategory);
             spinnerSection1Text.innerText = activityName;
-            activityName = randomize(activityByCategoryWithoutDuplicates); 
+            activityName = randomize(activityByCategory, activityImageByCategory); 
             spinnerSection2Text.innerText = activityName; 
-            activityName = randomize(activityByCategoryWithoutDuplicates);
+            activityName = randomize(activityByCategory, activityImageByCategory);
             spinnerSection3Text.innerText = activityName; 
-            activityName = randomize(activityByCategoryWithoutDuplicates);
+            activityName = randomize(activityByCategory, activityImageByCategory);
             spinnerSection4Text.innerText = activityName; 
+        }
 
-
-          });
-        console.log(activityByCategory)
-        // alert("You chose " + event.target.value)
+        activityDropdownLabel.addEventListener("change", ()=> {
+            dropDownPick(activityDropdownLabel.value) 
+           
+           });
+   
+  
     
     const activityNameElement = document.createElement("section")
 
     var choice = Math.floor(Math.random() * 4);
     activityButton.addEventListener("click", () => { 
-        console.log(activityName)
-          //test to make sure selected is not default value. if to diff just switch back to label & input 
-        // var choice = Math.floor(Math.random() * 4);
-        // choice.classList.add("spinner-choice"); 
+
           spinFunction(choice);
           console.log(possibleActivityNum);
             console.log(choice);
@@ -215,6 +226,18 @@ const activitySection = function(activityJSON) {
             togglePopUp()
         }, 5000)
     }
+    const surpriseButton = document.createElement("button")
+    surpriseButton.classList.add("surprise")
+    surpriseButton.innerText = "Surprise Us!"
+    mainSpinnerContainer.appendChild(surpriseButton)
+
+    surpriseButton.addEventListener("click", () => {    
+        let randomActivityNum = Math.floor(Math.random() * finalActivityList.length)
+        let randomActivity = finalActivityList[randomActivityNum]
+        dropDownPick(randomActivity);
+        spinFunction(choice);
+    
+    })
     
     return mainElement
 }

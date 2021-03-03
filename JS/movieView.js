@@ -1,7 +1,8 @@
 import { clearChildren } from "./app.js"
 
+let possibleMovieNum = []
+let possibleIDNum = []
 const randomize = function(title, id){
-
     
     if (title.length ==0) {
         possibleMovieNum.push("");
@@ -19,17 +20,7 @@ const randomize = function(title, id){
     }
 }
 
-let possibleMovieNum = []
-let possibleIDNum = []
-let activityByCategory = [] 
-let activityName;
-let spokeName = function () {
-    activityName = randomize(activityByCategory);
-    // activityNameElement.innerText = activityName; 
-    return activityName;
-    }
-
-const homeElement = function(movies, food){
+const homeElement = function(movies){
  
     const mainElement = document.createElement("div");
     mainElement.classList.add("main-container")
@@ -63,7 +54,7 @@ const homeElement = function(movies, food){
     secondarySpinnerContainer.classList.add("secondary-spinner-container") 
     mainSpinnerContainer.appendChild(secondarySpinnerContainer);
 
-    const spinnerSection1 = document.createElement("span")
+    const spinnerSection1 = document.createElement("section")
     spinnerSection1.classList.add("spinner-section-1")
     secondarySpinnerContainer.appendChild(spinnerSection1);  
 
@@ -71,7 +62,7 @@ const homeElement = function(movies, food){
     spinnerSection1Text.classList.add("spin-labels")
     spinnerSection1.appendChild(spinnerSection1Text);
 
-    const spinnerSection2 = document.createElement("span")
+    const spinnerSection2 = document.createElement("section")
     spinnerSection2.classList.add("spinner-section-2") 
     secondarySpinnerContainer.appendChild(spinnerSection2);
 
@@ -79,7 +70,7 @@ const homeElement = function(movies, food){
     spinnerSection2Text.classList.add("spin-labels")
     spinnerSection2.appendChild(spinnerSection2Text);
 
-    const spinnerSection3 = document.createElement("span")
+    const spinnerSection3 = document.createElement("section")
     spinnerSection3.classList.add("spinner-section-3") 
     secondarySpinnerContainer.appendChild(spinnerSection3);
 
@@ -87,7 +78,7 @@ const homeElement = function(movies, food){
     spinnerSection3Text.classList.add("spin-labels")
     spinnerSection3.appendChild(spinnerSection3Text);
 
-    const spinnerSection4 = document.createElement("span")
+    const spinnerSection4 = document.createElement("section")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
 
@@ -190,11 +181,12 @@ const homeElement = function(movies, food){
     }
 
     let finalGenreList = Array.from(new Set(newGenre))  
-  
+    
+    
     //create dropdown options
     for (let i = 0; i < finalGenreList.length; i++) {
         const option = finalGenreList[i];
-        const dropdown = document.createElement("option");
+        const dropdown = document.createElement("option"); // May need to move outside the function.
         dropdown.innerText = option;
         dropdown.value = option;
         movieDropdownLabel.appendChild(dropdown)        
@@ -204,38 +196,41 @@ const homeElement = function(movies, food){
     let movieIDsByCategory = []
 
     let movieName;
-    
-    movieDropdownLabel.addEventListener("change", () => {
-            // wheelAnimation()
-            moviesByCategory = [] 
-            movieIDsByCategory = []
-            movies.movie_results.forEach(movie => {
-                console.log(movie)
-                if(movie.genres != null){
-                    movie.genres.forEach(genre => {
-                        if(genre === movieDropdownLabel.value) {      //find alternative to event.target.value
-                            moviesByCategory.push(movie.title)
-                            movieIDsByCategory.push(movie.imdb_id)
-                            //moviesByYoutube.push(movie.)
-                        }
-                    })
-                }
-              })
-            //let moviesByCategoryWithoutDuplicates= Array.from(new Set(moviesByCategory))
-            possibleMovieNum = [];
-            possibleIDNum = []
-            //console.log(moviesByCategory)
-            movieName = randomize(moviesByCategory, movieIDsByCategory);
-            spinnerSection1Text.innerText = movieName;
-            movieName = randomize(moviesByCategory, movieIDsByCategory); 
-            spinnerSection2Text.innerText = movieName; 
-            movieName = randomize(moviesByCategory, movieIDsByCategory);
-            spinnerSection3Text.innerText = movieName; 
-            movieName = randomize(moviesByCategory, movieIDsByCategory);
-            spinnerSection4Text.innerText = movieName; 
-          });
+    const dropDownPick = function (randomGenre) {
+        moviesByCategory = [] 
+        movieIDsByCategory = []
+        movies.movie_results.forEach(movie => {
+            console.log(movie)
+            if(movie.genres != null){
+                movie.genres.forEach(genre => {
+                    if(genre === randomGenre) {      //find alternative to event.target.value
+                        moviesByCategory.push(movie.title)
+                        movieIDsByCategory.push(movie.imdb_id)
+                        //moviesByYoutube.push(movie.)
+                    }
+                })
+            }
+          })
+        
+        //let moviesByCategoryWithoutDuplicates= Array.from(new Set(moviesByCategory))
+        possibleMovieNum = [];
+        possibleIDNum = []
         //console.log(moviesByCategory)
-        // alert("You chose " + event.target.value)
+        movieName = randomize(moviesByCategory, movieIDsByCategory);
+        spinnerSection1Text.innerText = movieName;
+        movieName = randomize(moviesByCategory, movieIDsByCategory); 
+        spinnerSection2Text.innerText = movieName; 
+        movieName = randomize(moviesByCategory, movieIDsByCategory);
+        spinnerSection3Text.innerText = movieName; 
+        movieName = randomize(moviesByCategory, movieIDsByCategory);
+        spinnerSection4Text.innerText = movieName; 
+    }    
+
+    movieDropdownLabel.addEventListener("change", ()=> {
+         dropDownPick(movieDropdownLabel.value) 
+        
+        });
+
     
     var choice = Math.floor(Math.random() * 4);
     movieButton.addEventListener("click", () => { 
@@ -263,6 +258,20 @@ const homeElement = function(movies, food){
         }, 5000)
 
     }
+
+    const surpriseButton = document.createElement("button")
+    surpriseButton.classList.add("surprise")
+    surpriseButton.innerText = "Surprise Us!"
+    mainSpinnerContainer.appendChild(surpriseButton)
+
+    surpriseButton.addEventListener("click", () => {    
+        let randomGenreNum = Math.floor(Math.random() * finalGenreList.length)
+        let randomGenre = finalGenreList[randomGenreNum]
+        dropDownPick(randomGenre);
+        spinFunction(choice);
+    
+    })
+   
 
     return mainElement
 }
