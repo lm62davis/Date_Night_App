@@ -9,7 +9,6 @@ const randomize = function(list, image) {
     }
     else {
     let randomNumber = Math.floor(Math.random() * list.length)
-        //console.log(randomNumber)
 
     let generatedActivity = list[randomNumber]
         possibleActivityNum.push(generatedActivity);
@@ -22,8 +21,6 @@ const randomize = function(list, image) {
 
 let possibleActivityNum = [] 
 let possibleImageNum = []            
-
-   
 
 const activitySection = function(activityJSON) {
     const mainElement = document.createElement("div");
@@ -143,13 +140,13 @@ const activitySection = function(activityJSON) {
 
 
     let activityType = []
-    // console.log(restaurant_name)
+
     activityJSON.forEach(activity => {
         activityType.push(activity.type);
        console.log(activityType)
     });
     let finalActivityList = Array.from(new Set(activityType))   //removes duplicates
-    console.log(finalActivityList);
+  
     //create dropdown options
     for (let i = 0; i < finalActivityList.length; i++) {
         const option = finalActivityList[i];
@@ -162,7 +159,7 @@ const activitySection = function(activityJSON) {
     let activityByCategory = [] 
     let activityImageByCategory = []
     let activityName;
-    // activityDropdownLabel.addEventListener("change", () => {
+    
             // wheelAnimation();
     const dropDownPick = function (randomActivity) {
             activityByCategory = [] 
@@ -172,13 +169,10 @@ const activitySection = function(activityJSON) {
                     console.log(activityByCategory)   
                     activityByCategory.push(activity.name)
                     activityImageByCategory.push(activity.image)
-                    
-                }
-            
+                 }
             }) 
-          
-            possibleActivityNum = [];
-            
+        }
+            possibleActivityNum = [];  
             possibleImageNum = [];
             activityName = randomize(activityByCategory, activityImageByCategory);
             spinnerSection1Text.innerText = activityName;
@@ -190,27 +184,24 @@ const activitySection = function(activityJSON) {
             spinnerSection4Text.innerText = activityName; 
         }
   
+    activityDropdownLabel.addEventListener("change", () => {
+        dropDownPick(activityDropdownLabel.value)    
+    });
     
     const activityNameElement = document.createElement("section")
 
     var choice = Math.floor(Math.random() * 4);
     activityButton.addEventListener("click", () => { 
 
-          spinFunction(choice);
-          console.log(possibleActivityNum);
-            console.log(choice);
-       console.log(possibleActivityNum[choice]);
+     spinFunction(choice);
 
-       
-        activityElement.appendChild(activityNameElement)    
-        
-        
+    activityElement.appendChild(activityNameElement)    
+             
     }); 
-
 
     const spinFunction = function (choice) {
 
-        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44; /////////////
+        var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44; 
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
         
         const element = document.getElementById("main-spinner-container-activity");
@@ -230,10 +221,8 @@ const activitySection = function(activityJSON) {
         let randomActivity = finalActivityList[randomActivityNum]
         dropDownPick(randomActivity);
         spinFunction(choice);
-    
     })
     
     return mainElement
-}
-   
+}   
 export {activitySection}
