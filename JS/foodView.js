@@ -5,6 +5,8 @@ let possibleFoodNum = []
 let possibleLatNum = []
 let possibleLongNum = []
 const randomize = function(list, lat, long) {
+    
+   
     if (list.length ==0) {
         possibleFoodNum.push("");
         return "";
@@ -16,7 +18,7 @@ const randomize = function(list, lat, long) {
         possibleLatNum.push(lat[randomNumber]);
         possibleLongNum.push(long[randomNumber])
 
-        list.splice(randomNumber, 1)
+        list.splice(randomNumber, 1)       
         lat.splice(randomNumber, 1)
         long.splice(randomNumber, 1)
         return generatedCuisine
@@ -27,7 +29,6 @@ const randomize = function(list, lat, long) {
                   
         for (let i = 0; i < finalCuisineList.length; i++) {
             finalCuisineList[i] = finalCuisineList[i].replaceAll('&amp;' , 'and'); 
-            // console.log(finalCuisineList[i])
         }
     }
 
@@ -141,9 +142,7 @@ const foodSection = function(food) {
                         });
                     });
                     s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZaxOlzTpiaWjRsma9xsO4_OvP29mWKM';
-                    console.log(map);
-
-                console.log(possibleFoodNum[choice])
+                   
             } 
 
             selectionPopUpCloseButton.addEventListener("click", () => {
@@ -158,13 +157,16 @@ const foodSection = function(food) {
             });
     
     let cuisine = []
+    let nameOfRestuarant = []
 
 
     food.result.data.forEach(foods => {
         cuisine.push(foods.cuisines);
-
+        nameOfRestuarant.push(foods.restaurant_name)
     });
-   
+    console.log(cuisine)
+    console.log(nameOfRestuarant)
+    
     let newCuisine = [];
   
     for (let i in cuisine) {          //change to forEach
@@ -173,8 +175,25 @@ const foodSection = function(food) {
   
         }
     }
-    let finalCuisineList = Array.from(new Set(newCuisine))   //removes duplicates
-    removeSpecialChar(finalCuisineList);
+    //let finalCuisineList = Array.from(new Set(newCuisine))  
+    let testElement;
+    let count = 0;
+    newCuisine.sort();
+    testElement = newCuisine[0]
+    let finalCuisineList = []
+    for (let i = 0; i < newCuisine.length + 1; i++) {
+        if( newCuisine[i] === testElement) {
+            count++;
+        } else {
+            if (count >= 4) {
+            finalCuisineList.push(testElement)
+        }
+        testElement = newCuisine[i]
+        count = 1
+    }
+   
+ } 
+    //removeSpecialChar(finalCuisineList);
 
     
 
@@ -186,20 +205,18 @@ const foodSection = function(food) {
         dropdown.value = option;
         foodDropdownLabel.appendChild(dropdown)        
     }
-   
+
+
+
 
     let foodByCategory = []
     let latByCategory = []
     let longByCategory = []
 
     let foodName;
-    
-    
-            // wheelAnimation();
-  
+                    
         
-        const dropDownPick = function(randomCuisine) {
-            console.log(randomCuisine)
+    const dropDownPick = function(randomCuisine) {
         foodByCategory = [] 
         latByCategory = []
         longByCategory = []
@@ -215,35 +232,30 @@ const foodSection = function(food) {
                 }
               })
             // }
-
+            console.log(foodByCategory)
 
             possibleFoodNum = [];
             possibleLatNum = [];
             possibleLongNum = [];
+            //foodByCategory = Array.from(new Set(foodByCategory))
+
+         
             foodName = randomize(foodByCategory, latByCategory, longByCategory);
             spinnerSection1Text.innerText = foodName;
-            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
+
             foodName = randomize(foodByCategory, latByCategory, longByCategory); 
             spinnerSection2Text.innerText = foodName;
-            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
             foodName = randomize(foodByCategory, latByCategory, longByCategory);
             spinnerSection3Text.innerText = foodName; 
-            // foodByCategory = foodByCategory.splice(foodName,randomNumber);
             foodName = randomize(foodByCategory, latByCategory, longByCategory);
             spinnerSection4Text.innerText = foodName; 
-
-        //   });
         }
         foodDropdownLabel.addEventListener("change", () => {
             dropDownPick(foodDropdownLabel.value)
         });
         var choice = Math.floor(Math.random() * 4);
     foodButton.addEventListener("click", () => { 
-     
-        spinFunction(choice); 
- 
-    
-        
+        spinFunction(choice);         
     }); 
   
 

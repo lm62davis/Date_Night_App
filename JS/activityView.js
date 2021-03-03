@@ -9,7 +9,7 @@ const randomize = function(list, image) {
     }
     else {
     let randomNumber = Math.floor(Math.random() * list.length)
-        //console.log(randomNumber)
+       
 
     let generatedActivity = list[randomNumber]
         possibleActivityNum.push(generatedActivity);
@@ -143,13 +143,13 @@ const activitySection = function(activityJSON) {
 
 
     let activityType = []
-    // console.log(restaurant_name)
+
     activityJSON.forEach(activity => {
         activityType.push(activity.type);
-       console.log(activityType)
+   
     });
     let finalActivityList = Array.from(new Set(activityType))   //removes duplicates
-    console.log(finalActivityList);
+
     //create dropdown options
     for (let i = 0; i < finalActivityList.length; i++) {
         const option = finalActivityList[i];
@@ -169,7 +169,6 @@ const activitySection = function(activityJSON) {
             activityImageByCategory = []
             activityJSON.forEach(activity => {
                 if(activity.type === randomActivity) {   
-                    console.log(activityByCategory)   
                     activityByCategory.push(activity.name)
                     activityImageByCategory.push(activity.image)
                     
@@ -203,9 +202,6 @@ const activitySection = function(activityJSON) {
     activityButton.addEventListener("click", () => { 
 
           spinFunction(choice);
-          console.log(possibleActivityNum);
-            console.log(choice);
-       console.log(possibleActivityNum[choice]);
 
        
         activityElement.appendChild(activityNameElement)    

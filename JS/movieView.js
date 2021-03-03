@@ -117,13 +117,6 @@ const homeElement = function(movies){
         movieImage.classList.add("movie-poster")
 
         const togglePopUp = function () {
-            // let selectionPopUpContent = document.createElement("div")
-            // selectionPopUpContent.classList.add("selection-pop-up-content-movie")
-            console.log(possibleIDNum)
-            console.log(possibleMovieNum)
-            console.log(possibleIDNum[choice])
-            console.log(possibleMovieNum[choice])
-
             fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=${possibleIDNum[choice]}`, {
         "method": "GET",
         "headers": {
@@ -151,7 +144,7 @@ const homeElement = function(movies){
             
     
             selectionPopUp.classList.toggle("active") 
-            console.log(possibleMovieNum[choice])
+         
         } 
     
         selectionPopUpCloseButton.addEventListener("click", () => {
@@ -180,7 +173,25 @@ const homeElement = function(movies){
         }
     }
 
-    let finalGenreList = Array.from(new Set(newGenre))  
+    
+    //let finalGenreList = Array.from(new Set(newGenre))  
+    let testElement;
+    let count = 0;
+    newGenre.sort();
+    testElement = newGenre[0]
+    let finalGenreList = []
+    for (let i = 0; i < newGenre.length + 1; i++) {
+        if( newGenre[i] === testElement) {
+            count++;
+        } else {
+            if (count >= 4) {
+            finalGenreList.push(testElement)
+        }
+        testElement = newGenre[i]
+        count = 1
+    }
+   //console.log(finalGenreList)
+}
     
     
     //create dropdown options
@@ -237,11 +248,7 @@ const homeElement = function(movies){
         //.log(movieName)
           //test to make sure selected is not default value. if to diff just switch back to label & input 
         spinFunction(choice);
-       
-        //console.log(possibleMovieNum[choice]);
-        // activityElement.appendChild(activityNameElement)    
-        
-        
+              
     }); 
     const spinFunction = function () {
         // let x = 1024; 

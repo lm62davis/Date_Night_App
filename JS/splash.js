@@ -91,7 +91,7 @@ const displaySplashPage = function() {
         console.error(err);
     });
 
-    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=1", {
+    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=1", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
@@ -107,7 +107,7 @@ const displaySplashPage = function() {
         console.error(err);
     });
 
-    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=2", {
+    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=2", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
@@ -123,7 +123,7 @@ const displaySplashPage = function() {
         console.error(err);
     });
 
-    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/state/OH?page=3", {
+    fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=3", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "c03c7ea319mshe450b817bc71590p1d6478jsn9e3847b68620",
