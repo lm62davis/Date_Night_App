@@ -171,9 +171,15 @@ const activitySection = function(activityJSON) {
                     activityImageByCategory.push(activity.image)
                  }
             }) 
+<<<<<<< HEAD
         }
             possibleActivityNum = [];  
+=======
+          
+            possibleActivityNum = [];            
+>>>>>>> a993578cfa8c3213a74a368877c9ae032c023c97
             possibleImageNum = [];
+
             activityName = randomize(activityByCategory, activityImageByCategory);
             spinnerSection1Text.innerText = activityName;
             activityName = randomize(activityByCategory, activityImageByCategory); 
@@ -183,6 +189,12 @@ const activitySection = function(activityJSON) {
             activityName = randomize(activityByCategory, activityImageByCategory);
             spinnerSection4Text.innerText = activityName; 
         }
+
+        activityDropdownLabel.addEventListener("change", ()=> {
+            dropDownPick(activityDropdownLabel.value) 
+           
+           });
+   
   
     activityDropdownLabel.addEventListener("change", () => {
         dropDownPick(activityDropdownLabel.value)    

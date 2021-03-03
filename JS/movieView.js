@@ -20,7 +20,12 @@ const randomize = function(title, id){
     }
 }
 
+<<<<<<< HEAD
 const homeElement = function(movies, food){
+=======
+const homeElement = function(movies){
+ 
+>>>>>>> a993578cfa8c3213a74a368877c9ae032c023c97
     const mainElement = document.createElement("div");
     mainElement.classList.add("main-container")
 
