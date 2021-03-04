@@ -25,7 +25,6 @@ const homeElement = function(movies){
     const mainElement = document.createElement("div");
     mainElement.classList.add("main-container")
 
-    //Movies
     const movieElement = document.createElement("div");
     movieElement.classList.add("movie-container")
     mainElement.appendChild(movieElement)
@@ -38,7 +37,6 @@ const homeElement = function(movies){
     const movieDropdownLabel = document.createElement("select")
     movieDropdownLabel.classList.add("movie-dropdown-label")
     movieElement.appendChild(movieDropdownLabel)
-    
     
     const defaultGenreDropdown = document.createElement("option")
     defaultGenreDropdown.selected = true
@@ -117,13 +115,6 @@ const homeElement = function(movies){
         movieImage.classList.add("movie-poster")
 
         const togglePopUp = function () {
-            // let selectionPopUpContent = document.createElement("div")
-            // selectionPopUpContent.classList.add("selection-pop-up-content-movie")
-            console.log(possibleIDNum)
-            console.log(possibleMovieNum)
-            console.log(possibleIDNum[choice])
-            console.log(possibleMovieNum[choice])
-
             fetch(`https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-movies-images-by-imdb&imdb=${possibleIDNum[choice]}`, {
         "method": "GET",
         "headers": {
@@ -148,10 +139,8 @@ const homeElement = function(movies){
             movieImage.alt = possibleMovieNum[choice]
             selectionPopUpContentDiv.appendChild(movieImage)
             
-            
-    
             selectionPopUp.classList.toggle("active") 
-            console.log(possibleMovieNum[choice])
+         
         } 
     
         selectionPopUpCloseButton.addEventListener("click", () => {
@@ -180,7 +169,25 @@ const homeElement = function(movies){
         }
     }
 
-    let finalGenreList = Array.from(new Set(newGenre))  
+    
+    //let finalGenreList = Array.from(new Set(newGenre))  
+    let testElement;
+    let count = 0;
+    newGenre.sort();
+    testElement = newGenre[0]
+    let finalGenreList = []
+    for (let i = 0; i < newGenre.length + 1; i++) {
+        if( newGenre[i] === testElement) {
+            count++;
+        } else {
+            if (count >= 4) {
+            finalGenreList.push(testElement)
+        }
+        testElement = newGenre[i]
+        count = 1
+    }
+   //console.log(finalGenreList)
+}
     
     
     //create dropdown options
@@ -194,7 +201,6 @@ const homeElement = function(movies){
     
     let moviesByCategory = []
     let movieIDsByCategory = []
-
     let movieName;
     const dropDownPick = function (randomGenre) {
         moviesByCategory = [] 
@@ -206,7 +212,6 @@ const homeElement = function(movies){
                     if(genre === randomGenre) {      //find alternative to event.target.value
                         moviesByCategory.push(movie.title)
                         movieIDsByCategory.push(movie.imdb_id)
-                        //moviesByYoutube.push(movie.)
                     }
                 })
             }
@@ -215,7 +220,6 @@ const homeElement = function(movies){
         //let moviesByCategoryWithoutDuplicates= Array.from(new Set(moviesByCategory))
         possibleMovieNum = [];
         possibleIDNum = []
-        //console.log(moviesByCategory)
         movieName = randomize(moviesByCategory, movieIDsByCategory);
         spinnerSection1Text.innerText = movieName;
         movieName = randomize(moviesByCategory, movieIDsByCategory); 
@@ -227,26 +231,18 @@ const homeElement = function(movies){
     }    
 
     movieDropdownLabel.addEventListener("change", ()=> {
-         dropDownPick(movieDropdownLabel.value) 
-        
+         dropDownPick(movieDropdownLabel.value)    
         });
 
-    
     var choice = Math.floor(Math.random() * 4);
     movieButton.addEventListener("click", () => { 
-        //.log(movieName)
+
           //test to make sure selected is not default value. if to diff just switch back to label & input 
         spinFunction(choice);
-       
-        //console.log(possibleMovieNum[choice]);
-        // activityElement.appendChild(activityNameElement)    
-        
-        
+              
     }); 
     const spinFunction = function () {
-        // let x = 1024; 
-        // let y = 9999; 
-        // var deg = Math.floor(Math.random() * (x-y)) + y;
+   
         var deg = 1215 + Math.floor(Math.random() * 10) * 360 + choice * 90 + Math.random() * 88 - 44;
         secondarySpinnerContainer.style.transform = "rotate("+deg+"deg)"
 
@@ -256,13 +252,12 @@ const homeElement = function(movies){
             element.classList.add('animate')
             togglePopUp()
         }, 5000)
-
     }
 
     const surpriseButton = document.createElement("button")
     surpriseButton.classList.add("surprise")
     surpriseButton.innerText = "Surprise Us!"
-    mainSpinnerContainer.appendChild(surpriseButton)
+    movieElement.appendChild(surpriseButton)
 
     surpriseButton.addEventListener("click", () => {    
         let randomGenreNum = Math.floor(Math.random() * finalGenreList.length)
@@ -272,7 +267,6 @@ const homeElement = function(movies){
     
     })
    
-
     return mainElement
 }
 export {homeElement};

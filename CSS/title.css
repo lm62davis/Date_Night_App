@@ -5,69 +5,71 @@ h2 {
 }
 
 .title {
-  font-size: 40px;
-  transition: 2s ease-in;
+  font-size: 2em;
+  transition: 3s ease-in;
   text-align: center;
-  margin-bottom: 50px;
+  margin: .5% 0% 2% 0%;
   background-color: #f3ec78;
   background-image: linear-gradient(45deg, #c29254, #721e36);
-  background-size:cover;
   background-clip: text;
-  letter-spacing: 20px;
+  letter-spacing: 1em;
   animation: spacing 5s ease-in;
 }
-/* #be7f91 */
-/* #86233f */
+
 
 .wrapper {
   position: relative;
-  top: 25%;
+  margin-top: 4%;
+  margin-bottom: 2%;
   left: 50%;
-  padding-top: 60px;
+  padding: 2% 2%;
   transform: translate(-50%, -50%);
-  height: 80px;
   overflow: hidden;
   font-family: fantasy;
-  font-size: 35px;
-  justify-content: center;
+  font-size: 2em;
   color: #ffebd7;
 }
 .header-content {
   font-weight: 600;
   overflow: hidden;
-  height: 35px;
-  padding: 0 20px;
+  height: .9em;
+  padding: 0 2em;
 }
 .t-text {
   display: inline;
-  /* float: ; */
-  margin: 0;
+  justify-content: center;
+  padding-left: 40%;
+  padding-top: 2%;
 }
 .animated-text {
   margin-top: 0;
-  padding-left: 2px;
+  padding-left: 2%;
   text-align: center;
   list-style: none;
   animation: animate 5s infinite;
 }
 .single-text {
-  line-height: 40px;
+  line-height: .9em;
   margin: 0;
 }
-
 .reset-button, .contact, .surprise {
   background-color:  #721e36;
   color: #ffebd7;
-  padding: 10px 30px;
+  padding: .5em 1em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-family: fantasy;
-  font-size: 15px;
-  margin: 4px 2px;
+  font-size: .75em;
+  margin-top: 9%; 
   cursor: pointer;
 }
- /* Banner Animation */
+/* .surprise {
+  margin-top: 1em;
+  margin-left: 20em; 
+} */
+
+ /* Title Animation */
  @keyframes spacing {
   from {letter-spacing: 0em;}
   to {letter-spacing: .5em;}

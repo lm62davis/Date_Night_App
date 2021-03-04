@@ -1,48 +1,56 @@
-body{
-    background-color: black;
-    
-    /* background-image:linear-gradient(black,violet,rgb(150, 63, 124),pink); */
+body {
+  background-color: black;
+  justify-content: center;
 }
-
-
-
-.animate span{
-	display: block;
-	position: relative;
-	text-align: center;
+.animate span {
+  display: block;
+  position: relative;
+  text-align: center;
 }
-
-.animate.backwards{
-    color: hotpink;
-	animation: animateBackwards 1s ease-in-out 
-forwards;
+.animate.backwards > span {
+  color: hotpink;
+  animation: animateBackwards 1s ease-in-out forwards;
 }
-.animate.forwards{
-    color: purple;
-	animation: animateForwards 1s ease-in-out 
-forwards;
+.animate.forwards > span {
+  color: purple;
+  animation: animateForwards 1s ease-in-out forwards;
 }
-
-.animate.mixed:nth-child(even){
-    color: crimson;
-	animation: animateBackwards 1s ease-in-out 
-forwards;
+.animate.mixed > span:nth-child(even) {
+  color: crimson;
+  animation: animateBackwards 1s ease-in-out forwards;
 }
-.animate.mixed:nth-child(odd){
-    color: pink;
-	animation: animateForwards 1s ease-in-out 
-forwards;
+.animate.mixed > span:nth-child(odd) {
+  color: pink;
+  animation: animateForwards 1s ease-in-out forwards;
 }
 
 @keyframes animateForwards {
-	from { top: 0; transform: rotate(0deg); }
-	to { top: .9em; transform: rotate(-15deg); }
+  from {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  to {
+    top: 0.9em;
+    transform: rotate(-15deg);
+  }
 }
 @keyframes animateBackwards {
-	from { top: 0; transform: rotate(0deg); }
-	to { top: 1em; transform: rotate(25deg); }
+  from {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  to {
+    top: 1em;
+    transform: rotate(25deg);
+  }
 }
-.ticket-image{
-    width: 150px;
-    height: 70px
+.center {
+  width: 150px;
+  height: 70px;
+  align-items: top;
+  justify-content: space-around;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2em;
 }
