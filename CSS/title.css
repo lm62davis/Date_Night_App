@@ -55,13 +55,13 @@ h2 {
 .reset-button, .contact, .surprise {
   background-color:  #721e36;
   color: #ffebd7;
-  padding: .5em 1em;
+  padding: .75em .5em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-family: fantasy;
   font-size: .75em;
-  margin-top: 9%; 
+  margin-top: 5%; 
   cursor: pointer;
 }
 /* .surprise {
