@@ -168,7 +168,7 @@ const displaySplashPage = function() {
         //     displayHomeView (allMovies, allFoods)
         // })
 
-    return mainElement;
+    return onLoad;
 }
 displaySplashPage();
 
