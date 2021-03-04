@@ -13,7 +13,7 @@ const createHeader = function () {
   
     const resetButton = document.createElement("button");
     resetButton.classList.add("reset-button")
-    resetButton.innerText = "reset"
+    resetButton.innerText = "Reset"
     nav.appendChild(resetButton)
 
     resetButton.addEventListener("click", () => {
