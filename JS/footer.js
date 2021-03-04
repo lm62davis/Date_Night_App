@@ -8,6 +8,7 @@ const createFooter = function () {
         `;
     return footer;
   };
+  
 
     
   export { createFooter };

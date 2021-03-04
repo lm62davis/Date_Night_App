@@ -3,34 +3,31 @@ import {displayHomeView } from "./app.js";
 const displaySplashPage = function() {
     const container = document.querySelector(".main-content");   
 
-    const mainElement = document.createElement("main");
-    mainElement.classList.add("display-content");
-    container.prepend(mainElement)
+    const onLoad = document.createElement("h3")
+    onLoad.innerText = "Loading - Please wait"
+    onLoad.classList.add("load")
+    container.prepend(onLoad)
 
 
-    
-    const firstAnimation = document.createElement("h2")
-    firstAnimation.innerText = "Team Date Night"
-    firstAnimation.classList.add("animate", "backwards", "animate-span")
-    const secondAnimation = document.createElement("h2")
-    secondAnimation.innerText = "Proudly Presents..."
-    secondAnimation.classList.add("animate", "forwards", "animate-span")
-    const thirdAnimation = document.createElement("h2")
-    thirdAnimation.innerText = "The Date Night App"
-    thirdAnimation.classList.add("animate", "mixed", "animate-span")
+    // const secondAnimation = document.createElement("h2")
+    // secondAnimation.innerText = "Proudly Presents..."
+    // secondAnimation.classList.add("animate", "forwards", "animate-span")
+    // const thirdAnimation = document.createElement("h2")
+    // thirdAnimation.innerText = "The Date Night App"
+    // thirdAnimation.classList.add("animate", "backwards", "animate-span")
 
-    const centerDiv = document.createElement("div")
-    centerDiv.classList.add("center")
+    // const centerDiv = document.createElement("div")
+    // centerDiv.classList.add("center")
 
-    mainElement.appendChild(firstAnimation)
-    mainElement.appendChild(secondAnimation)
-    mainElement.appendChild(thirdAnimation)
-    mainElement.appendChild(centerDiv)
+    // mainElement.appendChild(firstAnimation)
+    // mainElement.appendChild(secondAnimation)
+    // mainElement.appendChild(thirdAnimation)
+    // mainElement.appendChild(centerDiv)
 
-    const ticketImage = document.createElement("img")
-    ticketImage.classList.add("ticket-image")
-    ticketImage.src = "images/Ticket.jpg"
-    centerDiv.appendChild(ticketImage)
+    // const ticketImage = document.createElement("img")
+    // ticketImage.classList.add("ticket-image")
+    // ticketImage.src = "images/Ticket.jpg"
+    // centerDiv.appendChild(ticketImage)
 
     let movieJson = "";
     let movieJson2 = "";
@@ -164,12 +161,12 @@ const displaySplashPage = function() {
             console.log(foodJson2)
             console.log(foodJson3)
             console.log(allFoods);
-
+            displayHomeView (allMovies, allFoods)   
         }
     }
-        ticketImage.addEventListener("click", ()=> {
-            displayHomeView (allMovies, allFoods)
-        })
+        // ticketImage.addEventListener("click", ()=> {
+        //     displayHomeView (allMovies, allFoods)
+        // })
 
     return mainElement;
 }

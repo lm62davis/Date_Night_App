@@ -11,13 +11,12 @@ const createHeader = function () {
     contact.innerText = "Contact Us" 
     nav.appendChild(contact)
   
+    const resetButton = document.createElement("button");
+    resetButton.classList.add("reset-button")
+    resetButton.innerText = "reset"
+    nav.appendChild(resetButton)
 
-const resetButton = document.createElement("button");
-resetButton.classList.add("reset-button")
-resetButton.innerText = "reset"
-nav.appendChild(resetButton)
-
-resetButton.addEventListener("click", () => {
+    resetButton.addEventListener("click", () => {
           location.reload();
     })
 
@@ -66,6 +65,10 @@ resetButton.addEventListener("click", () => {
     scrollingContentUL.appendChild(activityScroll)
     activityScroll.innerText = "activity"
 
+    const loveLanguageScroll = document.createElement("li")
+    loveLanguageScroll.classList.add("single-text")
+    scrollingContentUL.appendChild(loveLanguageScroll)
+    loveLanguageScroll.innerText = "love languages"
   
 
     return header;
