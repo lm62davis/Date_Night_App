@@ -221,7 +221,7 @@ const activitySection = function(activityJSON) {
     const surpriseButton = document.createElement("button")
     surpriseButton.classList.add("surprise")
     surpriseButton.innerText = "Surprise Us!"
-    mainSpinnerContainer.appendChild(surpriseButton)
+    activityElement.appendChild(surpriseButton)
 
     surpriseButton.addEventListener("click", () => {    
         let randomActivityNum = Math.floor(Math.random() * finalActivityList.length)
