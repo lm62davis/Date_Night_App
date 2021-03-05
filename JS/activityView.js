@@ -31,7 +31,7 @@ const activitySection = function(activityJSON) {
     activityElement.classList.add("activity-container")
     mainElement.appendChild(activityElement)
 
-    const activityHeader = document.createElement("p")
+    const activityHeader = document.createElement("h3")
     activityHeader.classList.add("dropdown-header")
     activityHeader.innerText="Activity"
     activityElement.appendChild(activityHeader)
@@ -60,8 +60,7 @@ const activitySection = function(activityJSON) {
     secondarySpinnerContainer.appendChild(spinnerSection1); 
 
     const spinnerSection1Text = document.createElement("p")
-    spinnerSection1Text.classList.add("spin-labels")
-    spinnerSection1Text.setAttribute("id","spinner-label-1")
+    spinnerSection1Text.classList.add("spin-label-1")
     spinnerSection1.appendChild(spinnerSection1Text);
 
     const spinnerSection2 = document.createElement("section")
@@ -69,7 +68,7 @@ const activitySection = function(activityJSON) {
     secondarySpinnerContainer.appendChild(spinnerSection2);
 
     const spinnerSection2Text = document.createElement("p")
-    spinnerSection2Text.classList.add("spin-labels")
+    spinnerSection2Text.classList.add("spin-label-2")
     spinnerSection2.appendChild(spinnerSection2Text);
 
     const spinnerSection3 = document.createElement("section")
@@ -77,7 +76,7 @@ const activitySection = function(activityJSON) {
     secondarySpinnerContainer.appendChild(spinnerSection3);
 
     const spinnerSection3Text = document.createElement("p")
-    spinnerSection3Text.classList.add("spin-labels")
+    spinnerSection3Text.classList.add("spin-label-3")
     spinnerSection3.appendChild(spinnerSection3Text);
 
     const spinnerSection4 = document.createElement("section")
@@ -136,7 +135,6 @@ const activitySection = function(activityJSON) {
         clearChildren(spinnerSection3Text)
         clearChildren(spinnerSection4Text)
         defaultActivityDropdown.selected = true;
-  
     });
 
 

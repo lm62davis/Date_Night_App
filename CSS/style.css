@@ -31,8 +31,11 @@ li {
 .dropdown-header {
   color: #ffebd7;
   height: 4vh;
-  margin: 0px 0.2em;
-  padding: 0px 0px;
+  /* margin: 0px 1em; */
+  padding-right: 100%;
+  font-size: 1.5em;
+  font-weight: normal;
+
 }
 .main-container {
   position: relative;
@@ -87,7 +90,7 @@ section {
   position: absolute;
 }
 /* Text inside wheel */
-.spin-labels {
+p {
   color: rgb(250, 243, 243);
   /* position: absolute; */
   word-wrap: normal;
@@ -99,8 +102,66 @@ section {
   padding-bottom: 25%;
   padding-left: 25%;
   padding-right: 25%;
+  word-break:normal;
   font-size: 0.6em;
 }
+
+.spin-label-1 {
+  color: rgb(250, 243, 243);
+  word-wrap: normal;
+  font-family: Arial;
+  font-weight: bold;
+  transform: rotate(45deg);
+  text-align: center;
+  padding-top: 25%;
+  padding-bottom: 25%;
+  padding-left: 25%;
+  padding-right: 25%;
+  font-size: 0.6em;
+}
+
+.spin-label-2 {
+  color: rgb(250, 243, 243);
+  word-wrap: normal;
+  font-family: Arial;
+  font-weight: bold;
+  transform: rotate(135deg);
+  text-align: center;
+  padding-top: 25%;
+  padding-bottom: 25%;
+  padding-left: 25%;
+  padding-right: 25%;
+  font-size: 0.6em;
+}
+
+.spin-label-3 {
+  color: rgb(250, 243, 243);
+  word-wrap: normal;
+  font-family: Arial;
+  font-weight: bold;
+  transform: rotate(225deg);
+  text-align: center;
+  padding-top: 25%;
+  padding-bottom: 25%;
+  padding-left: 25%;
+  padding-right: 25%;
+  font-size: 0.6em;
+}
+
+.spin-label-4 {
+  color: rgb(250, 243, 243);
+  word-wrap: normal;
+  font-family: Arial;
+  font-weight: bold;
+  transform: rotate(315deg);
+  text-align: center;
+  padding-top: 35%;
+  padding-bottom: 25%;
+  padding-left: 25%;
+  padding-right: 35%;
+  font-size: 0.6em;
+}
+
 .spinner-section-1 {
   /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
   width: 50%;
@@ -182,15 +243,15 @@ section {
 
 .selection-pop-up-activity .selection-pop-up-content-div-activity {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   color: rgb(243, 235, 235);
   background: rgba(12, 1, 1, 0.87);
-  font-size: 30px;
+  font-size: 1.5em;
   word-wrap: normal;
-  width: 200px;
-  height: 200px;
+  width: 70%;
+  height: 70%;
   z-index: 2;
   text-align: center;
   padding-right: 20px;
@@ -201,13 +262,15 @@ section {
 .selection-pop-up-activity .selection-pop-up-close-button-activity {
   cursor: pointer;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
-  background: #222;
+  right: 1%;
+  width: 4vh;
+  height: 4vh;
+  background: black;
+  vertical-align: middle;
   color: #fff;
-  font-size: 25px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 0.75em;
   font-weight: 600;
   line-height: 30px;
   text-align: center;
@@ -236,15 +299,15 @@ section {
 
 .selection-pop-up-movie .selection-pop-up-content-div-movie {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   color: rgb(243, 235, 235);
   background: rgba(12, 1, 1, 0.87);
-  font-size: 30px;
+  font-size: 1.5em;
   word-wrap: normal;
-  width: 200px;
-  height: 200px;
+  width: 70%;
+  height: 70%;
   z-index: 2;
   text-align: center;
   padding-right: 20px;
@@ -255,13 +318,15 @@ section {
 .selection-pop-up-movie .selection-pop-up-close-button-movie {
   cursor: pointer;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
-  background: #222;
+  right: 1%;
+  width: 4vh;
+  height: 4vh;
+  background: black;
+  vertical-align: middle;
   color: #fff;
-  font-size: 25px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 0.75em;
   font-weight: 600;
   line-height: 30px;
   text-align: center;
@@ -290,7 +355,7 @@ section {
 
 .selection-pop-up-food .selection-pop-up-content-div-food {
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   color: rgb(243, 235, 235);
@@ -334,8 +399,8 @@ section {
 }
 
 .movie-poster {
-  width: 150px;
-  height: 200px;
+  width: 20vw;
+  height: 20vw;
 }
 
 #map {
@@ -345,8 +410,9 @@ section {
   box-sizing: border-box;
 }
 .activity-image {
-  width: 100px;
-  height: 150px;
+  width: 20vw;
+  height: 20vw; 
+  float:inline-end;
 }
 .surprise {
   background-color: #721e36;

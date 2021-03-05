@@ -41,7 +41,7 @@ const foodSection = function(food) {
     foodElement.classList.add("food-container")
     mainElement.appendChild(foodElement)
 
-    const foodHeader = document.createElement("p")
+    const foodHeader = document.createElement("h2")
     foodHeader.classList.add("dropdown-header")
     foodHeader.innerText="Restaurant"
     foodElement.appendChild(foodHeader)
@@ -59,32 +59,41 @@ const foodSection = function(food) {
     mainSpinnerContainer.setAttribute("id","main-spinner-container-food")
     mainSpinnerContainer.classList.add("main-spinner-container") 
     foodElement.appendChild(mainSpinnerContainer);
+
     const secondarySpinnerContainer = document.createElement("div")
     secondarySpinnerContainer.classList.add("secondary-spinner-container") 
     mainSpinnerContainer.appendChild(secondarySpinnerContainer);
+
     const spinnerSection1 = document.createElement("section")
     spinnerSection1.classList.add("spinner-section-1")
     secondarySpinnerContainer.appendChild(spinnerSection1);  
+
     const spinnerSection1Text = document.createElement("p")
-    spinnerSection1Text.classList.add("spin-labels")
+    spinnerSection1Text.classList.add("spin-label-1")
     spinnerSection1.appendChild(spinnerSection1Text);
+
     const spinnerSection2 = document.createElement("section")
     spinnerSection2.classList.add("spinner-section-2") 
     secondarySpinnerContainer.appendChild(spinnerSection2);
+
     const spinnerSection2Text = document.createElement("p")
-    spinnerSection2Text.classList.add("spin-labels")
+    spinnerSection2Text.classList.add("spin-label-2")
     spinnerSection2.appendChild(spinnerSection2Text);
+
     const spinnerSection3 = document.createElement("section")
     spinnerSection3.classList.add("spinner-section-3") 
     secondarySpinnerContainer.appendChild(spinnerSection3);
+
     const spinnerSection3Text = document.createElement("p")
-    spinnerSection3Text.classList.add("spin-labels")
+    spinnerSection3Text.classList.add("spin-label-3")
     spinnerSection3.appendChild(spinnerSection3Text);
+
     const spinnerSection4 = document.createElement("section")
     spinnerSection4.classList.add("spinner-section-4") 
     secondarySpinnerContainer.appendChild(spinnerSection4);
+
     const spinnerSection4Text = document.createElement("p")
-    spinnerSection4Text.classList.add("spin-labels")
+    spinnerSection4Text.classList.add("spin-label-4")
     spinnerSection4.appendChild(spinnerSection4Text);
 
 

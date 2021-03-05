@@ -88,7 +88,7 @@ h3 {
 
 footer {
   /* border: 5px solid white; */
-  margin-top: 3em;
+  margin-top: 15%;
   grid-row-start: 6;
   grid-row-end: 7;
   grid-column-start: 1;

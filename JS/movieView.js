@@ -29,7 +29,7 @@ const homeElement = function(movies){
     movieElement.classList.add("movie-container")
     mainElement.appendChild(movieElement)
 
-    const movieHeader = document.createElement("p")
+    const movieHeader = document.createElement("h3")
     movieHeader.classList.add("dropdown-header")
     movieHeader.innerText="Movie"
     movieElement.appendChild(movieHeader)
@@ -57,7 +57,7 @@ const homeElement = function(movies){
     secondarySpinnerContainer.appendChild(spinnerSection1);  
 
     const spinnerSection1Text = document.createElement("p")
-    spinnerSection1Text.classList.add("spin-labels")
+    spinnerSection1Text.classList.add("spin-label-1")
     spinnerSection1.appendChild(spinnerSection1Text);
 
     const spinnerSection2 = document.createElement("section")
@@ -65,7 +65,7 @@ const homeElement = function(movies){
     secondarySpinnerContainer.appendChild(spinnerSection2);
 
     const spinnerSection2Text = document.createElement("p")
-    spinnerSection2Text.classList.add("spin-labels")
+    spinnerSection2Text.classList.add("spin-label-2")
     spinnerSection2.appendChild(spinnerSection2Text);
 
     const spinnerSection3 = document.createElement("section")
@@ -73,7 +73,7 @@ const homeElement = function(movies){
     secondarySpinnerContainer.appendChild(spinnerSection3);
 
     const spinnerSection3Text = document.createElement("p")
-    spinnerSection3Text.classList.add("spin-labels")
+    spinnerSection3Text.classList.add("spin-label-3")
     spinnerSection3.appendChild(spinnerSection3Text);
 
     const spinnerSection4 = document.createElement("section")
@@ -81,7 +81,7 @@ const homeElement = function(movies){
     secondarySpinnerContainer.appendChild(spinnerSection4);
 
     const spinnerSection4Text = document.createElement("p")
-    spinnerSection4Text.classList.add("spin-labels")
+    spinnerSection4Text.classList.add("spin-label-4")
     spinnerSection4.appendChild(spinnerSection4Text);
 
     const movieButton = document.createElement("button")
