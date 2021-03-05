@@ -201,13 +201,13 @@ section {
 .selection-pop-up-activity .selection-pop-up-close-button-activity {
   cursor: pointer;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
+  right: 1%;
+  width: 4vh;
+  height: 4vh;
   background: #222;
   color: #fff;
-  font-size: 25px;
+  vertical-align: middle;
+  font-size: 0.75em;
   font-weight: 600;
   line-height: 30px;
   text-align: center;
@@ -255,13 +255,13 @@ section {
 .selection-pop-up-movie .selection-pop-up-close-button-movie {
   cursor: pointer;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
+  right: 1%;
+  width: 4vh;
+  height: 4vh;
   background: #222;
   color: #fff;
-  font-size: 25px;
+  vertical-align: middle;
+  font-size: 0.75em;
   font-weight: 600;
   line-height: 30px;
   text-align: center;
@@ -277,7 +277,7 @@ section {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Activity selection pop up styling */
+/* Food selection pop up styling */
 .selection-pop-up-food .selection-pop-up-overlay-food {
   /* position: fixed; */
   top: 75px;
