@@ -182,15 +182,15 @@ section {
 
 .selection-pop-up-activity .selection-pop-up-content-div-activity {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   color: rgb(243, 235, 235);
   background: rgba(12, 1, 1, 0.87);
-  font-size: 30px;
+  font-size: 1.5em;
   word-wrap: normal;
-  width: 200px;
-  height: 200px;
+  width: 70%;
+  height: 70%;
   z-index: 2;
   text-align: center;
   padding-right: 20px;
@@ -236,15 +236,15 @@ section {
 
 .selection-pop-up-movie .selection-pop-up-content-div-movie {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   color: rgb(243, 235, 235);
   background: rgba(12, 1, 1, 0.87);
-  font-size: 30px;
+  font-size: 1.5em;
   word-wrap: normal;
-  width: 200px;
-  height: 200px;
+  width: 70%;
+  height: 70%;
   z-index: 2;
   text-align: center;
   padding-right: 20px;
@@ -290,7 +290,7 @@ section {
 
 .selection-pop-up-food .selection-pop-up-content-div-food {
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   color: rgb(243, 235, 235);
@@ -334,8 +334,8 @@ section {
 }
 
 .movie-poster {
-  width: 150px;
-  height: 200px;
+  width: 20vw;
+  height: 20vw;
 }
 
 #map {
@@ -345,8 +345,9 @@ section {
   box-sizing: border-box;
 }
 .activity-image {
-  width: 100px;
-  height: 150px;
+  width: 20vw;
+  height: 20vw; 
+  float:inline-end;
 }
 .surprise {
   background-color: #721e36;
