@@ -1,34 +1,26 @@
 import {displayHomeView } from "./app.js";
-
 const displaySplashPage = function() {
     const container = document.querySelector(".main-content");   
-
     const onLoad = document.createElement("h3")
     onLoad.innerText = "Loading - Please wait"
     onLoad.classList.add("load")
     container.prepend(onLoad)
-
-
     // const secondAnimation = document.createElement("h2")
     // secondAnimation.innerText = "Proudly Presents..."
     // secondAnimation.classList.add("animate", "forwards", "animate-span")
     // const thirdAnimation = document.createElement("h2")
     // thirdAnimation.innerText = "The Date Night App"
     // thirdAnimation.classList.add("animate", "backwards", "animate-span")
-
     // const centerDiv = document.createElement("div")
     // centerDiv.classList.add("center")
-
     // mainElement.appendChild(firstAnimation)
     // mainElement.appendChild(secondAnimation)
     // mainElement.appendChild(thirdAnimation)
     // mainElement.appendChild(centerDiv)
-
     // const ticketImage = document.createElement("img")
     // ticketImage.classList.add("ticket-image")
     // ticketImage.src = "images/Ticket.jpg"
     // centerDiv.appendChild(ticketImage)
-
     let movieJson = "";
     let movieJson2 = "";
     let movieJson3 = "";
@@ -37,14 +29,12 @@ const displaySplashPage = function() {
     let foodJson2 = "";
     let foodJson3 = "";
     let allFoods = "";
-
     fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=1", {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
             "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
         }
-        
     })
     .then((response) => response.json())
     .then((movies) => {
@@ -54,7 +44,6 @@ const displaySplashPage = function() {
     .catch(err => {
         console.error(err);
     });
-
     fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=2",  {
         "method": "GET",
         "headers": {
@@ -70,14 +59,12 @@ const displaySplashPage = function() {
     .catch(err => {
         console.error(err);
     });
-
     fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-random-movies&page=3",  {
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "603d5c585dmsh8a5028e09f6a248p1a9c3bjsn8df290ecfe4f",
             "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com"
         }
-        
     })
     .then((response) => response.json())
     .then((movies) => {
@@ -87,7 +74,6 @@ const displaySplashPage = function() {
     .catch(err => {
         console.error(err);
     });
-
     fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=1", {
         "method": "GET",
         "headers": {
@@ -99,11 +85,10 @@ const displaySplashPage = function() {
     .then((food) => {
         foodJson=food
         checkIfAllLoaded()
-    })	
+    })  
     .catch(err => {
         console.error(err);
     });
-
     fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=2", {
         "method": "GET",
         "headers": {
@@ -115,11 +100,10 @@ const displaySplashPage = function() {
     .then((food) => {
         foodJson2=food
         checkIfAllLoaded()
-    })	
+    })  
     .catch(err => {
         console.error(err);
     });
-
     fetch("https://us-restaurant-menus.p.rapidapi.com/restaurants/zip_code/94103?page=3", {
         "method": "GET",
         "headers": {
@@ -131,11 +115,10 @@ const displaySplashPage = function() {
     .then((food) => {
         foodJson3=food
         checkIfAllLoaded()
-    })	
+    })  
     .catch(err => {
         console.error(err);
     });
-
     const checkIfAllLoaded = function() {
         if(movieJson != "" && foodJson != "" && movieJson2 != "" && movieJson3 != "" && foodJson2 != "" && foodJson3 != "") {
             allMovies = movieJson;
@@ -152,7 +135,6 @@ const displaySplashPage = function() {
             foodJson3.result.data.forEach(cuisine => {
                 allFoods.result.data.push(cuisine)
             });
-            
             console.log(movieJson);
             console.log(movieJson2)
             console.log(movieJson3)
@@ -167,9 +149,12 @@ const displaySplashPage = function() {
         // ticketImage.addEventListener("click", ()=> {
         //     displayHomeView (allMovies, allFoods)
         // })
-
     return onLoad;
 }
 displaySplashPage();
-
 //export {displaySplashPage};
+
+
+
+
+
