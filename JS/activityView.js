@@ -109,7 +109,7 @@ const activitySection = function(activityJSON) {
 
     const selectionPopUpCloseButton = document.createElement("button")
     selectionPopUpCloseButton.classList.add("selection-pop-up-close-button-activity")
-    selectionPopUpCloseButton.innerText = "x"
+    selectionPopUpCloseButton.innerText = "X"
     selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
 
     const selectionPopUpContent = document.createElement("div")
@@ -118,6 +118,8 @@ const activitySection = function(activityJSON) {
         const activityImage = document.createElement("img")
         activityImage.classList.add("activity-image")
         selectionPopUpContentDiv.appendChild(activityImage)
+        // document.getElementsByClassName("activity-image").height = "500px";
+        // document.getElementsByClassName("activity-image").width = "500px"; 
 
         const togglePopUp = function () {
         selectionPopUpContent.innerText = possibleActivityNum[choice];

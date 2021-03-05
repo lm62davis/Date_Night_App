@@ -45,12 +45,13 @@ body {
   }
 }
 .center {
-  width: 150px;
-  height: 70px;
   align-items: top;
   justify-content: space-around;
   display: block;
   margin-left: auto;
   margin-right: auto;
   padding-top: 2em;
+  display: block;
+  position: relative;
+  text-align: center;
 }
