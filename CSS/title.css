@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
 h2 {
-  color: black;
+  color:black;
   text-align: center;
 }
 
@@ -52,22 +52,45 @@ h2 {
   line-height: .9em;
   margin: 0;
 }
-.reset-button, .contact, .surprise {
+.reset-button, .contact, .quiz-button{
   background-color:  #721e36;
   color: #ffebd7;
-  padding: .5em 1em;
+  padding: .75em .5em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-family: fantasy;
   font-size: .75em;
-  margin-top: 9%; 
+  margin-top: 5%; 
   cursor: pointer;
 }
-/* .surprise {
-  margin-top: 1em;
-  margin-left: 20em; 
-} */
+
+.contact-ul {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 10%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 25%; /* Full width */
+  height: 80%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  display: none;
+}
+
+.contact-ul.active  {
+  display: block;
+}
+
+.contact-li {
+  list-style: none;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+
 
  /* Title Animation */
  @keyframes spacing {

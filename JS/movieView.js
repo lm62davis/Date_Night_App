@@ -105,7 +105,7 @@ const homeElement = function(movies){
     
         const selectionPopUpCloseButton = document.createElement("button")
         selectionPopUpCloseButton.classList.add("selection-pop-up-close-button-movie")
-        selectionPopUpCloseButton.innerText = "x"
+        selectionPopUpCloseButton.innerText = "X"
         selectionPopUpContentDiv.appendChild(selectionPopUpCloseButton);
     
         const selectionPopUpContent = document.createElement("div")

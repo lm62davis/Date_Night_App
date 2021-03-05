@@ -45,7 +45,7 @@ li {
   /* border: 5px solid green; */
   position: relative;
   width: 100%;
-  height: 80%;
+  height: 90%;
 }
 /* Arrows */
 .main-spinner-container:after {
@@ -81,23 +81,25 @@ li {
   transition: all ease 5s;
 }
 section {
-  width: 50%;
-  height: 50%;
+  width: 20%;
+  height: 20%;
   display: inline-block;
   position: absolute;
 }
 /* Text inside wheel */
 .spin-labels {
   color: rgb(250, 243, 243);
+  /* position: absolute; */
   word-wrap: normal;
   font-family: Arial;
   font-weight: bold;
   transform: rotate(45deg);
-  padding-top: 1.5em;
-  padding-bottom: 1em;
-  padding-left: 4em;
-  padding-right: 1em;
-  font-size: 12px;
+  text-align: center;
+  padding-top: 25%;
+  padding-bottom: 25%;
+  padding-left: 25%;
+  padding-right: 25%;
+  font-size: 0.6em;
 }
 .spinner-section-1 {
   /* clip-path: polygon(0 92%, 100% 50%, 0 8%); */
@@ -170,10 +172,10 @@ section {
 /* Activity selection pop up styling */
 .selection-pop-up-activity .selection-pop-up-overlay-activity {
   /* position: fixed; */
-  top: 200px;
-  left: 400px;
-  width: 100vw;
-  height: 100vh;
+  top: 75px;
+  left: 300px;
+  width: 0vw;
+  height: 0vh;
   z-index: 1;
   display: none;
 }
@@ -199,13 +201,13 @@ section {
 .selection-pop-up-activity .selection-pop-up-close-button-activity {
   cursor: pointer;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
+  right: 1%;
+  width: 4vh;
+  height: 4vh;
   background: #222;
   color: #fff;
-  font-size: 25px;
+  vertical-align: middle;
+  font-size: 0.75em;
   font-weight: 600;
   line-height: 30px;
   text-align: center;
@@ -224,10 +226,10 @@ section {
 /* Activity selection pop up styling */
 .selection-pop-up-movie .selection-pop-up-overlay-movie {
   /* position: fixed; */
-  top: 200px;
-  left: 400px;
-  width: 100vw;
-  height: 100vh;
+  top: 75px;
+  left: 300px;
+  width: 0vw;
+  height: 0vh;
   z-index: 1;
   display: none;
 }
@@ -253,13 +255,13 @@ section {
 .selection-pop-up-movie .selection-pop-up-close-button-movie {
   cursor: pointer;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
+  right: 1%;
+  width: 4vh;
+  height: 4vh;
   background: #222;
   color: #fff;
-  font-size: 25px;
+  vertical-align: middle;
+  font-size: 0.75em;
   font-weight: 600;
   line-height: 30px;
   text-align: center;
@@ -275,28 +277,28 @@ section {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Activity selection pop up styling */
+/* Food selection pop up styling */
 .selection-pop-up-food .selection-pop-up-overlay-food {
   /* position: fixed; */
-  top: 200px;
-  left: 400px;
-  width: 100vw;
-  height: 100vh;
+  top: 75px;
+  left: 300px;
+  width: 0vw;
+  height: 0vh;
   z-index: 1;
   display: none;
 }
 
 .selection-pop-up-food .selection-pop-up-content-div-food {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   color: rgb(243, 235, 235);
   background: rgba(12, 1, 1, 0.87);
-  font-size: 30px;
+  font-size: 1.5em;
   word-wrap: normal;
-  width: 200px;
-  height: 200px;
+  width: 70%;
+  height: 70%;
   z-index: 2;
   text-align: center;
   padding-right: 20px;
@@ -307,15 +309,15 @@ section {
 .selection-pop-up-food .selection-pop-up-close-button-food {
   cursor: pointer;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
-  background: #222;
+  right: 1%;
+  width: 4vh;
+  height: 4vh;
+  background: black;
+  vertical-align: middle;
   color: #fff;
   padding-bottom: 5px;
   text-align: center;
-  font-size: 15px;
+  font-size: 0.75em;
   font-weight: 600;
   line-height: 30px;
   text-align: center;
@@ -345,4 +347,16 @@ section {
 .activity-image {
   width: 100px;
   height: 150px;
+}
+.surprise {
+  background-color: #721e36;
+  color: #ffebd7;
+  padding: 0.75em 0.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: fantasy;
+  font-size: 0.75em;
+  /* margin-top: 5%;  */
+  cursor: pointer;
 }
