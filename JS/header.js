@@ -29,7 +29,7 @@ const createHeader = function () {
    
     const brandonPortfolio = document.createElement("a")
     brandonPortfolio.innerText = "Brandon Terry"
-    brandonPortfolio.href = "https://brandonterry.github.io/"
+    brandonPortfolio.href = "https://brandon-terry.github.io/"
     brandonPortfolio.target = "_blank"
     contactUs.appendChild(brandonPortfolio)
     
@@ -42,7 +42,7 @@ const createHeader = function () {
    
     const lindaPortfolio = document.createElement("a")
     lindaPortfolio.innerText = "Linda Martinez Davis"
-    lindaPortfolio.href = "https://lindamdavis.github.io/"
+    lindaPortfolio.href = "https://lm62davis.github.io"
     lindaPortfolio.target = "_blank"
     contactUs.appendChild(lindaPortfolio)
 
