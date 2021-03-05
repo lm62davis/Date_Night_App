@@ -6,72 +6,58 @@ const createHeader = function () {
     nav.classList.add("navbar")
     header.appendChild(nav)
 
+    const dropDown = document.createElement("div")
+    dropDown.classList.add("contact")
+    nav.appendChild(dropDown)
+
     const contact = document.createElement("button")
-    contact.classList.add("contact")
+    contact.classList.add("contact-button")
     contact.innerText = "Contact Us" 
-    nav.appendChild(contact)
+    dropDown.appendChild(contact)
 
-    const contactUl = function ()  {
-    const contactUs = document.createElement("ul")
-    contactUs.classList.add("contact-ul")
-    nav.appendChild(contactUs)
+    // const contactUl = function ()  {
+    const contactUs = document.createElement("div")
+    contactUs.classList.add("contact-content")
+    dropDown.appendChild(contactUs)
       
-    const brenaElement = document.createElement("li")
-    brenaElement.classList.add("dropdown-content")
-    const brenaNameElement = document.createElement("h4")
-    brenaNameElement.innerText="Brena Bishop"
+   
     const brenaPortfolio = document.createElement("a")
+    brenaPortfolio.innerText="Brena Bishop"
     brenaPortfolio.href = "https://brenabishop.github.io/"
-    brenaElement.appendChild(brenaNameElement)
-    brenaElement.appendChild(brenaPortfolio)
-    contactUs.appendChild(brenaElement)
-
-    const brandonElement = document.createElement("li")
-    brandonElement.classList.add("dropdownn-content")
-    const brandonNameElement = document.createElement("h4")
-    brandonNameElement.innerText = "Brandon Terry"
+    brenaPortfolio.target = "_blank"
+    contactUs.appendChild(brenaPortfolio)
+   
     const brandonPortfolio = document.createElement("a")
+    brandonPortfolio.innerText = "Brandon Terry"
     brandonPortfolio.href = "https://brandonterry.github.io/"
-    brandonElement.appendChild(brandonNameElement)
-    brenaElement.appendChild(brandonPortfolio)
-    contactUs.appendChild(brandonElement)
-
-    const sonyaElement = document.createElement("li")
-    sonyaElement.classList.add("dropdown-content")
-    const sonyaNameElement = document.createElement("h4")
-    sonyaNameElement.innerText = "Sonya Stewart"
+    brandonPortfolio.target = "_blank"
+    contactUs.appendChild(brandonPortfolio)
+    
     const sonyaPortfolio = document.createElement("a")
+    sonyaPortfolio.innerText = "Sonya Stewart"
     sonyaPortfolio.href = "https://sonyastewart.github.io/"
-    sonyaElement.appendChild(sonyaNameElement)
-    sonyaElement.appendChild(sonyaPortfolio)
-    contactUs.appendChild(sonyaElement)
+    sonyaPortfolio.target = "_blank"
+    contactUs.appendChild(sonyaPortfolio)
 
-    const lindaElement = document.createElement("li")
-    lindaElement.classList.add("dropdown-content")
-    const lindaNameElement = document.createElement("h4")
-    lindaNameElement.innerText = "Linda Martinez Davis"
+   
     const lindaPortfolio = document.createElement("a")
+    lindaPortfolio.innerText = "Linda Martinez Davis"
     lindaPortfolio.href = "https://lindamdavis.github.io/"
-    lindaElement.appendChild(lindaNameElement)  
-    lindaElement.appendChild(lindaPortfolio)
-    contactUs.appendChild(lindaElement)
+    lindaPortfolio.target = "_blank"
+    contactUs.appendChild(lindaPortfolio)
 
-    const mandyElement = document.createElement("li")
-    mandyElement.classList.add("dropdown-content")
-    const mandyNameElement = document.createElement("h4")
-    mandyNameElement.innerText = "Mandy Johnston"
     const mandyPortfolio = document.createElement("a")
+    mandyPortfolio.innerText = "Mandy Johnston"
     mandyPortfolio.href = "https://mandyjohnston.github.io/"
-    mandyElement.appendChild(mandyNameElement)
-    mandyElement.appendChild(mandyPortfolio)
-    contactUs.appendChild(mandyElement)
+    mandyPortfolio.target = "_blank"
+    contactUs.appendChild(mandyPortfolio)
 
-    contactUs.classList.toggle("active")
-    }
+    // contactUs.classList.toggle("active")
+    // }
 
-    contact.addEventListener("click", () => {
-    contactUl();
-    })
+    // contact.addEventListener("click", () => {
+    // contactUl();
+    // })
   
     const resetButton = document.createElement("button");
     resetButton.classList.add("reset-button")

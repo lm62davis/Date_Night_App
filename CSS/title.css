@@ -52,43 +52,51 @@ h2 {
   line-height: .9em;
   margin: 0;
 }
-.reset-button, .contact, .quiz-button{
+.reset-button, .contact-button, .quiz-button{
   background-color:  #721e36;
   color: #ffebd7;
-  padding: .75em .5em;
+  padding: 1em .75em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-family: fantasy;
   font-size: .75em;
-  margin-top: 5%; 
+  margin-top: 7%; 
   cursor: pointer;
 }
 
-.contact-ul {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 10%; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 25%; /* Full width */
-  height: 80%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  display: none;
+
+.contact {
+  position: relative;
+  display: inline-block;
 }
 
-.contact-ul.active  {
+/* Dropdown Content (Hidden by Default) */
+.contact-content {
+  display: none;
+  position: absolute;
+  background-color: #ffebd7;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.contact-content a {
+  color: #721e36;
+  padding: 12px 16px;
+  text-decoration: none;
   display: block;
 }
 
-.contact-li {
-  list-style: none;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-}
+/* Change color of dropdown links on hover */
+.contact-content a:hover {background-color: #d1bda7;}
+
+/* Show the dropdown menu on hover */
+.contact:hover .contact-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.contact:hover .contact-button, .reset-button:hover, .quiz-button:hover {background-color: #30131b;}
 
 
 
